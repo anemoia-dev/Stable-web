@@ -62,7 +62,7 @@ const Life = () => {
         ></Box>
         <Box
           component={"img"}
-          src={"/appleBlack.svg"}
+          src={"/appleblack.svg"}
           sx={{
             width: "158px",
           }}
