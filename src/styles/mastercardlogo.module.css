@@ -1,0 +1,70 @@
+.container{
+    min-height: 100%;
+    text-align: center;
+    border: 10px solid white;
+    
+}
+
+
+
+.container h1 {
+    font-size: calc(2em + 50vmin);
+    margin:0;
+}
+
+.mastercardIcon{
+    display: inline-block;
+    height:1.7em;
+    isolation:isolate;
+    position:relative;
+    line-height:1em;
+    vertical-align:middle;
+    width:2.2em 
+  }
+
+  @media (min-width: 1280px) and (orientation:landscape) {
+    .mastercardIcon {
+      margin-top:4vh;
+      display: flex;
+      width:2.2em 
+    }
+  }
+
+  @media (min-width: 768px) and (max-width:1280px) and (orientation:portrait) {
+    .mastercardIcon {
+      margin-top:4vh;
+      display: flex;
+      width:2.2em 
+    }
+  }
+
+  @media (max-width: 844px) and (orientation:landscape) {
+    .mastercardIcon {
+      margin-top:5vw;
+      display: flex;
+      width:2.2em 
+    }
+  }
+
+.mastercardIcon::before,
+.mastercardIcon::after {
+  border-radius: 1em;
+  content: "";
+  display: inline-block;
+  height: 1.4em;
+  position: absolute;
+  width: 1.4em;
+}
+
+.mastercardIcon::before {
+  background-color: #eb001b;
+  left: 0;
+  top: 0;
+}
+
+.mastercardIcon::after {
+  background-color: #f79e1b;
+  mix-blend-mode: hard-light;
+  right: 0;
+  top: 0;
+}

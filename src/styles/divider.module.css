@@ -1,0 +1,38 @@
+.divider {
+    width: 0.1vw;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+    height: 8vh;
+    color: white;
+    background-color: white;
+  }
+  
+  @media (max-width: 599px) {
+    .divider {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1280px) and (orientation:landscape) {
+    .divider {
+      display: flex;
+      height:7vh
+    }
+  }
+
+  @media (max-width: 844px) and (orientation:landscape) {
+    .divider {
+      display: flex;
+      height:6vw
+    }
+  }
+
+  @media (min-width: 599px) and (max-width: 844px) and (orientation:portrait) {
+    .divider {
+      display: flex;
+      margin-top: 1vh;
+      height:5.5vh
+    }
+  }
+  

@@ -108,6 +108,10 @@
 .logo {
   position: relative;
 }
+
+.background-transition {
+  transition: background 1s ease-in-out;
+}
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
