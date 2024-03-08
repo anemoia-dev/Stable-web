@@ -16,15 +16,15 @@ const Expanded = ({ text, id, background, video }) => {
     }
   };
   const width0 = id === 0 && open ? "95%" : "90%";
-  const width1 = id === 1 && open ? "90%" : "80%";
-  const width2 = id === 2 && open ? "90%" : "70%";
-  const width3 = id === 3 && open ? "90%" : "60%";
+  const width1 = id === 1 && open ? "95%" : "80%";
+  const width2 = id === 2 && open ? "95%" : "70%";
+  const width3 = id === 3 && open ? "95%" : "60%";
 
   const options = {
     width: 900,
     height: 325,
     playerVars: {
-      //autoplay: 1,
+      autoplay: 0,
       controls: 1,
     },
   };
@@ -41,6 +41,7 @@ const Expanded = ({ text, id, background, video }) => {
   };
   return (
     <Box
+      onClick={handleClick}
       sx={{
         width: widths["width" + id],
         padding: "2rem",
@@ -48,6 +49,9 @@ const Expanded = ({ text, id, background, video }) => {
         height: open ? "70vh" : "20vh",
         transition: "all 0.3s ease-in-out",
         background: background,
+        "&:hover": {
+          cursor: "pointer",
+        },
       }}
     >
       <Box
@@ -57,13 +61,9 @@ const Expanded = ({ text, id, background, video }) => {
         }}
       >
         <Typography
-          onClick={handleClick}
           sx={{
             fontFamily: "unset",
             fontSize: "1.5rem",
-            "&:hover": {
-              cursor: "pointer",
-            },
           }}
         >
           {text}

@@ -29,7 +29,7 @@ const DownloadMain = ({ index }) => {
         position: "relative",
         flexDirection: "column",
         justifyContent: "center",
-        gap: "2rem",
+        gap: "1rem",
       }}
     >
       <Box
@@ -37,10 +37,12 @@ const DownloadMain = ({ index }) => {
           //height: "100%",
           fontWeight: "bold",
           color: "white",
-          paddingTop: "5rem",
-          opacity: 1,
+          paddingTop: "8vh",
+          //opacity: 1,
 
           //transition: "text 3s fade-in",
+          position: "absolute",
+          bottom: "11vh",
         }}
       >
         {texts.map((el, id) => {
@@ -51,7 +53,7 @@ const DownloadMain = ({ index }) => {
                 fontFamily: "unset",
                 fontSize: "3.5rem",
                 fontWeight: "bold",
-                color: "#fabfb7",
+                color: "white",
                 lineHeight: 1.1,
                 display: id === index ? "inline" : "none",
               }}

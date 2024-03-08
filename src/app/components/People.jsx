@@ -14,7 +14,7 @@ const People = () => {
     >
       <p
         style={{
-          fontSize: "3.5rem",
+          fontSize: "4rem",
           fontWeight: "bold",
           color: "white",
         }}
@@ -23,11 +23,13 @@ const People = () => {
       </p>
 
       <Box
+        color={"transparent"}
         sx={{
-          bgcolor: "#202020",
-          //opacity: 0.2,
+          //boxShadow: "0px 4px 20px 0px rgba(32, 32, 31, 0.2)",
+          border: "1px solid white",
           padding: "2rem",
           marginTop: "4vh",
+          backdropFilter: "blur(20px)",
           width: "80%",
           height: "75vh",
           display: "flex",
@@ -38,6 +40,7 @@ const People = () => {
         <Typography
           sx={{
             color: "white",
+
             fontSize: "1.7rem",
             fontFamily: "unset",
             fontWeight: "500",

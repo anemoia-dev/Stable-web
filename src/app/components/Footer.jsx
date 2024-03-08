@@ -69,6 +69,9 @@ const Footer = () => {
               height: { sm: "13vw", md: "7vw" },
               marginTop: { xs: "4vh", md: "0vh" },
               margin: 0,
+              diplsplay: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             },
 
             "@media (orientation:portrait)": {

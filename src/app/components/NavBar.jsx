@@ -12,7 +12,7 @@ import {
   Button,
 } from "@mui/material";
 
-const NavBar = ({ onHeightChange }) => {
+const NavBar = ({ onHeightChange, OptionsToChoose, color }) => {
   const languages = {
     en: "English",
     es: "Español",
@@ -36,8 +36,9 @@ const NavBar = ({ onHeightChange }) => {
         sx={{
           display: "flex",
           alignItems: "center",
-          backgroundColor: "#202020",
+          backgroundColor: color,
           boxShadow: "none",
+          borderBottom: color !== "#202020" ? "1px solid gray" : "none",
         }}
       >
         <Toolbar
@@ -45,7 +46,7 @@ const NavBar = ({ onHeightChange }) => {
           sx={{
             width: { xs: "100%", sm: "80%", md: "80%" },
             //height: "10vh",
-            backgroundColor: "#202020",
+            backgroundColor: color,
             padding: { xs: "0 10rem", sm: 0 },
             display: "flex",
             justifyContent: {
@@ -60,13 +61,14 @@ const NavBar = ({ onHeightChange }) => {
             <Box
               // Adding a link with an image
               component={"img"}
-              src={"/whiteGif.gif"}
+              onClick={() => OptionsToChoose(-1)}
+              src={color === "#202020" ? "./whiteGif.gif" : "./blackGif.gif"}
               sx={{
                 width: {
                   xs: "8rem",
                   md: "120px",
                 },
-                backgroundColor: "#202020",
+                backgroundColor: color,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -82,6 +84,7 @@ const NavBar = ({ onHeightChange }) => {
               justifyContent: "center",
               gap: { sm: "1rem" },
               padding: { xs: "2%" },
+              color: color !== "#202020" ? "#202020" : "white",
             }}
           >
             <Typography
@@ -112,7 +115,7 @@ const NavBar = ({ onHeightChange }) => {
               sx={{
                 border: "none",
                 borderRadius: 0,
-                color: "white",
+                color: color !== "#202020" ? "#202020" : "white",
                 fontFamily: "unset",
                 ".MuiOutlinedInput-notchedOutline": { border: 0 },
                 "&:hover": {
@@ -123,7 +126,10 @@ const NavBar = ({ onHeightChange }) => {
                   borderRadius: "0",
                 },
                 ".MuiSvgIcon-root ": {
-                  fill: "white !important",
+                  fill:
+                    color !== "#202020"
+                      ? "#202020 !important"
+                      : "white !important",
                 },
               }}
             >
@@ -135,11 +141,13 @@ const NavBar = ({ onHeightChange }) => {
                 <p> English </p>
               </MenuItem>
             </Select>
-
+            {/* 
             <Button
               sx={{
                 bgcolor: "transparent",
                 color: "#FFD1FF",
+                display: "none",
+
                 textTransform: "none",
                 display: { xs: "none", md: "flex" },
               }}
@@ -151,7 +159,7 @@ const NavBar = ({ onHeightChange }) => {
               >
                 Cerrar Sesión
               </p>
-            </Button>
+            </Button> */}
 
             <BurgerButton />
           </Box>

@@ -75,7 +75,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
     <Box
       sx={{
         bottom: 0,
-
+        bgcolor: "20201F",
         zIndex: 1000,
         overflow: "hidden",
         "@media (orientation: landscape)": {
@@ -117,10 +117,10 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   setHoverNum(-1);
                   setHeights(initialHeights);
                 }}
-                /* onClick={(e) => {
+                onClick={(e) => {
                   setSelectedNum(e.currentTarget.id);
                   OptionsToChoose(e.currentTarget.id);
-                }} */
+                }}
                 sx={{
                   backgroundImage: `url(${el.coverImage})`,
                   backgroundRepeat: "no-repeat",
