@@ -14,7 +14,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-const Footer = () => {
+const Footer = ({ optionChosen }) => {
   const { t, ready } = useTranslation("Footer");
   return (
     <Box
@@ -29,7 +29,7 @@ const Footer = () => {
           display: "flex",
           flexDirection: { xs: "column" },
         },
-        bgcolor: "#202020",
+        bgcolor: optionChosen === -1 ? "#202020" : "rgba(0, 0, 0, 1)",
         display: "block",
         width: "100vw",
         overflow: "hidden",
@@ -45,8 +45,7 @@ const Footer = () => {
             display: "flex",
             margin: "0 auto",
             flexDirection: { xs: "column", sm: "row", md: "row" },
-            alignItems: "center",
-            justifyContent: "center",
+
             gap: { xs: "0rem", sm: "2rem", md: "3rem" },
             paddingTop: { md: "3vh" },
             maxWidth: { xs: "640px", sm: "768px", md: "1024px", lg: "1280px" },
@@ -69,7 +68,7 @@ const Footer = () => {
               height: { sm: "13vw", md: "7vw" },
               marginTop: { xs: "4vh", md: "0vh" },
               margin: 0,
-              diplsplay: "flex",
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
             },
@@ -83,11 +82,17 @@ const Footer = () => {
         />
 
         <hr className={T.divider} />
-        <div className={S.containter}>
+
+        <Box
+          className={S.containter}
+          sx={{
+            marginTop: { xs: "4vh", sm: "0vh", md: "-3vh" },
+          }}
+        >
           <h1>
             <i className={S.mastercardIcon}></i>
           </h1>
-        </div>
+        </Box>
       </Box>
 
       <Box

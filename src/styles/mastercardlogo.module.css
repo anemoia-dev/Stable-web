@@ -2,6 +2,7 @@
     min-height: 100%;
     text-align: center;
     border: 10px solid white;
+
     
 }
 
@@ -10,6 +11,7 @@
 .container h1 {
     font-size: calc(2em + 50vmin);
     margin:0;
+ 
 }
 
 .mastercardIcon{
@@ -66,5 +68,5 @@
   background-color: #f79e1b;
   mix-blend-mode: hard-light;
   right: 0;
-  top: 0;
+  top: 10;
 }

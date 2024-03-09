@@ -21,18 +21,21 @@ const DownloadMain = ({ index }) => {
 
   return (
     <Box
+      key={index}
       sx={{
         padding: "0 3rem",
         width: "60vw",
-        height: "70vh",
+        //height: "70vh",
         display: "flex",
-        position: "relative",
+        position: "absolute",
         flexDirection: "column",
         justifyContent: "center",
         gap: "1rem",
+        bottom: "10vh",
       }}
     >
       <Box
+        key={index}
         sx={{
           //height: "100%",
           fontWeight: "bold",
@@ -48,6 +51,7 @@ const DownloadMain = ({ index }) => {
         {texts.map((el, id) => {
           return (
             <Typography
+              key={id + el}
               className={S.fadein}
               sx={{
                 fontFamily: "unset",

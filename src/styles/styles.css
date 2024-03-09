@@ -1,0 +1,19 @@
+.animatedBackground {
+
+    background-image: url("https://res.cloudinary.com/dj9sdkua0/image/upload/v1709919578/ensayo/notziodvjphtttqjocv1.svg"); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    animation: kenburns-top 10s infinite alternate; /* Nombre de la animación, duración y repetición */
+  }
+  
+  @keyframes kenburns-top {
+    0% {
+      transform: scale(1) translateY(0);
+      transform-origin: 50% 16%;
+    }
+    100% {
+      transform: scale(1.25) translateY(-15px);
+      transform-origin: top;
+    }
+  }
+  

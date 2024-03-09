@@ -1,22 +1,24 @@
 "use client";
+import React, { useState, useEffect, lazy } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "./components/NavBar";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Grid } from "@mui/material";
 import SocialMedia from "./components/SocialMedia";
-import DownloadMain from "./components/DownloadMain";
-import Options from "./components/Options";
-import Life from "./components/Life";
-import People from "./components/People";
-import { useState, useEffect } from "react";
-import HowToUse from "./components/HowToUse";
+/* import DownloadMain from "./components/DownloadMain"; */
+const DownloadMain = lazy(() => import("./components/DownloadMain"));
 import { Business } from "@mui/icons-material";
-import BusinessComp from "./components/BusinessComp";
-import Footer from "./components/Footer";
-import Selected from "./components/Selected";
-import textList from "../files/Selected.js";
-const colors = [" #a9cce3", "#af7ac5", "#273746"];
+const Options = lazy(() => import("./components/Options"));
+const Life = lazy(() => import("./components/Life"));
+const People = lazy(() => import("./components/People"));
+const HowToUse = lazy(() => import("./components/HowToUse"));
+const BusinessComp = lazy(() => import("./components/BusinessComp"));
+const Selected = lazy(() => import("./components/Selected"));
+const Footer = lazy(() => import("./components/Footer"));
+
 const wals = ["./wal1.svg", "./wal2.svg", "./wal3.svg"];
+import * as textList from "../files/Selected.json";
+const colors = [" #a9cce3", "#af7ac5", "#273746"];
 
 export default function Home() {
   //console.log(dictionary)
@@ -46,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     setImage(wals[backgroundChanger]);
     //setText(texts[backgroundChanger]);
-  }, [backgroundChanger]);
+  }, [backgroundChanger, wals]);
 
   const [navbarHeight, setNavbarHeight] = useState(0);
 
@@ -57,18 +59,21 @@ export default function Home() {
   return (
     <Box
       sx={{
-        height: "100vh",
         display: "flex",
         flexDirection: "column",
+        minHeight: "100vh",
+        overflow: "hidden",
       }}
     >
       <NavBar
         onHeightChange={handleNavbarHeight}
         OptionsToChoose={OptionsToChoose}
         color={
-          optionChosen !== -1
+          optionChosen > 0
             ? textList.Texts[optionChosen].secondColor
-            : "#202020"
+            : optionChosen === -1
+            ? "#202020"
+            : "transparent"
         }
       />
 
@@ -84,98 +89,94 @@ export default function Home() {
             optionChosen={optionChosen}
             info={textList.Texts[optionChosen]}
           />
-          <Footer />
+          <Footer optionChosen={optionChosen} />
         </Box>
       ) : (
-        <Box
-          sx={{
-            display: "block",
-            flexDirection: "column",
-            backgroundImage: `url(${image})`,
-            //background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${image}.svg')`,
-            bgcolor: "#202020",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "100%",
-            backgroundPosition: "top",
-            width: "100%",
-            height: `calc(100% - ${navbarHeight}px)`,
-            transition: "all 1s ease-in-out",
-          }}
-        >
+        <>
           <Box
             sx={{
-              bgcolor: "",
-              height: "100%",
+              height: "100vh",
+              bgcolor: "#202020",
+              backgroundImage: `url(${image})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "100%",
+              backgroundPosition: "top",
               width: "100%",
+              // height: `calc(100% - ${navbarHeight}px)`,
+              transition: "all 1s ease-in-out",
+              position: "relative",
             }}
           >
             <SocialMedia />
+
+            <DownloadMain index={backgroundChanger} />
+          </Box>
+
+          <React.Suspense fallback={<div>Loading...</div>}>
             <Box
               sx={{
-                transition: "all 2s fade-in",
-                height: "35vh",
+                height: "50vh",
+                width: "100%",
+                bgcolor: "#20201f",
+                position: "relative",
               }}
             >
-              <DownloadMain index={backgroundChanger} />
+              <Options
+                OptionsToChoose={OptionsToChoose}
+                optionChosen={optionChosen}
+              />
             </Box>
-          </Box>
+          </React.Suspense>
 
-          <Box
-            sx={{
-              height: "50%",
-              width: "100%",
-              bgcolor: "#20201f",
-            }}
-          >
-            <Options
-              OptionsToChoose={OptionsToChoose}
-              optionChosen={optionChosen}
-            />
-          </Box>
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Box
+              sx={{
+                height: "100vh",
+                backgroundImage: "url('/LifeWallpaper.svg')",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                display: "flex",
+                flexDirection: "column",
+                //position: "relative",
+              }}
+            >
+              <Life />
+            </Box>
+          </React.Suspense>
 
-          <Box
-            sx={{
-              height: "100vh",
-              backgroundImage: "url('/LifeWallpaper.svg')",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              display: "flex",
-              flexDirection: "column",
-              //position: "relative",
-            }}
-          >
-            <Life />
-          </Box>
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Box
+              sx={{
+                height: "100vh",
 
-          <Box
-            sx={{
-              height: "100vh",
+                bgcolor: "#20201F",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                display: "flex",
+                flexDirection: "column",
+                position: "relative",
+              }}
+            >
+              <People />
+            </Box>
+          </React.Suspense>
 
-              bgcolor: "#20201F",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-            }}
-          >
-            <People />
-          </Box>
-
-          <Box
-            sx={{
-              //minHeight: "100vh",
-              padding: "3rem 6rem",
-              background: "#202020",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-            }}
-          >
-            <HowToUse />
-          </Box>
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Box
+              sx={{
+                //minHeight: "100vh",
+                padding: "3rem 6rem",
+                background: "#202020",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                display: "flex",
+                flexDirection: "column",
+                position: "relative",
+              }}
+            >
+              <HowToUse />
+            </Box>
+          </React.Suspense>
 
           <Box
             sx={{
@@ -236,8 +237,8 @@ export default function Home() {
             </Box>
           </Box>
 
-          <Footer />
-        </Box>
+          <Footer optionChosen={optionChosen} />
+        </>
       )}
     </Box>
   );

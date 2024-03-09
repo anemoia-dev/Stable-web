@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Fragment } from "react";
 import * as options from "../../files/optionsdb";
 
 import { Box, Typography, Button } from "@mui/material";
@@ -73,26 +73,31 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
   };
   return (
     <Box
+      key={optionChosen}
       sx={{
         bottom: 0,
         bgcolor: "20201F",
-        zIndex: 1000,
+        //zIndex: 1000,
         overflow: "hidden",
+        //position: "absolute",
+        bottom: 0,
         "@media (orientation: landscape)": {
           height: { sm: "100vw", xs: "100vh", md: "100%" },
         },
         "@media (orientation: portrait)": {
           height: { sm: "80vh", xs: "106vh", md: "100%" },
         },
-
-        display: "flex",
       }}
     >
       <Box
+        key={optionChosen}
         sx={{
           display: { xs: "block", md: "flex" },
           alignItems: "flex-end",
           flexDirection: { xs: "column", md: "row" },
+          position: "absolute",
+          bottom: 0,
+          heigth: "100%",
 
           /*  minHeight: {
           xs: selectedNum !== -1 ? "95.5vh" : "10vh",
@@ -101,14 +106,15 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
         }, */
 
           width: "100%",
-          overflow: "hidden",
+          //overflow: "hidden",
         }}
       >
         {options.map((el, id) => {
           return (
-            <>
+            <Fragment key={id + optionChosen}>
               <Box
                 id={id}
+                key={id + optionChosen}
                 component="div"
                 onMouseEnter={(e) => {
                   handleChange(e);
@@ -174,6 +180,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                 /* key={el.id} */
               >
                 <Box
+                  key={id + optionChosen}
                   sx={{
                     display: "flex",
                     alignItems: { xs: "left", md: "center" },
@@ -213,7 +220,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   </Typography>
                 </Box>
               </Box>
-            </>
+            </Fragment>
           );
         })}
       </Box>

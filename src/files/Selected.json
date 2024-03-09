@@ -1,10 +1,10 @@
-let textList = {
+{
     "Texts": [
         {
             "id": "-NQ8YIQXAxV04SP_NDtW",
             "title": "Global",
-            "description": "<p> Accede a experiencias únicas como <b> deportes, viajes, cultura y más en el Mundo Stable®. </b> </p>",
-            "featureText": "<p> Tu tarjeta Stable® Mastercard es aceptada en más de 90 millones de establecimientos en 210 países y territorios. </p>",
+            "description": "En tu billetera o tu celular tendrás una tarjeta global en tus manos.",
+            "featureText": "Tu tarjeta Stable® Mastercard es aceptada en más de 90 millones de establecimientos en 210 países y territorios.",
             "color": "#FFE6FB",
             "secondColor": "#FFD1FF",
             "coverImage": "https://res.cloudinary.com/dizj6clit/image/upload/v1682468442/Stable/webportal/ihzzzqp3oeyqeadgdbhr.png",
@@ -103,5 +103,3 @@ let textList = {
         }
     ]
 }
-
-module.exports = textList   
