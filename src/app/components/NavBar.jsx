@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import BurgerButton from "./BurgerButton";
+import SocialMedia from "./SocialMedia";
 import {
   AppBar,
   MenuItem,
@@ -33,7 +34,7 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
-const NavBar = ({ onHeightChange, OptionsToChoose, color }) => {
+const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
   const languages = {
     en: "English",
     es: "Español",
@@ -186,6 +187,14 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color }) => {
             </Button> */}
 
               <BurgerButton />
+
+              <Box
+                sx={{
+                  display: optionChosen !== -1 ? "flex" : "none",
+                }}
+              >
+                <SocialMedia />
+              </Box>
             </Box>
           </Toolbar>
         </AppBar>

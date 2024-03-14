@@ -87,9 +87,9 @@ function Carrusel({ Options, selected }) {
             <>
               <Box
                 component="div"
-                /*  onClick={() => {
+                onClick={() => {
                   Options(id);
-                }} */
+                }}
                 sx={{
                   "background-color": el.color,
                   display: "none",

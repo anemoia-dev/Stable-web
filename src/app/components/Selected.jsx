@@ -12,7 +12,6 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
   useState(() => {
     setInfoAll(info);
   }, [info]);
-  console.log(optionChosen);
 
   return (
     <Box
@@ -21,12 +20,14 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
         //backgroundImage: `linear-gradient(to bottom,${infoAll.secondColor},${infoAll.thirdColor})`,
         backgroundImage:
           optionChosen > 0
-            ? `linear-gradient(to bottom,${infoAll.secondColor},${infoAll.thirdColor})`
+            ? `linear-gradient(to bottom,${info.secondColor},${info.thirdColor})`
             : `url("./Card1.jpg")`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100%",
+        backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
+        width: "100%",
+        bgcolor: "gray",
       }}
     >
       <Box
@@ -80,7 +81,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 fontWeight: "700",
               }}
             >
-              {infoAll.title}
+              {info.title}
             </Typography>
             <Typography
               sx={{
@@ -90,7 +91,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 marginTop: "1rem",
               }}
             >
-              {parse(infoAll.description)}
+              {parse(info.description)}
             </Typography>
             <Box
               sx={{
@@ -114,10 +115,10 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 fontWeight: "600",
               }}
             >
-              {parse(infoAll.featureText)}
+              {parse(info.featureText)}
             </Typography>
           </Box>
-
+          {/* IMAGES */}
           <Box
             sx={{
               //bgcolor: "yellow",
@@ -125,9 +126,61 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
               position: "absolute",
               right: "10%",
               top: "7vh",
-              height: "60%",
+              height: "71.9%",
+              zIndex: 10,
+              display: "flex",
             }}
-          ></Box>
+          >
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                position: "relative",
+              }}
+            >
+              <Box
+                sx={{
+                  //bgcolor: "white",
+                  width: "50%",
+                  height: "100%",
+                  left: "5%",
+                  position: "absolute",
+                  backgroundPosition: "top right",
+                  backgroundRepeat: "no-repeat",
+                  backgroundImage:
+                    optionChosen > 0 && `url(${info.insideImages[0]})`,
+                  backgroundSize: info.backgroundSizeMain,
+                  /*   optionChosen === 1
+                      ? "85%"
+                      : optionChosen === 2
+                      ? "68%"
+                      : optionChosen === 4
+                      ? "81%"
+                      : "cover", */
+                }}
+              ></Box>
+
+              <Box
+                sx={{
+                  //bgcolor: "blue",
+                  right: 0,
+                  position: "absolute",
+                  width: "45%",
+                  //zIndex: -10,
+                  height: "85%",
+                  //position: "absolute",
+                  //right: 0,
+                  backgroundSize: optionChosen === 4 ? "56%" : "cover",
+                  //bgcolor: "white",
+                  backgroundImage:
+                    optionChosen > 0 && `url(${info.insideImages[1]})`,
+                  //backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "top center",
+                }}
+              ></Box>
+            </Box>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -148,7 +201,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
           sx={{
             position: "absolute",
             width: "60%",
-            bgcolor: infoAll.thirdColor,
+            bgcolor: optionChosen > 0 ? info.thirdColor : "transparent",
             bottom: "0vh",
             right: "10%",
             height: "33vh",

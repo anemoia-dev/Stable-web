@@ -7,23 +7,23 @@ const texts = [
   {
     text: "Así de fácil es recargar.",
     background: "linear-gradient(93.79deg, #FFF7C6 20.9%, #EAB67D 129.9%)",
-    video: "2NiqdSvKSMw",
+    video: "https://www.youtube.com/watch?v=2NiqdSvKSMw",
   },
   {
     text: "Así de simple es enviar.",
     background: "linear-gradient(93.25deg, #FFE6FB 34.35%, #D385D6 150.82%)",
-    video: "vNus1QbXgJE",
+    video: "https://www.youtube.com/watch?v=vNus1QbXgJE",
   },
 
   {
     text: "Así de sencillo es retirar.",
     background: "linear-gradient(93.19deg, #D0FFE6 29.09%, #7DCCA1 150.64%)",
-    video: "2NiqdSvKSMw",
+    video: "https://www.youtube.com/watch?v=2NiqdSvKSMw",
   },
   {
     text: "Así de sencillo es ver tus transacciones.",
     background: "linear-gradient(93.79deg, #FFF7C6 20.9%, #EAB67D 129.9%)",
-    video: "zXeaAQ_MMNQ",
+    video: "https://www.youtube.com/watch?v=zXeaAQ_MMNQ",
   },
 ];
 const HowToUse = () => {

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Box, Typography, Button, CardMedia, Card } from "@mui/material";
+import ReactPlayer from "react-player";
 
 import CloseIcon from "@mui/icons-material/Close";
 import YouTube from "react-youtube";
@@ -46,7 +47,7 @@ const Expanded = ({ text, id, background, video }) => {
         width: widths["width" + id],
         padding: "2rem",
         marginTop: id !== 0 ? "-10vh" : "0",
-        height: open ? "70vh" : "20vh",
+        height: open ? "75vh" : "20vh",
         transition: "all 0.3s ease-in-out",
         background: background,
         "&:hover": {
@@ -92,7 +93,7 @@ const Expanded = ({ text, id, background, video }) => {
             position: "relative",
           }}
         >
-          <YouTube videoId={video} opts={options} />
+          <ReactPlayer url={video} width={"100%"} />
         </Box>
       </Box>
     </Box>

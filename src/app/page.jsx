@@ -67,6 +67,7 @@ export default function Home() {
     >
       <NavBar
         onHeightChange={handleNavbarHeight}
+        optionChosen={optionChosen}
         OptionsToChoose={OptionsToChoose}
         color={
           optionChosen > 0
@@ -148,7 +149,6 @@ export default function Home() {
             <Box
               sx={{
                 height: "100vh",
-
                 bgcolor: "#20201F",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
