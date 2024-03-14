@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Typography, Card } from "@mui/material";
-import YouTubePlayer from "react-player/youtube";
+import ReactPlayer from "react-player/lazy";
 const People = () => {
   return (
     <Box
@@ -73,7 +73,8 @@ const People = () => {
           </Typography>
         </Box>
 
-        <YouTubePlayer
+        <ReactPlayer
+          light={<img src="./whiteGif.gif" alt="Thumbnail" />}
           url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
           width={"100%"}
           height={"110%"}

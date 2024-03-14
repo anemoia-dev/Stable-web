@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { Box, Typography, Button, CardMedia, Card } from "@mui/material";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 import CloseIcon from "@mui/icons-material/Close";
-import YouTube from "react-youtube";
+
 const Expanded = ({ text, id, background, video }) => {
   const [open, setOpen] = useState(false);
 
@@ -93,7 +93,11 @@ const Expanded = ({ text, id, background, video }) => {
             position: "relative",
           }}
         >
-          <ReactPlayer url={video} width={"100%"} />
+          <ReactPlayer
+            url={video}
+            width={"100%"}
+            light={<img src="./whiteGif.gif" alt="Thumbnail" />}
+          />
         </Box>
       </Box>
     </Box>
