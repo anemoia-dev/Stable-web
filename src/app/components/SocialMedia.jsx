@@ -6,21 +6,21 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 
-const SocialMedia = () => {
+const SocialMedia = ({ optionChosen }) => {
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: "right",
-        padding: "1rem 3rem",
-        alignItems: "center",
+        padding: optionChosen === -1 ? "1rem 3rem" : "0 0",
+        alignItems: "flex-end",
         gap: "1rem",
       }}
     >
       <Link href={"https://www.linkedin.com/"} target={"_blank"}>
         <LinkedInIcon
           sx={{
-            fontSize: "2.2rem",
+            fontSize: optionChosen !== -1 ? "1.8rem" : "2.2rem",
           }}
         />
       </Link>
@@ -28,7 +28,7 @@ const SocialMedia = () => {
       <Link href={"https://www.instagram.com/"} target={"_blank"}>
         <InstagramIcon
           sx={{
-            fontSize: "2.2rem",
+            fontSize: optionChosen !== -1 ? "1.8rem" : "2.2rem",
           }}
         />
       </Link>
@@ -36,7 +36,7 @@ const SocialMedia = () => {
       <Link href={"https://www.facebook.com/"} target={"_blank"}>
         <FacebookOutlinedIcon
           sx={{
-            fontSize: "2.2rem",
+            fontSize: optionChosen !== -1 ? "1.8rem" : "2.2rem",
           }}
         />
       </Link>

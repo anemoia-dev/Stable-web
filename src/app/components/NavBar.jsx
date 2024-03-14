@@ -130,6 +130,36 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                 Centro de ayuda
               </Typography>
 
+              {/* 
+            <Button
+              sx={{
+                bgcolor: "transparent",
+                color: "#FFD1FF",
+                display: "none",
+
+                textTransform: "none",
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: 600,
+                }}
+              >
+                Cerrar Sesión
+              </p>
+            </Button> */}
+
+              <BurgerButton />
+
+              <Box
+                sx={{
+                  display: optionChosen !== -1 ? "flex" : "none",
+                }}
+              >
+                <SocialMedia optionChosen={optionChosen} />
+              </Box>
+
               <Select
                 // Creating a language selection dropdown
                 value={lang}
@@ -166,35 +196,6 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                   <p> English </p>
                 </MenuItem>
               </Select>
-              {/* 
-            <Button
-              sx={{
-                bgcolor: "transparent",
-                color: "#FFD1FF",
-                display: "none",
-
-                textTransform: "none",
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              <p
-                style={{
-                  fontWeight: 600,
-                }}
-              >
-                Cerrar Sesión
-              </p>
-            </Button> */}
-
-              <BurgerButton />
-
-              <Box
-                sx={{
-                  display: optionChosen !== -1 ? "flex" : "none",
-                }}
-              >
-                <SocialMedia />
-              </Box>
             </Box>
           </Toolbar>
         </AppBar>

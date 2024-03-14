@@ -96,7 +96,7 @@ export default function Home() {
         <>
           <Box
             sx={{
-              height: "100vh",
+              height: "90vh",
               bgcolor: "#202020",
               backgroundImage: `url(${image})`,
               backgroundRepeat: "no-repeat",
@@ -106,9 +106,11 @@ export default function Home() {
               // height: `calc(100% - ${navbarHeight}px)`,
               transition: "all 1s ease-in-out",
               position: "relative",
+              marginTop: "11vh",
+              padding: "3vh 4vw",
             }}
           >
-            <SocialMedia />
+            <SocialMedia optionChosen={optionChosen} />
 
             <DownloadMain index={backgroundChanger} />
           </Box>
