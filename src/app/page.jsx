@@ -152,8 +152,7 @@ export default function Home() {
               sx={{
                 height: "100vh",
                 bgcolor: "#20201F",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+
                 display: "flex",
                 flexDirection: "column",
                 position: "relative",

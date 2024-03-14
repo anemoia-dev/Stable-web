@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Typography, Card } from "@mui/material";
+import YouTubePlayer from "react-player/youtube";
 const People = () => {
   return (
     <Box
@@ -32,7 +33,7 @@ const People = () => {
           border: "1px solid white",
           bgcolor: "rgba(0,0,0,.5)",
           padding: "2rem",
-          marginTop: "4vh",
+          marginTop: "3vh",
           width: "80%",
           height: "75%",
           display: "flex",
@@ -49,7 +50,6 @@ const People = () => {
           <Typography
             sx={{
               color: "white",
-
               fontSize: "1.7rem",
               fontFamily: "unset",
               fontWeight: "500",
@@ -72,6 +72,12 @@ const People = () => {
             disfrutarla en cualquier parte del mundo.
           </Typography>
         </Box>
+
+        <YouTubePlayer
+          url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
+          width={"100%"}
+          height={"110%"}
+        />
       </Card>
     </Box>
   );
