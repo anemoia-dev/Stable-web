@@ -73,9 +73,7 @@ export default function Home() {
         color={
           optionChosen > 0
             ? textList.List[optionChosen].secondColor
-            : optionChosen === -1
-            ? "#202020"
-            : "transparent"
+            : optionChosen === -1 && "#202020"
         }
       />
 

@@ -60,13 +60,17 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
           sx={{
             display: "flex",
             alignItems: "center",
-            backgroundColor: color ? color : "red",
+            backgroundColor: color ? color : " #d7d7d7",
+            backgroundImage:
+              optionChosen === 0 &&
+              "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)",
             height: "11vh",
             boxShadow: "none",
             borderBottom:
               color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
           }}
         >
+          {/* //background-image: linear-gradient(147deg, #d7d7d7 0%, #353535 74%); */}
           <Toolbar
             // Styling the toolbar
             sx={{
