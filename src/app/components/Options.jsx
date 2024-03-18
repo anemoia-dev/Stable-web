@@ -128,6 +128,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   OptionsToChoose(e.currentTarget.id);
                 }}
                 sx={{
+                  cursor: "pointer",
                   backgroundImage: `url(${el.coverImage})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: {

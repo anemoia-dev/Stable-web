@@ -8,7 +8,7 @@ const montserrat = Montserrat({
   style: ["normal"],
   subsets: ["latin"],
 });
-let elements = newelements.Texts;
+let elements = newelements.List;
 function Carrusel({ Options, selected }) {
   const { t, lang } = useTranslation("Options");
   const sliderRef = useRef(null);

@@ -16,7 +16,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
   return (
     <Box
       sx={{
-        height: "100vh",
+        height: "90vh",
         //backgroundImage: `linear-gradient(to bottom,${infoAll.secondColor},${infoAll.thirdColor})`,
         backgroundImage:
           optionChosen > 0
@@ -35,7 +35,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
           position: "absolute",
           width: "100%",
           height: "89vh",
-          top: "11vh",
+          // top: "11vh",
           display: "flex",
           //justifyContent: "center",
           alignItems: "center",

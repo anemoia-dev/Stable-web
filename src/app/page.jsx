@@ -18,6 +18,7 @@ const Footer = lazy(() => import("./components/Footer"));
 
 const wals = ["./wal1.svg", "./wal2.svg", "./wal3.svg"];
 import * as textList from "../files/Selected.json";
+
 const colors = [" #a9cce3", "#af7ac5", "#273746"];
 
 export default function Home() {
@@ -71,7 +72,7 @@ export default function Home() {
         OptionsToChoose={OptionsToChoose}
         color={
           optionChosen > 0
-            ? textList.Texts[optionChosen].secondColor
+            ? textList.List[optionChosen].secondColor
             : optionChosen === -1
             ? "#202020"
             : "transparent"
@@ -88,7 +89,7 @@ export default function Home() {
             navbarHeight={navbarHeight}
             OptionsToChoose={OptionsToChoose}
             optionChosen={optionChosen}
-            info={textList.Texts[optionChosen]}
+            info={textList.List[optionChosen]}
           />
           <Footer optionChosen={optionChosen} />
         </Box>
@@ -106,8 +107,8 @@ export default function Home() {
               // height: `calc(100% - ${navbarHeight}px)`,
               transition: "all 1s ease-in-out",
               position: "relative",
-              marginTop: "11vh",
-              padding: "3vh 4vw",
+              //marginTop: "11vh",
+              //padding: "3vh 4vw",
             }}
           >
             <SocialMedia optionChosen={optionChosen} />

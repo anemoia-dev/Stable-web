@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import SocialMedia from "./SocialMedia";
+import Image from "next/image";
 import {
   AppBar,
   MenuItem,
@@ -55,7 +56,7 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
       <HideOnScroll>
         <AppBar
           // Styling the app bar
-          //position="static"
+          position="static"
           sx={{
             display: "flex",
             alignItems: "center",
@@ -84,21 +85,31 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
             {/* GIF Component */}
             <Link href="/">
               <Box
-                // Adding a link with an image
-                component={"img"}
-                onClick={() => OptionsToChoose(-1)}
-                src={color === "#202020" ? "./whiteGif.gif" : "./blackGif.gif"}
                 sx={{
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   width: {
                     xs: "8rem",
                     md: "120px",
                   },
-                  backgroundColor: color,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                 }}
-              />
+              >
+                <Image
+                  src={optionChosen === -1 ? "/whiteGif.gif" : "/blackGif.gif"}
+                  alt="logo"
+                  width={140}
+                  height={79}
+                  priority={false}
+                  style={{
+                    backgroundColor: color,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                />
+              </Box>
             </Link>
 
             <Box
@@ -150,8 +161,6 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
               </p>
             </Button> */}
 
-              <BurgerButton />
-
               <Box
                 sx={{
                   display: optionChosen !== -1 ? "flex" : "none",
@@ -196,6 +205,8 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                   <p> English </p>
                 </MenuItem>
               </Select>
+
+              <BurgerButton />
             </Box>
           </Toolbar>
         </AppBar>
