@@ -1,0 +1,24 @@
+{
+    "title": "How to",
+    "subtitle": "If you have already downloaded Stable®, now learn how it works.",
+    "op0": {
+        "text": "That's how easy it is to add money.",
+        "background": "linear-gradient(93.79deg, #FFF7C6 20.9%, #EAB67D 129.9%)",
+        "video": "https://www.youtube.com/watch?v=2NiqdSvKSMw"
+    },
+    "op1": {
+        "text": "That's how simple it is to send.",
+        "background": "linear-gradient(93.25deg, #FFE6FB 34.35%, #D385D6 150.82%)",
+        "video": "https://www.youtube.com/watch?v=vNus1QbXgJE"
+    },
+    "op2": {
+        "text": "It is that simple to withdraw.",
+        "background": "linear-gradient(93.19deg, #D0FFE6 29.09%, #7DCCA1 150.64%)",
+        "video": "https://www.youtube.com/watch?v=2NiqdSvKSMw"
+    },
+    "op3": {
+        "text": "It's that easy to view your transactions.",
+        "background": "linear-gradient(93.79deg, #FFF7C6 20.9%, #EAB67D 129.9%)",
+        "video": "https://www.youtube.com/watch?v=zXeaAQ_MMNQ"
+    }
+}

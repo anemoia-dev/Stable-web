@@ -16,11 +16,15 @@ import {
 
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
+import { usePathname, useRouter } from "next/navigation";
+import i18nConfig from "@/app/i18nConfig";
 
 import Container from "@mui/material/Container";
+import { useTranslation } from "next-i18next";
 import Slide from "@mui/material/Slide";
 
 function HideOnScroll(props) {
+  const { t, i18n } = useTranslation();
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
@@ -35,15 +39,53 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
-const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
+const NavBar = ({
+  onHeightChange,
+  OptionsToChoose,
+  color,
+  optionChosen,
+  cat,
+}) => {
   const languages = {
     en: "English",
     es: "Español",
   };
 
-  const [lang, setLanguage] = useState("es");
+  const { t, i18n } = useTranslation();
+  const currentLocale = i18n.language;
+  const router = useRouter();
+  const currentPathname = usePathname();
+  const [lang, setLanguage] = useState(i18n.language);
+  const handleChange = React.useCallback(
+    (e) => {
+      const newLocale = e;
+      setLanguage(newLocale);
+
+      const days = 30;
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      const expires = "; expires=" + date.toUTCString();
+      document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+
+      if (currentLocale === i18nConfig.defaultLocale) {
+        router.push("/" + newLocale + currentPathname);
+      } else {
+        router.push(
+          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+        );
+      }
+
+      router.refresh();
+    },
+    [currentLocale, currentPathname, router]
+  );
+
   const handleChangeLanguage = (e) => {
     setLanguage(e.target.value);
+
+    const newLocale = e.target.value;
+
+    handleChange(newLocale);
   };
 
   useEffect(() => {
@@ -56,14 +98,14 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
       <HideOnScroll>
         <AppBar
           // Styling the app bar
-          position="static"
+          position={cat !== "Global" ? "static" : "fixed"}
           sx={{
             display: "flex",
             alignItems: "center",
             backgroundColor: color ? color : " #d7d7d7",
-            backgroundImage:
+            /* backgroundImage:
               optionChosen === 0 &&
-              "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)",
+              "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)", */
             height: "11vh",
             boxShadow: "none",
             borderBottom:
@@ -105,7 +147,7 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                   alt="logo"
                   width={140}
                   height={79}
-                  priority={false}
+                  priority
                   style={{
                     backgroundColor: color,
                     display: "flex",
@@ -133,7 +175,7 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                Formulario
+                {t("navBarMain.form")}
               </Typography>
 
               <Typography
@@ -142,7 +184,7 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                Centro de ayuda
+                {t("navBarMain.centerHelp")}
               </Typography>
 
               {/* 
@@ -176,7 +218,7 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
               <Select
                 // Creating a language selection dropdown
                 value={lang}
-                onChange={handleChangeLanguage}
+                onChange={(e) => handleChange(e.target.value)}
                 label={"language"}
                 displayEmpty
                 size="small"
@@ -201,12 +243,25 @@ const NavBar = ({ onHeightChange, OptionsToChoose, color, optionChosen }) => {
                   },
                 }}
               >
-                <MenuItem value={"es"}>
-                  <p> Español </p>
+                <MenuItem value={"en"}>
+                  <Typography
+                    sx={{
+                      fontFamily: "unset",
+                    }}
+                  >
+                    {" "}
+                    English{" "}
+                  </Typography>
                 </MenuItem>
 
-                <MenuItem value={"en"}>
-                  <p> English </p>
+                <MenuItem value={"es"}>
+                  <Typography
+                    sx={{
+                      fontFamily: "unset",
+                    }}
+                  >
+                    Español
+                  </Typography>
                 </MenuItem>
               </Select>
 

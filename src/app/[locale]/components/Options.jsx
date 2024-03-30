@@ -1,13 +1,12 @@
 "use client";
 import React, { Fragment } from "react";
-import * as options from "../../files/optionsdb";
-
+import * as options from "../../../files/optionsdb";
+import Image from "next/image";
+import Link from "next/link";
 import { Box, Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Montserrat } from "next/font/google";
-/* import Expanded from "./Expanded.jsx"; */
-//import Container from "./Container.jsx";
-import useTranslation from "next-translate/useTranslation";
+import { useTranslation } from "react-i18next";
 
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
@@ -27,8 +26,9 @@ const montserrat = Montserrat({
 });
 
 const Options = ({ OptionsToChoose, optionChosen }) => {
+  const { t, i18n } = useTranslation();
   let initialHeights = [45, 45, 45, 45, 45];
-  const { t, ready } = useTranslation("Options");
+
   const [heights, setHeights] = useState(initialHeights);
   const [hoverNum, setHoverNum] = useState(-1);
   const [selectedNum, setSelectedNum] = useState(-1);
@@ -56,18 +56,17 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
     OptionsToChoose(value);
   };
 
-  const handleChange = (e) => {
-    setHoverNum(parseInt(e.target.id));
+  const handleChange = (index) => {
+    setHoverNum(index);
+
     let heights2;
     if (hoverNum !== -1) {
       heights2 = heights.map((n, i) => {
-        return parseInt(e.target.id) === i ? 50 : 50;
+        return parseInt(index) === i ? 50 : 50;
       });
     } else {
       heights2 = heights.map((i) => i);
-      heights2 = heights2.map((el, id) =>
-        id === parseInt(e.target.id) ? 50 : 50
-      );
+      heights2 = heights2.map((el, id) => (id === parseInt(index) ? 50 : 50));
     }
     setHeights(heights2);
   };
@@ -117,27 +116,27 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                 key={id + optionChosen}
                 component="div"
                 onMouseEnter={(e) => {
-                  handleChange(e);
+                  handleChange(id);
                 }}
                 onMouseLeave={() => {
                   setHoverNum(-1);
                   setHeights(initialHeights);
                 }}
-                onClick={(e) => {
+                /*   onClick={(e) => {
                   setSelectedNum(e.currentTarget.id);
                   OptionsToChoose(e.currentTarget.id);
-                }}
+                }} */
                 sx={{
                   cursor: "pointer",
-                  backgroundImage: `url(${el.coverImage})`,
+                  /* backgroundImage: `url(${el.coverImage})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: {
                     xs: "250px",
                     md: id !== 0 ? "cover" : "85%",
-                  },
+                  }, */
                   backgroundColor: el.color,
                   display: selectedNum !== -1 && "none",
-                  backgroundPosition: {
+                  /*  backgroundPosition: {
                     xs:
                       id === 0
                         ? "0rem 12%"
@@ -149,17 +148,25 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                         ? "-3rem 18%"
                         : id === 4 && "5rem 23%",
                     md: id === 0 ? "center center" : "center top",
-                  },
+                  }, */
 
                   width: {
                     xs: `${((heights[id] - 41) * 20) / 4 + 70}vw`,
                     md: "20%",
                   },
                   "@media (orientation: landscape)": {
-                    height: { xs: "12vh", sm: "20vw", md: `${heights[id]}vh` },
+                    height: {
+                      xs: "12vh",
+                      sm: "20vw",
+                      md: `${heights[id]}vh`,
+                    },
                   },
                   "@media (orientation: portrait)": {
-                    height: { sm: "15vh", xs: "20vh", md: `${heights[id]}vh` },
+                    height: {
+                      sm: "15vh",
+                      xs: "20vh",
+                      md: `${heights[id]}vh`,
+                    },
                   },
 
                   justifyContent: "center",
@@ -180,46 +187,62 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                 }}
                 /* key={el.id} */
               >
-                <Box
-                  key={id + optionChosen}
-                  sx={{
-                    display: "flex",
-                    alignItems: { xs: "left", md: "center" },
-                    position: "absolute",
-                    borderBottom: "1px solid rgba(168, 168, 168, 1)",
-                    bottom: 0,
-                    color: "white",
-                    height: "2rem",
-                    width: "100%",
-                    backgroundColor: "#202020",
-                    padding: {
-                      xs: "0",
-                      md: "1.5rem",
-                    },
-                  }}
-                  /*  key={el.id} */
-                >
-                  <Typography
+                <Link href={options1[`o${id + 1}`]}>
+                  <Image
+                    src={el.coverImage}
+                    alt="cover"
+                    fill
+                    priority={false}
+                    //placeholder="blur"
+                    style={{
+                      //opacity: loaded ? 1 : 0,
+                      transition: "opacity 0.5s",
+                      "object-fit": "cover",
+                      objectPosition: "Top",
+                    }}
+                    /* onLoad={() => setLoaded(true)} */
+                  ></Image>
+                  <Box
+                    key={id + optionChosen}
                     sx={{
-                      margin: { xs: "0 30px", md: "0 auto" },
-                      fontFamily: "unset",
-                      alignItems: "end",
+                      display: "flex",
+                      alignItems: { xs: "left", md: "center" },
+                      position: "absolute",
+                      borderBottom: "1px solid rgba(168, 168, 168, 1)",
+                      bottom: 0,
+                      color: "white",
+                      height: "2rem",
+                      width: "100%",
+                      backgroundColor: "#202020",
                       padding: {
-                        xs: "0 0 0 0rem",
-                        md: 0,
-                      },
-
-                      //fontWeight: 500,
-                      fontSize: {
-                        xs: "1.25rem",
-                        md: "24px",
+                        xs: "0",
+                        md: "1.5rem",
                       },
                     }}
+                    /*  key={el.id} */
                   >
-                    {/* {t(`o${id + 1}`)} */}
-                    {options1[`o${id + 1}`]}
-                  </Typography>
-                </Box>
+                    <Typography
+                      sx={{
+                        margin: { xs: "0 30px", md: "0 auto" },
+                        fontFamily: "unset",
+                        alignItems: "end",
+                        padding: {
+                          xs: "0 0 0 0rem",
+                          md: 0,
+                        },
+
+                        //fontWeight: 500,
+                        fontSize: {
+                          xs: "1.25rem",
+                          md: "24px",
+                        },
+                      }}
+                    >
+                      {t(`Options.o${id + 1}`)}
+                      {/* {options1[`o${id + 1}`]} */}
+                    </Typography>
+                  </Box>
+                </Link>
               </Box>
             </Fragment>
           );

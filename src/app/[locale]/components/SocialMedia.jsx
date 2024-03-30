@@ -12,7 +12,7 @@ const SocialMedia = ({ optionChosen }) => {
       sx={{
         display: "flex",
         justifyContent: "right",
-        padding: optionChosen === -1 ? "1rem 3rem" : "0 0",
+        padding: "1rem 3rem",
         alignItems: "flex-end",
         gap: "1rem",
       }}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
-import * as S from "../../styles/carrusel.module.css";
+/* import * as S from "../../styles/carrusel.module.css"; */
 
 const texts = [
   "Eres más libre cuando  puedes disfrutar tu dinero en todo el mundo.",
@@ -11,18 +11,19 @@ const texts = [
 const DownloadMain = ({ index }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const setSlideInterval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
     }, 5000);
 
     return () => clearInterval(setSlideInterval);
-  }, [currentSlide]);
+  }, [currentSlide]); */
 
   return (
     <Box
       key={index}
       sx={{
+        bgcolor: "red",
         padding: "0 3rem",
         width: "60vw",
         //height: "70vh",
@@ -40,7 +41,7 @@ const DownloadMain = ({ index }) => {
           //height: "100%",
           fontWeight: "bold",
           color: "white",
-          paddingTop: "8vh",
+          paddingTop: "0vh",
           //opacity: 1,
 
           //transition: "text 3s fade-in",

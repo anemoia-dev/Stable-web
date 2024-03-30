@@ -2,7 +2,9 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { Typography, Card } from "@mui/material";
 import ReactPlayer from "react-player/lazy";
+import { useTranslation } from "next-i18next";
 const People = () => {
+  const { t, i18n } = useTranslation("People");
   return (
     <Box
       sx={{
@@ -24,7 +26,7 @@ const People = () => {
           color: "white",
         }}
       >
-        Personas
+        {t("title")}
       </p>
 
       <Card
@@ -56,7 +58,7 @@ const People = () => {
               position: "relative",
             }}
           >
-            Una billetera virtual que convierte tus pesos a dólares.
+            {t("subtitle")}
           </Typography>
           <Typography
             sx={{
@@ -64,12 +66,7 @@ const People = () => {
               fontFamily: "unset",
             }}
           >
-            Tal vez habrás oído de las billeteras virtuales, a lo mejor ya hayas
-            utilizado una para enviar y recibir dinero, pero hay algo que no has
-            visto y que hasta ahora creías imposible: tener en tu celular la
-            primera billetera virtual que convierte al instante tus pesos en
-            dólares. Así es, y una vez en dólares, tu plata estará lista para
-            disfrutarla en cualquier parte del mundo.
+            {t("description")}
           </Typography>
         </Box>
 

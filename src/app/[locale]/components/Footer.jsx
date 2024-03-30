@@ -5,9 +5,9 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneOutlineIcon from "@mui/icons-material/PhoneOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Montserrat } from "next/font/google";
-import * as S from "../../styles/mastercardlogo.module.css";
-import * as T from "../../styles/divider.module.css";
-import useTranslation from "next-translate/useTranslation";
+import * as S from "../../../styles/mastercardlogo.module.css";
+import * as T from "../../../styles/divider.module.css";
+import { useTranslation } from "react-i18next";
 
 const montserrat = Montserrat({
   style: ["normal"],
@@ -261,9 +261,7 @@ const Footer = ({ optionChosen }) => {
             fontFamily: montserrat.style,
           }}
         >
-          {/*  {t("text")} */}
-          Todos los contenidos de este sitio están protegidos por derechos de
-          autor © 2023.
+          {t("title")}
         </Typography>
         <Typography
           sx={{

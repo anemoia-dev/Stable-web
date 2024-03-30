@@ -1,0 +1,18 @@
+{
+    "navBarMain": {
+        "form": "Formulario",
+        "centerHelp": "Centro de ayuda"
+    },
+    "downloadMain": {
+        "text0": "Eres más libre cuando  puedes disfrutar tu dinero en todo el mundo.",
+        "text1": "Una experiencia única se vive intensamente y se recuerda siempre.",
+        "text2": "Conoce tu tarjeta de entrada al mundo entero."
+    },
+    "Options": {
+        "o0": "Global",
+        "o1": "Cercanía",
+        "o2": "Confianza",
+        "o3": "Responsabilidad",
+        "o4": "Compromiso"
+    }
+}

@@ -1,7 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const BusinessComp = () => {
+  const { t, i18n } = useTranslation("Business");
   return (
     <Box
       sx={{
@@ -19,8 +21,8 @@ const BusinessComp = () => {
           flexDirection: "column",
           alignItems: "flex-end",
           zIndex: 1,
-          bottom: 0,
-          padding: "0 6rem",
+          top: 30,
+          padding: "1rem 5rem",
           right: 0,
         }}
       >
@@ -32,7 +34,7 @@ const BusinessComp = () => {
             fontWeight: "bold",
           }}
         >
-          Negocios
+          {t("title")}
         </Typography>
 
         <Typography
@@ -45,7 +47,7 @@ const BusinessComp = () => {
             borderBottom: "1px solid black",
           }}
         >
-          ¿Emprendedor, dueño de una PYME o un gran empresario?
+          {t("subtitle")}
         </Typography>
         <Typography
           sx={{
@@ -56,10 +58,7 @@ const BusinessComp = () => {
             textAlign: "right",
           }}
         >
-          No importa el tamaño de tu negocio, ganar siempre es posible. Gana
-          tiempo pagándole a tus proveedores y cumpliéndole a tus empleados.
-          Gana cuando el pago que te hacen tus clientes se convierte en dólares
-          al instante.
+          {t("description")}
         </Typography>
       </Box>
     </Box>

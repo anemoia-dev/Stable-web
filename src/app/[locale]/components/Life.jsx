@@ -1,7 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Life = () => {
+  const { t, i18n } = useTranslation("Options");
   return (
     <Box
       sx={{
@@ -28,7 +30,7 @@ const Life = () => {
         }}
       >
         {" "}
-        Disfrutar el mundo entero es posible
+        {t("Title")}
       </p>
 
       <p
@@ -40,9 +42,7 @@ const Life = () => {
           width: "50%",
         }}
       >
-        La vida es una colección de experiencias, pero sólo algunas llegan a ser
-        inolvidables; son las que queremos ofrecerte con nuestros aliados y las
-        que encontrarás en Stable®.
+        {t("description")}
       </p>
 
       <Box
