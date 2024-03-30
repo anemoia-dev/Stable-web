@@ -17,7 +17,7 @@ const BusinessComp = lazy(() => import("./components/BusinessComp"));
 const Selected = lazy(() => import("./components/Selected"));
 const Footer = lazy(() => import("./components/Footer"));
 import parse from "html-react-parser";
-
+import Head from "next/head";
 const wals = ["./wal1.svg", "./wal2.svg", "./wal3.svg"];
 import * as textList from "../../files/Selected.json";
 import NewDownloadImage from "./components/NewDownloadMain";
@@ -70,180 +70,182 @@ export default function Home() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        width: "100vw",
-        // overflow: "hidden",
-      }}
-    >
-      <NavBar
-        onHeightChange={handleNavbarHeight}
-        optionChosen={optionChosen}
-        OptionsToChoose={OptionsToChoose}
-        color={
-          optionChosen > 0
-            ? textList.List[optionChosen].secondColor
-            : optionChosen === -1 && "#202020"
-        }
-      />
-
+    <>
       <Box
         sx={{
-          width: "100%",
-          position: "relative",
-          alignItems: "center",
-          //height: `calc(100vh - ${navbarHeight}px)`,
-          height: "89vh",
           display: "flex",
-          bgcolor: "red",
           flexDirection: "column",
+          minHeight: "100vh",
+          width: "100vw",
+          // overflow: "hidden",
         }}
       >
-        <NewDownloadImage
+        <NavBar
+          onHeightChange={handleNavbarHeight}
           optionChosen={optionChosen}
-          navbarHeight={navbarHeight}
+          OptionsToChoose={OptionsToChoose}
+          color={
+            optionChosen > 0
+              ? textList.List[optionChosen].secondColor
+              : optionChosen === -1 && "#202020"
+          }
         />
-      </Box>
 
-      <React.Suspense fallback={<div>Loading...</div>}>
         <Box
           sx={{
-            height: "50vh",
             width: "100%",
-            bgcolor: "#20201f",
             position: "relative",
+            alignItems: "center",
+            //height: `calc(100vh - ${navbarHeight}px)`,
+            height: "89vh",
+            display: "flex",
+            bgcolor: "red",
+            flexDirection: "column",
           }}
         >
-          <Options
-            OptionsToChoose={OptionsToChoose}
+          <NewDownloadImage
             optionChosen={optionChosen}
+            navbarHeight={navbarHeight}
           />
         </Box>
-      </React.Suspense>
 
-      <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Box
+            sx={{
+              height: "50vh",
+              width: "100%",
+              bgcolor: "#20201f",
+              position: "relative",
+            }}
+          >
+            <Options
+              OptionsToChoose={OptionsToChoose}
+              optionChosen={optionChosen}
+            />
+          </Box>
+        </React.Suspense>
+
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Box
+            sx={{
+              height: "100vh",
+              backgroundImage: "url('/LifeWallpaper.svg')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              display: "flex",
+              flexDirection: "column",
+              //position: "relative",
+            }}
+          >
+            <Life />
+          </Box>
+        </React.Suspense>
+
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Box
+            sx={{
+              height: "100vh",
+              bgcolor: "#20201F",
+
+              display: "flex",
+              flexDirection: "column",
+              position: "relative",
+            }}
+          >
+            <People />
+          </Box>
+        </React.Suspense>
+
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Box
+            sx={{
+              //minHeight: "100vh",
+              padding: "3rem 6rem",
+              background: "#202020",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              display: "flex",
+              flexDirection: "column",
+              position: "relative",
+            }}
+          >
+            <HowToUse />
+          </Box>
+        </React.Suspense>
+
         <Box
           sx={{
             height: "100vh",
-            backgroundImage: "url('/LifeWallpaper.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            //padding: "3rem 6rem",
+            width: "100vw",
+            //background: "url('/BusinessWallpaper.svg')",
+            //backgroundImage: "url('/BusinessWallpaper.svg')",
+            //backgroundRepeat: "no-repeat",
+            //backgroundSize: "100%",
+            //backgroundPosition: "bottom",
             display: "flex",
-            flexDirection: "column",
-            //position: "relative",
-          }}
-        >
-          <Life />
-        </Box>
-      </React.Suspense>
-
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <Box
-          sx={{
-            height: "100vh",
-            bgcolor: "#20201F",
-
-            display: "flex",
+            //opacity: 0.5,
             flexDirection: "column",
             position: "relative",
+            //padding: "2rem 4rem 2rem 4rem",
           }}
         >
-          <People />
-        </Box>
-      </React.Suspense>
+          <Image
+            src="/BusinessWallpaper.svg"
+            alt="BusinessWallpaper"
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "bottom",
+              zIndex: -1,
+            }}
+          />
+          <BusinessComp />
 
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <Box
-          sx={{
-            //minHeight: "100vh",
-            padding: "3rem 6rem",
-            background: "#202020",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            display: "flex",
-            flexDirection: "column",
-            position: "relative",
-          }}
-        >
-          <HowToUse />
-        </Box>
-      </React.Suspense>
-
-      <Box
-        sx={{
-          height: "100vh",
-          //padding: "3rem 6rem",
-          width: "100vw",
-          //background: "url('/BusinessWallpaper.svg')",
-          //backgroundImage: "url('/BusinessWallpaper.svg')",
-          //backgroundRepeat: "no-repeat",
-          //backgroundSize: "100%",
-          //backgroundPosition: "bottom",
-          display: "flex",
-          //opacity: 0.5,
-          flexDirection: "column",
-          position: "relative",
-          //padding: "2rem 4rem 2rem 4rem",
-        }}
-      >
-        <Image
-          src="/BusinessWallpaper.svg"
-          alt="BusinessWallpaper"
-          fill
-          style={{
-            objectFit: "cover",
-            objectPosition: "bottom",
-            zIndex: -1,
-          }}
-        />
-        <BusinessComp />
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0 4rem",
-            background:
-              "linear-gradient(93.25deg, #FFE6FB 34.35%, #D385D6 150.82%)",
-            //position: "relative",
-            height: "10%",
-          }}
-        >
-          <Typography
+          <Box
             sx={{
-              fontFamily: "unset",
-              fontSize: "1.5rem",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "0 4rem",
+              background:
+                "linear-gradient(93.25deg, #FFE6FB 34.35%, #D385D6 150.82%)",
+              //position: "relative",
+              height: "10%",
             }}
           >
-            <Trans i18nKey="Business">
-              {t("sponsorship")} <strong>Stable®?</strong>
-            </Trans>
-          </Typography>
-          <Button
-            sx={{
-              textTransform: "none",
-              borderRadius: "0",
-              fontFamily: "unset",
-              fontSize: "1.2rem",
-              color: "black",
-              bgcolor: "rgba(211, 133, 214, 1)",
-              //fontWeight: "bold",
-              "&:hover": {
-                cursor: "pointer",
-                bgcolor: "rgba(211, 133, 214, 0.8)",
-              },
-            }}
-          >
-            {t("button")}
-          </Button>
+            <Typography
+              sx={{
+                fontFamily: "unset",
+                fontSize: "1.5rem",
+              }}
+            >
+              <Trans i18nKey="Business">
+                {t("sponsorship")} <strong>Stable®?</strong>
+              </Trans>
+            </Typography>
+            <Button
+              sx={{
+                textTransform: "none",
+                borderRadius: "0",
+                fontFamily: "unset",
+                fontSize: "1.2rem",
+                color: "black",
+                bgcolor: "rgba(211, 133, 214, 1)",
+                //fontWeight: "bold",
+                "&:hover": {
+                  cursor: "pointer",
+                  bgcolor: "rgba(211, 133, 214, 0.8)",
+                },
+              }}
+            >
+              {t("button")}
+            </Button>
+          </Box>
         </Box>
+
+        <Footer optionChosen={-1} />
       </Box>
-
-      <Footer optionChosen={-1} />
-    </Box>
+    </>
   );
 }
