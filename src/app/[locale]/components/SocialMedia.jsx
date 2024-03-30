@@ -17,7 +17,10 @@ const SocialMedia = ({ optionChosen }) => {
         gap: "1rem",
       }}
     >
-      <Link href={"https://www.linkedin.com/"} target={"_blank"}>
+      <Link
+        href={"https://www.linkedin.com/company/stable%C2%AE"}
+        target={"_blank"}
+      >
         <LinkedInIcon
           sx={{
             fontSize: optionChosen !== -1 ? "1.8rem" : "2.2rem",
@@ -25,7 +28,7 @@ const SocialMedia = ({ optionChosen }) => {
         />
       </Link>
 
-      <Link href={"https://www.instagram.com/"} target={"_blank"}>
+      <Link href={"https://www.instagram.com/stablelatam/"} target={"_blank"}>
         <InstagramIcon
           sx={{
             fontSize: optionChosen !== -1 ? "1.8rem" : "2.2rem",
@@ -33,7 +36,7 @@ const SocialMedia = ({ optionChosen }) => {
         />
       </Link>
 
-      <Link href={"https://www.facebook.com/"} target={"_blank"}>
+      <Link href={"https://www.facebook.com/StableLatam"} target={"_blank"}>
         <FacebookOutlinedIcon
           sx={{
             fontSize: optionChosen !== -1 ? "1.8rem" : "2.2rem",
