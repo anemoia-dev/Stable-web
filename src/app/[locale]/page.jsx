@@ -75,7 +75,7 @@ export default function Home() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          minHeight: "100vh",
+          //minHeight: "100vh",
           width: "100vw",
           // overflow: "hidden",
         }}
@@ -97,7 +97,7 @@ export default function Home() {
             position: "relative",
             alignItems: "center",
             //height: `calc(100vh - ${navbarHeight}px)`,
-            height: "89vh",
+            height: { xs: "100vh", md: "100vh" },
             display: "flex",
             bgcolor: "red",
             flexDirection: "column",
@@ -112,10 +112,16 @@ export default function Home() {
         <React.Suspense fallback={<div>Loading...</div>}>
           <Box
             sx={{
-              height: "50vh",
+              height: { xs: "60vh", md: "50vh" },
               width: "100%",
-              bgcolor: "#20201f",
+              //bgcolor: "#20201f",
+              background: "linear-gradient(to bottom, #20201f, black)",
+
               position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+              //alignItems: "center",
             }}
           >
             <Options
@@ -129,22 +135,57 @@ export default function Home() {
           <Box
             sx={{
               height: "100vh",
-              backgroundImage: "url('/LifeWallpaper.svg')",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              display: "flex",
+              //padding: "3rem 6rem",
+              width: "100vw",
+              //background: "url('/BusinessWallpaper.svg')",
+              //backgroundImage: "url('/BusinessWallpaper.svg')",
+              //backgroundRepeat: "no-repeat",
+              //backgroundSize: "100%",
+              //backgroundPosition: "bottom",
+              display: { xs: "block", md: "flex" },
+              //opacity: 0.5,
               flexDirection: "column",
-              //position: "relative",
+              position: "relative",
+              //padding: "2rem 4rem 2rem 4rem",
             }}
           >
-            <Life />
+            <Box
+              sx={{
+                height: { xs: "40%", md: "100%" },
+                position: "relative",
+              }}
+            >
+              <Image
+                src="/LifeWallpaper.svg"
+                alt="LifeWallpaper"
+                fill
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "Top",
+                  zIndex: -1,
+                }}
+              />
+            </Box>
+            <Box
+              sx={{
+                position: { xs: "relative", md: "absolute" },
+                top: { md: 0 },
+                bottom: { xs: "0", md: "0" },
+                height: { xs: "60%", md: "40%" },
+                width: "100%",
+                bgcolor: { xs: "#20201F", md: "transparent" },
+                display: { md: "block" },
+              }}
+            >
+              <Life />
+            </Box>{" "}
           </Box>
         </React.Suspense>
 
         <React.Suspense fallback={<div>Loading...</div>}>
           <Box
             sx={{
-              height: "100vh",
+              height: { xs: "150vh", md: "100vh" },
               bgcolor: "#20201F",
 
               display: "flex",
@@ -160,7 +201,7 @@ export default function Home() {
           <Box
             sx={{
               //minHeight: "100vh",
-              padding: "3rem 6rem",
+              padding: { md: "3rem 6rem" },
               background: "#202020",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
@@ -175,7 +216,7 @@ export default function Home() {
 
         <Box
           sx={{
-            height: "100vh",
+            height: { xs: "100vh", md: "100vh" },
             //padding: "3rem 6rem",
             width: "100vw",
             //background: "url('/BusinessWallpaper.svg')",
@@ -190,7 +231,37 @@ export default function Home() {
             //padding: "2rem 4rem 2rem 4rem",
           }}
         >
-          <Image
+          <Box
+            sx={{
+              position: { xs: "relative", md: "absolute" },
+              top: { md: 0 },
+              bottom: { xs: "0", md: "0" },
+              height: { xs: "40%", md: "100%" },
+              width: "100%",
+              bgcolor: { /* xs: "#20201F" */ md: "transparent" },
+              display: { md: "block" },
+            }}
+          >
+            <Image
+              src="/BusinessWallpaper.svg"
+              alt="BusinessWallpaper"
+              fill
+              style={{
+                objectFit: "cover",
+                objectPosition: "bottom",
+                zIndex: -1,
+              }}
+            />
+          </Box>
+
+          <Box
+            sx={{
+              height: { xs: "60%" },
+            }}
+          >
+            <BusinessComp />
+          </Box>
+          {/* <Image
             src="/BusinessWallpaper.svg"
             alt="BusinessWallpaper"
             fill
@@ -199,12 +270,14 @@ export default function Home() {
               objectPosition: "bottom",
               zIndex: -1,
             }}
-          />
-          <BusinessComp />
+          /> */}
 
           <Box
             sx={{
-              display: "flex",
+              display: { xs: "none", md: "flex" },
+              position: "absolute",
+              bottom: 0,
+              width: "100%",
               justifyContent: "space-between",
               alignItems: "center",
               padding: "0 4rem",

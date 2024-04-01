@@ -53,9 +53,9 @@ const Footer = ({ optionChosen }) => {
 
           "@media (orientation:portrait)": {
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
+            flexDirection: { xs: "row", sm: "row" },
             alignItems: { xs: "center", sm: "center" },
-            justifyContent: { sm: "center" },
+            justifyContent: { xs: "space-around", sm: "center" },
             gap: { sm: "5vw" },
           },
         }}
@@ -86,7 +86,7 @@ const Footer = ({ optionChosen }) => {
         <Box
           className={S.containter}
           sx={{
-            marginTop: { xs: "4vh", sm: "0vh", md: "-3vh" },
+            marginTop: { xs: "2.5vh", sm: "0vh", md: "-3vh" },
           }}
         >
           <h1>
@@ -241,7 +241,14 @@ const Footer = ({ optionChosen }) => {
         </Box>
       </Box>
 
-      <hr style={{ width: "90%" }} />
+      <Box
+        sx={{
+          display: { xs: "none", md: "flex" },
+          width: { xs: "100vw", md: "95vw" },
+        }}
+      >
+        <hr style={{ width: "100%" }} />
+      </Box>
 
       <Box
         sx={{

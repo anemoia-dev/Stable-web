@@ -80,6 +80,12 @@ const Expanded = ({ text, id, background, video }) => {
           sx={{
             fontFamily: "unset",
             fontSize: "1.5rem",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            display: "-webkit-box",
+            WebkitLineClamp: "2",
+            WebkitBoxOrient: "vertical",
+            width: "100%",
           }}
         >
           {/* {text} */}

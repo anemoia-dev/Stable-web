@@ -9,62 +9,81 @@ const Life = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "right",
-        alignItems: "flex-end",
-        padding: "3.5rem 6rem",
+        justifyContent: { md: "right" },
+
+        //height: { xs: "60%" },
+        alignItems: { md: "flex-end" },
+        position: { xs: "relative", md: "absolute" },
+        //bgcolor: { xs: "#20201F", md: "transparent" },
+        top: { md: 0 },
+        right: { md: 0 },
+        bottom: { xs: 0 },
+        padding: { xs: "1rem 1rem", md: "3.5rem 6rem" },
+        width: { xs: "100%", md: "60%" },
       }}
     >
       <Typography
         sx={{
-          fontSize: "5.5rem",
+          fontSize: { xs: "30px", md: "5.5rem" },
           fontWeight: "bold",
+          color: { xs: "white", md: "black" },
+          textAlign: { xs: "right", md: "right" },
         }}
       >
         {" "}
         LIFE{" "}
       </Typography>
-      <p
-        style={{
-          fontSize: "2rem",
+      <Typography
+        sx={{
+          fontSize: { xs: "20px", md: "2rem" },
+          textAlign: { xs: "right", md: "right" },
+          color: { xs: "white", md: "black" },
+          fontFamily: "unset",
           textDecoration: "underline",
         }}
       >
         {" "}
         {t("Title")}
-      </p>
+      </Typography>
 
-      <p
-        style={{
-          fontSize: "1.4rem",
-          lineHeight: "2.5rem",
-          textAlign: "right",
+      <Typography
+        sx={{
+          fontSize: { xs: "14px", md: "1.4rem" },
+          fontFamily: "unset",
+          lineHeight: { xs: "1.5rem", md: "2.5rem" },
+          textAlign: { xs: "right", md: "right" },
           marginTop: "2rem",
-          width: "50%",
+          color: { xs: "white", md: "black" },
+          //width: { xs: "100%", md: "50%" },
         }}
       >
         {t("description")}
-      </p>
+      </Typography>
 
       <Box
         sx={{
           display: "flex",
-          justifyContent: "left",
+          width: { xs: "100%", md: "50%" },
+
+          justifyContent: { xs: "center", md: "right" },
+          alignItems: "center",
           gap: "1rem",
           marginTop: "2rem",
+          position: "relative",
         }}
       >
         <Box
           component={"img"}
           src={"/googleBlack.svg"}
           sx={{
-            width: "172px",
+            width: { xs: "142px", md: "172px" },
           }}
         ></Box>
         <Box
           component={"img"}
           src={"/appleblack.svg"}
           sx={{
-            width: "158px",
+            width: { xs: "132px", md: "158px" },
           }}
         ></Box>
       </Box>

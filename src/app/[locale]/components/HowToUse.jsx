@@ -19,13 +19,18 @@ const HowToUse = () => {
   return (
     <Box
       sx={{
-        minHeight: "90vh",
+        height: { xs: "100vh", md: "90vh" },
+        padding: { xs: "0 3rem" },
+        display: "flex",
+        flexDirection: { xs: "column", md: "column" },
+        justifyContent: "center",
+        marginTop: { xs: "-10vh", md: 0 },
       }}
     >
       <Typography
         sx={{
           fontFamily: "unset",
-          fontSize: "4rem",
+          fontSize: { xs: "30px", md: "4rem" },
           fontWeight: "bold",
           color: "white",
         }}
@@ -36,13 +41,14 @@ const HowToUse = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
         }}
       >
         <Typography
           sx={{
             fontFamily: "unset",
-            width: "30vw",
+            width: { md: "30vw" },
             fontSize: "1.5rem",
             color: "white",
             display: "block",
@@ -54,7 +60,7 @@ const HowToUse = () => {
 
         <Box
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             justifyContent: "left",
             gap: "1rem",
             marginTop: "2rem",

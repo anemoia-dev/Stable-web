@@ -10,7 +10,7 @@
   
   @media (max-width: 599px) {
     .divider {
-      display: none;
+      display: flex;
     }
   }
   
@@ -30,6 +30,7 @@
 
   @media (min-width: 599px) and (max-width: 844px) and (orientation:portrait) {
     .divider {
+      background-color: w;
       display: flex;
       margin-top: 1vh;
       height:5.5vh

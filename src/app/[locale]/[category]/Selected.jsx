@@ -5,26 +5,40 @@ import AddIcon from "@mui/icons-material/Add";
 import ClearIcon from "@mui/icons-material/Clear";
 import parse from "html-react-parser";
 import DownloadIcon from "@mui/icons-material/Download";
-import Carrusel from "./Container";
-const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
-  const [infoAll, setInfoAll] = useState(info);
+import Link from "next/link";
+/* import Carrusel from "./Container"; */
+import Carrusel from "../components/Container";
+import { useTranslation } from "react-i18next";
+const Selected = ({
+  OptionsToChoose,
+  optionChosen,
+  navbarHeight,
+  info,
+  cat,
+}) => {
+  /*   const [infoAll, setInfoAll] = useState(info);
 
   useState(() => {
     setInfoAll(info);
   }, [info]);
+ */
+
+  const { t, i18n } = useTranslation("Selected");
 
   return (
     <Box
       sx={{
-        height: "90vh",
-        //backgroundImage: `linear-gradient(to bottom,${infoAll.secondColor},${infoAll.thirdColor})`,
+        height: cat === "Global" ? "100vh" : "100vh",
+        backgroundImage: `linear-gradient(to bottom,${t(
+          `${cat}.secondColor`
+        )},${t(`${cat}.secondColor`)})`,
         backgroundImage:
-          optionChosen > 0
+          info.title !== "Global"
             ? `linear-gradient(to bottom,${info.secondColor},${info.thirdColor})`
-            : `url("./Card1.jpg")`,
+            : `url("/Card1.jpg")`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundSize: "100%",
+        backgroundPosition: "center 60%",
         position: "relative",
         width: "100%",
         bgcolor: "gray",
@@ -34,32 +48,35 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
         sx={{
           position: "absolute",
           width: "100%",
-          height: "89vh",
-          // top: "11vh",
+          height: cat === "Global" ? "100vh" : "89vh",
+          top: cat !== "Global" ? "11vh" : "0vh",
           display: "flex",
           //justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
         }}
       >
-        <Button
-          sx={{
-            position: "absolute",
-            fontFamily: "unset",
-            right: "0",
-            top: "0",
-            color: "black",
-            fontSize: "1.3rem",
-          }}
-          onClick={() => OptionsToChoose(-1)}
-        >
-          <ClearIcon
+        <Link href="/">
+          <Button
             sx={{
-              fontSize: "2.5rem",
-              fontWeight: "100",
+              position: "absolute",
+              fontFamily: "unset",
+              right: "8vw",
+              top: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
+              color: "black",
+              fontSize: "1.3rem",
             }}
-          />
-        </Button>
+            // onClick={() => OptionsToChoose(-1)}
+          >
+            <ClearIcon
+              sx={{
+                fontSize: "2.5rem",
+                fontWeight: "100",
+              }}
+            />
+          </Button>
+        </Link>
+
         <Box>
           <Box
             sx={{
@@ -67,7 +84,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
               width: "22%",
               position: "absolute",
               left: "10%",
-              top: "4vh",
+              top: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
               height: "60%",
               padding: "1rem",
               zIndex: 1,
@@ -81,7 +98,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 fontWeight: "700",
               }}
             >
-              {info.title}
+              {t(`${cat}.title`)}
             </Typography>
             <Typography
               sx={{
@@ -91,7 +108,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 marginTop: "1rem",
               }}
             >
-              {parse(info.description)}
+              {parse(t(`${cat}.description`))}
             </Typography>
             <Box
               sx={{
@@ -102,10 +119,10 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 borderBottom: "2px solid black",
               }}
             >
-              <Image src={"./appleWallet.svg"} width={136} height={50} />
-              <Image src={"./googleWallet.svg"} width={156} height={50} />
+              <Image src={"/appleWallet.svg"} width={136} height={50} />
+              <Image src={"/googleWallet.svg"} width={156} height={50} />
             </Box>{" "}
-            <AddIcon sx={{ right: 20, position: "absolute" }} />
+            <AddIcon sx={{ right: 10, position: "absolute" }} />
             <Typography
               sx={{
                 fontFamily: "unset",
@@ -115,7 +132,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                 fontWeight: "600",
               }}
             >
-              {parse(info.featureText)}
+              {parse(t(`${cat}.featureText`))}
             </Typography>
           </Box>
           {/* IMAGES */}
@@ -145,11 +162,12 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                   height: "100%",
                   left: "5%",
                   position: "absolute",
-                  backgroundPosition: "top right",
+                  backgroundPosition: "bottom right",
                   backgroundRepeat: "no-repeat",
                   backgroundImage:
-                    optionChosen > 0 && `url(${info.insideImages[0]})`,
-                  backgroundSize: info.backgroundSizeMain,
+                    cat !== "Global" && `url(${t(`${cat}.insideImages.0`)})`,
+
+                  backgroundSize: `${t(`${cat}.backgroundSizeMain`)}`,
                   /*   optionChosen === 1
                       ? "85%"
                       : optionChosen === 2
@@ -170,10 +188,10 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                   height: "85%",
                   //position: "absolute",
                   //right: 0,
-                  backgroundSize: optionChosen === 4 ? "56%" : "cover",
+                  backgroundSize: cat === "Compromiso" ? "56%" : "cover",
                   //bgcolor: "white",
                   backgroundImage:
-                    optionChosen > 0 && `url(${info.insideImages[1]})`,
+                    cat !== "Global" && `url(${t(`${cat}.insideImages.1`)})`,
                   //backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "top center",
@@ -195,13 +213,14 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
             //elements={options}
             selected={parseInt(optionChosen)}
             Options={OptionsToChoose}
+            cat={cat}
           />
         </Box>
         <Box
           sx={{
             position: "absolute",
             width: "60%",
-            bgcolor: optionChosen > 0 ? info.thirdColor : "transparent",
+            bgcolor: cat !== "Global" ? info.thirdColor : "none",
             bottom: "0vh",
             right: "10%",
             height: "33vh",
@@ -233,7 +252,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, info }) => {
                   fontSize: "1.5rem",
                 }}
               >
-                Descárgala ahora
+                {t(`${cat}.downloadText`)}
               </Typography>
             </Box>
 

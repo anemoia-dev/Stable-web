@@ -14,7 +14,7 @@ function getRandomArbitrary(min, max) {
 
 const options1 = {
   o1: "Global",
-  o2: "Cercanía",
+  o2: "Cercania",
   o3: "Confianza",
   o4: "Responsabilidad",
   o5: "Compromiso",
@@ -75,11 +75,11 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
       key={optionChosen}
       sx={{
         bottom: 0,
-        bgcolor: "20201F",
+        //bgcolor: "20201F",
         //zIndex: 1000,
         overflow: "hidden",
         //position: "absolute",
-        bottom: 0,
+        //bottom: 0,
         "@media (orientation: landscape)": {
           height: { sm: "100vw", xs: "100vh", md: "100%" },
         },
@@ -94,8 +94,8 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
           display: { xs: "block", md: "flex" },
           alignItems: "flex-end",
           flexDirection: { xs: "column", md: "row" },
-          position: "absolute",
-          bottom: 0,
+          position: { xs: "absolute", md: "absolute" },
+          bottom: { xs: "8%", md: 0 },
           heigth: "100%",
 
           /*  minHeight: {
@@ -134,7 +134,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                     xs: "250px",
                     md: id !== 0 ? "cover" : "85%",
                   }, */
-                  backgroundColor: el.color,
+                  backgroundColor: { xs: "#202020", md: el.color },
                   display: selectedNum !== -1 && "none",
                   /*  backgroundPosition: {
                     xs:
@@ -156,15 +156,16 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   },
                   "@media (orientation: landscape)": {
                     height: {
-                      xs: "12vh",
+                      //xs: "12vh",
                       sm: "20vw",
                       md: `${heights[id]}vh`,
                     },
                   },
                   "@media (orientation: portrait)": {
                     height: {
+                      xs: "10vh",
                       sm: "15vh",
-                      xs: "20vh",
+
                       md: `${heights[id]}vh`,
                     },
                   },
@@ -188,30 +189,39 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                 /* key={el.id} */
               >
                 <Link href={options1[`o${id + 1}`]}>
-                  <Image
-                    src={el.coverImage}
-                    alt="cover"
-                    fill
-                    priority={false}
-                    //placeholder="blur"
-                    style={{
-                      //opacity: loaded ? 1 : 0,
-                      transition: "opacity 0.5s",
-                      "object-fit": "cover",
-                      objectPosition: "Top",
+                  <Box
+                    sx={{
+                      display: { xs: "none", md: "flex" },
                     }}
-                    /* onLoad={() => setLoaded(true)} */
-                  ></Image>
+                  >
+                    <Image
+                      src={el.coverImage}
+                      alt="cover"
+                      fill
+                      priority={false}
+                      //placeholder="blur"
+                      style={{
+                        //opacity: loaded ? 1 : 0,
+                        transition: "opacity 0.5s",
+                        "object-fit": "cover",
+                        objectPosition: "Top",
+                      }}
+                      /* onLoad={() => setLoaded(true)} */
+                    ></Image>
+                  </Box>
+
                   <Box
                     key={id + optionChosen}
                     sx={{
                       display: "flex",
                       alignItems: { xs: "left", md: "center" },
+                      flexDirection: { xs: "column", md: "row" },
+                      justifyContent: { xs: "center", md: "center" },
                       position: "absolute",
-                      borderBottom: "1px solid rgba(168, 168, 168, 1)",
+                      borderBottom: { md: "1px solid rgba(168, 168, 168, 1)" },
                       bottom: 0,
                       color: "white",
-                      height: "2rem",
+                      height: { xs: "100%", md: "2rem" },
                       width: "100%",
                       backgroundColor: "#202020",
                       padding: {
@@ -238,7 +248,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                         },
                       }}
                     >
-                      {t(`Options.o${id + 1}`)}
+                      {t(`Options.o${id}`)}
                       {/* {options1[`o${id + 1}`]} */}
                     </Typography>
                   </Box>

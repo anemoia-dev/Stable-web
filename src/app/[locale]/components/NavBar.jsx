@@ -95,99 +95,103 @@ const NavBar = ({
 
   return (
     <Box sx={{ flexGrow: 1 }} id="navBar">
-      <HideOnScroll>
-        <AppBar
-          // Styling the app bar
-          position={cat !== "Global" ? "static" : "fixed"}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            backgroundColor: color ? color : " #d7d7d7",
-            /* backgroundImage:
+      {/* <HideOnScroll> */}
+      <AppBar
+        // Styling the app bar
+        //position={cat !== "Global" ? "fixed" : "fixed"}
+        sx={{
+          position: {
+            xs: "sticky",
+            md: cat !== "Global" ? "fixed" : "fixed",
+          },
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: color ? color : " #d7d7d7",
+          /* backgroundImage:
               optionChosen === 0 &&
               "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)", */
-            height: "11vh",
-            boxShadow: "none",
-            borderBottom:
-              color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
+          height: { xs: "12.5vh", md: "11vh" },
+          boxShadow: "none",
+          borderBottom:
+            color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
+        }}
+      >
+        {/* //background-image: linear-gradient(147deg, #d7d7d7 0%, #353535 74%); */}
+        <Toolbar
+          // Styling the toolbar
+          sx={{
+            width: { xs: "100%", sm: "80%", md: "80%" },
+            //height: "10vh",
+            backgroundColor: color,
+            padding: { xs: "0 2rem", sm: 0 },
+            display: "flex",
+            justifyContent: {
+              xs: "space-between",
+              sm: "space-around",
+              md: "space-between",
+            },
           }}
         >
-          {/* //background-image: linear-gradient(147deg, #d7d7d7 0%, #353535 74%); */}
-          <Toolbar
-            // Styling the toolbar
-            sx={{
-              width: { xs: "100%", sm: "80%", md: "80%" },
-              //height: "10vh",
-              backgroundColor: color,
-              padding: { xs: "0 10rem", sm: 0 },
-              display: "flex",
-              justifyContent: {
-                xs: "center",
-                sm: "space-around",
-                md: "space-between",
-              },
-            }}
-          >
-            {/* GIF Component */}
-            <Link href="/">
-              <Box
-                sx={{
-                  position: "relative",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: {
-                    xs: "8rem",
-                    md: "120px",
-                  },
-                }}
-              >
-                <Image
-                  src={optionChosen === -1 ? "/whiteGif.gif" : "/blackGif.gif"}
-                  alt="logo"
-                  width={140}
-                  height={79}
-                  priority
-                  style={{
-                    backgroundColor: color,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                />
-              </Box>
-            </Link>
-
+          {/* GIF Component */}
+          <Link href="/">
             <Box
-              // Creating a box to hold multiple items
               sx={{
+                position: "relative",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: { sm: "1rem" },
-                padding: { xs: "2%" },
-                color: color !== "#202020" ? "#202020" : "white",
+                width: {
+                  xs: "8rem",
+                  md: "120px",
+                },
               }}
             >
-              <Typography
-                sx={{
-                  fontFamily: "unset",
-                  display: { xs: "none", md: "flex" },
+              <Image
+                src={optionChosen === -1 ? "/whiteGif.gif" : "/blackGif.gif"}
+                alt="logo"
+                width={140}
+                height={79}
+                priority
+                style={{
+                  backgroundColor: color,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
-              >
-                {t("navBarMain.form")}
-              </Typography>
+              />
+            </Box>
+          </Link>
 
-              <Typography
-                sx={{
-                  fontFamily: "unset",
-                  display: { xs: "none", md: "flex" },
-                }}
-              >
-                {t("navBarMain.centerHelp")}
-              </Typography>
+          <Box
+            // Creating a box to hold multiple items
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: { sm: "1rem" },
+              padding: { xs: "2%" },
+              color: color !== "#202020" ? "#202020" : "white",
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "unset",
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              {t("navBarMain.form")}
+            </Typography>
 
-              {/* 
+            <Typography
+              sx={{
+                fontFamily: "unset",
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              {t("navBarMain.centerHelp")}
+            </Typography>
+
+            {/* 
             <Button
               sx={{
                 bgcolor: "transparent",
@@ -207,69 +211,69 @@ const NavBar = ({
               </p>
             </Button> */}
 
-              <Box
-                sx={{
-                  display: optionChosen !== -1 ? "flex" : "none",
-                }}
-              >
-                <SocialMedia optionChosen={optionChosen} />
-              </Box>
-
-              <Select
-                // Creating a language selection dropdown
-                value={lang}
-                onChange={(e) => handleChange(e.target.value)}
-                label={"language"}
-                displayEmpty
-                size="small"
-                sx={{
-                  border: "none",
-                  borderRadius: 0,
-                  color: color !== "#202020" ? "#202020" : "white",
-                  fontFamily: "unset",
-                  ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                  "&:hover": {
-                    bgcolor: "gray",
-                  },
-                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    border: "none",
-                    borderRadius: "0",
-                  },
-                  ".MuiSvgIcon-root ": {
-                    fill:
-                      color !== "#202020"
-                        ? "#202020 !important"
-                        : "white !important",
-                  },
-                }}
-              >
-                <MenuItem value={"en"}>
-                  <Typography
-                    sx={{
-                      fontFamily: "unset",
-                    }}
-                  >
-                    {" "}
-                    English{" "}
-                  </Typography>
-                </MenuItem>
-
-                <MenuItem value={"es"}>
-                  <Typography
-                    sx={{
-                      fontFamily: "unset",
-                    }}
-                  >
-                    Español
-                  </Typography>
-                </MenuItem>
-              </Select>
-
-              <BurgerButton />
+            <Box
+              sx={{
+                display: optionChosen !== -1 ? "flex" : "none",
+              }}
+            >
+              <SocialMedia optionChosen={optionChosen} />
             </Box>
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
+
+            <Select
+              // Creating a language selection dropdown
+              value={lang}
+              onChange={(e) => handleChange(e.target.value)}
+              label={"language"}
+              displayEmpty
+              size="small"
+              sx={{
+                border: "none",
+                borderRadius: 0,
+                color: color !== "#202020" ? "#202020" : "white",
+                fontFamily: "unset",
+                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                "&:hover": {
+                  bgcolor: "gray",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                  borderRadius: "0",
+                },
+                ".MuiSvgIcon-root ": {
+                  fill:
+                    color !== "#202020"
+                      ? "#202020 !important"
+                      : "white !important",
+                },
+              }}
+            >
+              <MenuItem value={"en"}>
+                <Typography
+                  sx={{
+                    fontFamily: "unset",
+                  }}
+                >
+                  {" "}
+                  English{" "}
+                </Typography>
+              </MenuItem>
+
+              <MenuItem value={"es"}>
+                <Typography
+                  sx={{
+                    fontFamily: "unset",
+                  }}
+                >
+                  Español
+                </Typography>
+              </MenuItem>
+            </Select>
+
+            <BurgerButton />
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {/* </HideOnScroll> */}
     </Box>
   );
 };

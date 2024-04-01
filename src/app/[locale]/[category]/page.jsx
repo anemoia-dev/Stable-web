@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import { Box } from "@mui/material";
-import Selected from "../components/Selected";
+import Selected from "./Selected";
+//import Selected from "../components/Selected";
 import { useTranslation } from "react-i18next";
 import * as textList from "../../../files/Selected.json";
 import Footer from "../components/Footer";

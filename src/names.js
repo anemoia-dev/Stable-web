@@ -4,5 +4,6 @@ module.exports = {
         "People",
         "HowToUse",
         "Business",
-        "Footer", "Selected"]
+        "Footer",
+        "Selected"]
 }

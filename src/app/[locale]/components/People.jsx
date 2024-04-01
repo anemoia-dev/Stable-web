@@ -12,32 +12,33 @@ const People = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        padding: "2.5rem 3rem",
-        backgroundColor: "rgba(0,0,0,.5)",
+        padding: { xs: "2rem 0rem", md: "2.5rem 3rem" },
+        backgroundColor: { xs: "rgba(255, 230, 251, 1)", md: "rgba(0,0,0,.5)" },
         color: "#fff",
-        height: "100vh",
+        height: { xs: "140vh", md: "100vh" },
         position: "relative",
       }}
     >
-      <p
-        style={{
-          fontSize: "4rem",
+      <Typography
+        sx={{
+          fontSize: { xs: "30px", md: "4rem" },
+          fontFamily: "unset",
           fontWeight: "bold",
-          color: "white",
+          color: { xs: "black", md: "white" },
         }}
       >
         {t("title")}
-      </p>
+      </Typography>
 
-      <Card
+      <Box
         sx={{
           //boxShadow: "0px 4px 20px 0px rgba(32, 32, 31, 0.2)",
-          border: "1px solid white",
-          bgcolor: "rgba(0,0,0,.5)",
+          border: { xs: "none", md: "1px solid white" },
+          bgcolor: { xs: "transparent", md: "rgba(0,0,0,.5)" },
           padding: "2rem",
-          marginTop: "3vh",
-          width: "80%",
-          height: "75%",
+          marginTop: { md: "3vh" },
+          width: { xs: "100%", md: "80%" },
+          height: { md: "75%" },
           display: "flex",
           //bgcolor: "white",
           //color: "white",
@@ -51,8 +52,8 @@ const People = () => {
         <Box>
           <Typography
             sx={{
-              color: "white",
-              fontSize: "1.7rem",
+              color: { xs: "black", md: "white" },
+              fontSize: { xs: "20px", md: "1.7rem" },
               fontFamily: "unset",
               fontWeight: "500",
               position: "relative",
@@ -62,7 +63,7 @@ const People = () => {
           </Typography>
           <Typography
             sx={{
-              color: "white",
+              color: { xs: "black", md: "white" },
               fontFamily: "unset",
             }}
           >
@@ -71,12 +72,18 @@ const People = () => {
         </Box>
 
         <ReactPlayer
-          light={<img src="./whiteGif.gif" alt="Thumbnail" />}
+          light={
+            <img
+              src="./whiteGif.gif"
+              alt="Thumbnail"
+              width={{ xs: "50%", md: "100%" }}
+            />
+          }
           url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
           width={"100%"}
           height={"110%"}
         />
-      </Card>
+      </Box>
     </Box>
   );
 };

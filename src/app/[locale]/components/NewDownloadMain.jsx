@@ -19,6 +19,11 @@ const NewDownloadImage = ({ navbarHeight }) => {
   const [nextWallpaper, setNextWallpaper] = useState(1);
 
   const wallpapers = ["./wal1.svg", "./wal2.svg", "./wal3.svg"];
+  const wallpapersMobile = [
+    "./wal1Mobile.svg",
+    "./wal2Mobile.svg",
+    "./wal3Mobile.svg",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,6 +53,7 @@ const NewDownloadImage = ({ navbarHeight }) => {
 
   const { src } = useImage({
     srcList: wallpapers[currentWallpaper],
+    //srcList: wallpapersMobile[currentWallpaper],
     useSuspense: false,
   });
 
@@ -56,29 +62,65 @@ const NewDownloadImage = ({ navbarHeight }) => {
       sx={{
         width: "100%",
         /* height: `calc(100% - ${navbarHeight}px)`, */
-        height: "100%",
+        height: { xs: "100%", md: "100%" },
 
         position: "absolute",
         alignItems: "center",
-        bgcolor: "#20201f",
+        bgcolor: { xs: "#20201f", md: "#20201f" },
         justifyContent: "center",
       }}
     >
       <Box sx={{ width: "100%" }}>
-        <Image
-          src={src}
-          alt={"Loading..."}
-          fill
-          priority={false}
-          //placeholder="blur"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transition: "opacity 0.5s",
-            "object-fit": "cover",
-            objectPosition: "Top",
+        <Box
+          sx={{
+            display: { xs: "none", md: "block" },
           }}
-          onLoad={() => setLoaded(true)}
-        />
+        >
+          <Image
+            src={src}
+            alt={"Loading..."}
+            fill
+            priority={false}
+            //placeholder="blur"
+            style={{
+              display: {
+                xs: "none",
+                md: "block",
+              },
+              opacity: loaded ? 1 : 0,
+              transition: "opacity 0.5s",
+              "object-fit": "cover",
+              objectPosition: "Top",
+            }}
+            onLoad={() => setLoaded(true)}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+          }}
+        >
+          <Image
+            src={wallpapersMobile[nextWallpaper]}
+            alt={"Loading..."}
+            fill
+            priority={false}
+            //placeholder="blur"
+            style={{
+              display: {
+                xs: "none",
+                md: "block",
+              },
+              opacity: loaded ? 1 : 0,
+              transition: "opacity 0.5s",
+              "object-fit": "cover",
+              objectPosition: "Top",
+            }}
+            onLoad={() => setLoaded(true)}
+          />
+        </Box>
+
         <Box
           sx={{
             position: "absolute",
@@ -93,15 +135,15 @@ const NewDownloadImage = ({ navbarHeight }) => {
           key={nextWallpaper}
           sx={{
             bgcolor: "red",
-            padding: "0 3rem",
-            width: "60vw",
+            padding: { xs: "0 1rem", md: "0 3rem" },
+            width: { xs: "90%", md: "60vw" },
             //height: "70vh",
             display: "flex",
             position: "absolute",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: { md: "center" },
             gap: "1rem",
-            bottom: "10vh",
+            bottom: { xs: "0vh", md: "10vh" },
           }}
         >
           <Box
@@ -115,7 +157,7 @@ const NewDownloadImage = ({ navbarHeight }) => {
 
               //transition: "text 3s fade-in",
               position: "absolute",
-              bottom: "11vh",
+              bottom: { xs: "20vh", md: "11vh" },
             }}
           >
             {texts.map((el, id) => {
@@ -125,7 +167,7 @@ const NewDownloadImage = ({ navbarHeight }) => {
                   className={S.fadein}
                   sx={{
                     fontFamily: "unset",
-                    fontSize: "3.5rem",
+                    fontSize: { xs: "30px", md: "3.5rem" },
                     fontWeight: "bold",
                     color: "white",
                     lineHeight: 1.1,
@@ -142,24 +184,25 @@ const NewDownloadImage = ({ navbarHeight }) => {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "left",
+              justifyContent: { xs: "center", md: "left" },
               gap: "1rem",
               position: "absolute",
-              bottom: "0vh",
+              bottom: { xs: "4vh", md: "0vh" },
+              width: { xs: "100%" },
             }}
           >
             <Box
               component={"img"}
               src={"/google-us.svg"}
               sx={{
-                width: "220px",
+                width: { xs: "165px", md: "220px" },
               }}
             ></Box>
             <Box
               component={"img"}
               src={"/apple.svg"}
               sx={{
-                width: "210px",
+                width: { xs: "155px", md: "210px" },
               }}
             ></Box>
           </Box>
