@@ -101,7 +101,7 @@ const NavBar = ({
         //position={cat !== "Global" ? "fixed" : "fixed"}
         sx={{
           position: {
-            xs: "sticky",
+            xs: "fixed",
             md: cat !== "Global" ? "fixed" : "fixed",
           },
           display: "flex",

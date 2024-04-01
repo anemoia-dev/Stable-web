@@ -187,7 +187,7 @@ const NewDownloadImage = ({ navbarHeight }) => {
               justifyContent: { xs: "center", md: "left" },
               gap: "1rem",
               position: "absolute",
-              bottom: { xs: "4vh", md: "0vh" },
+              bottom: { xs: "9vh", md: "0vh" },
               width: { xs: "100%" },
             }}
           >
