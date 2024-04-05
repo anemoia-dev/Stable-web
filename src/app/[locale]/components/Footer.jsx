@@ -62,7 +62,7 @@ const Footer = ({ optionChosen }) => {
       >
         <Box
           component="img"
-          src="https://res.cloudinary.com/dizj6clit/image/upload/v1682467975/Stable/webportal/ev1b39esysm3efulwinu.gif"
+          src={"/whiteGif.gif"}
           sx={{
             "@media (orientation: landscape)": {
               height: { sm: "13vw", md: "7vw" },

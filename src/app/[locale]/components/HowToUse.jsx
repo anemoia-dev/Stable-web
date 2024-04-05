@@ -19,7 +19,7 @@ const HowToUse = () => {
   return (
     <Box
       sx={{
-        height: { xs: "100vh", md: "90vh" },
+        minHeight: { xs: "100vh", md: "90vh" },
         padding: { xs: "0 3rem" },
         display: "flex",
         flexDirection: { xs: "column", md: "column" },

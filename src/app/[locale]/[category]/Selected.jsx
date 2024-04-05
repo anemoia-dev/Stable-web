@@ -61,7 +61,7 @@ const Selected = ({
             sx={{
               position: "absolute",
               fontFamily: "unset",
-              right: "8vw",
+              right: "7vw",
               top: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
               color: "black",
               fontSize: "1.3rem",
