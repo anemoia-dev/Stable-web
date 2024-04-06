@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import { Typography, Card } from "@mui/material";
 import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "next-i18next";
+import Responsive from "./Carousel";
 const People = () => {
   const { t, i18n } = useTranslation("People");
   return (
@@ -15,7 +16,7 @@ const People = () => {
         padding: { xs: "2rem 0rem", md: "2.5rem 3rem" },
         backgroundColor: { xs: "rgba(255, 230, 251, 1)", md: "rgba(0,0,0,.5)" },
         color: "#fff",
-        height: { xs: "140vh", md: "100vh" },
+        minHeight: { xs: "110vh", md: "100vh" },
         position: "relative",
       }}
     >
@@ -70,19 +71,40 @@ const People = () => {
             {t("description")}
           </Typography>
         </Box>
+        <Box
+          sx={{
+            display: { xs: "none", md: "block" },
+          }}
+        >
+          <ReactPlayer
+            light={
+              <img
+                src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                alt="Thumbnail"
+                width={{ xs: "50%", md: "100%" }}
+              />
+            }
+            url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
+            width={"100%"}
+            height={"110%"}
+          />
+        </Box>
+      </Box>
 
-        <ReactPlayer
-          light={
-            <img
-              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
-              alt="Thumbnail"
-              width={{ xs: "50%", md: "100%" }}
-            />
-          }
-          url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
-          width={"100%"}
-          height={"110%"}
-        />
+      <Box
+        sx={{
+          display: {
+            xs: "flex",
+            md: "none",
+          },
+          height: { xs: "40vh", md: "100vh" },
+          width: "80%",
+          bgcolor: "white",
+          //marginTop: "4vh",
+        }}
+      >
+        {" "}
+        <Responsive />
       </Box>
     </Box>
   );

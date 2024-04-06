@@ -26,6 +26,7 @@ const colors = [" #a9cce3", "#af7ac5", "#273746"];
 
 import { useTranslation, Trans } from "react-i18next";
 import { usePathname, useRouter } from "next/navigation";
+import Responsive from "./components/Carousel";
 export default function Home() {
   //console.log(dictionary)
 
@@ -172,7 +173,7 @@ export default function Home() {
         <React.Suspense fallback={<div>Loading...</div>}>
           <Box
             sx={{
-              height: { xs: "150vh", md: "100vh" },
+              height: { xs: "110vh", md: "100vh" },
               bgcolor: "#20201F",
 
               display: "flex",

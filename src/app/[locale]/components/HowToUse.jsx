@@ -19,12 +19,12 @@ const HowToUse = () => {
   return (
     <Box
       sx={{
-        minHeight: { xs: "100vh", md: "90vh" },
-        padding: { xs: "0 3rem" },
+        minHeight: { /* xs: "80vh" */ md: "90vh" },
+        padding: { xs: "2rem 2rem" },
         display: "flex",
         flexDirection: { xs: "column", md: "column" },
         justifyContent: "center",
-        marginTop: { xs: "-10vh", md: 0 },
+        marginTop: { /*  xs: "-10vh" */ md: 0 },
       }}
     >
       <Typography
