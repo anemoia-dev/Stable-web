@@ -1,23 +1,16 @@
 "use client";
 import React, { useState, useEffect, lazy } from "react";
 import Image from "next/image";
-/* import styles from "./page.module.css"; */
+
 import NavBar from "./components/NavBar";
 import { Box, Typography, Button, Grid } from "@mui/material";
 import dynamic from "next/dynamic";
-
-import SocialMedia from "./components/SocialMedia";
-/* import DownloadMain from "./components/DownloadMain"; */
-const DownloadMain = dynamic(() => import("./components/DownloadMain"));
-import { Business } from "@mui/icons-material";
-const Options = dynamic(() => import("./components/Options"));
-const Life = dynamic(() => import("./components/Life"));
-const People = dynamic(() => import("./components/People"));
-const HowToUse = dynamic(() => import("./components/HowToUse"));
-const BusinessComp = dynamic(() => import("./components/BusinessComp"));
-const Footer = dynamic(() => import("./components/Footer"));
-import parse from "html-react-parser";
-import Head from "next/head";
+const Options = lazy(() => import("./components/Options"));
+const Life = lazy(() => import("./components/Life"));
+const People = lazy(() => import("./components/People"));
+const HowToUse = lazy(() => import("./components/HowToUse"));
+const BusinessComp = lazy(() => import("./components/BusinessComp"));
+const Footer = lazy(() => import("./components/Footer"));
 
 const wals = [
   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
@@ -37,10 +30,6 @@ export default function Home() {
   //console.log(dictionary)
 
   const { t, i18n } = useTranslation("Business");
-  const currentLocale = i18n.language;
-  const router = useRouter();
-  const currentPathname = usePathname();
-
   const [backgroundChanger, setBackgroundChanger] = useState(0);
   const [image, setImage] = useState(colors[backgroundChanger]);
   //const [text, setText] = useState(texts[backgroundChanger]);
@@ -140,18 +129,10 @@ export default function Home() {
           <Box
             sx={{
               height: "100vh",
-              //padding: "3rem 6rem",
               width: "100vw",
-              //background: "url('/BusinessWallpaper.svg')",
-              //backgroundImage: "url('/BusinessWallpaper.svg')",
-              //backgroundRepeat: "no-repeat",
-              //backgroundSize: "100%",
-              //backgroundPosition: "bottom",
               display: { xs: "block", md: "flex" },
-              //opacity: 0.5,
               flexDirection: "column",
               position: "relative",
-              //padding: "2rem 4rem 2rem 4rem",
             }}
           >
             <Box
@@ -223,18 +204,11 @@ export default function Home() {
         <Box
           sx={{
             height: { xs: "100vh", md: "100vh" },
-            //padding: "3rem 6rem",
             width: "100vw",
-            //background: "url('/BusinessWallpaper.svg')",
-            //backgroundImage: "url('/BusinessWallpaper.svg')",
-            //backgroundRepeat: "no-repeat",
-            //backgroundSize: "100%",
-            //backgroundPosition: "bottom",
             display: "flex",
             //opacity: 0.5,
             flexDirection: "column",
             position: "relative",
-            //padding: "2rem 4rem 2rem 4rem",
           }}
         >
           <Box

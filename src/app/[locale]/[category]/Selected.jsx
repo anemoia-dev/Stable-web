@@ -284,14 +284,18 @@ const Selected = ({
             >
               <Box
                 component={"img"}
-                src={"/google-us.svg"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+                }
                 sx={{
                   width: "140px",
                 }}
               ></Box>
               <Box
                 component={"img"}
-                src={"/apple.svg"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+                }
                 sx={{
                   width: "130px",
                 }}

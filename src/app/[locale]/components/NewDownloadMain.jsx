@@ -97,6 +97,7 @@ const NewDownloadImage = () => {
               src={backgrounds[backgroundIndex]}
               alt="BusinessWallpaper"
               fill
+              priority
               //loader={"eager"}
               style={{
                 position: "absolute",
@@ -209,6 +210,7 @@ const NewDownloadImage = () => {
               src={backgroundsMobile[backgroundIndex]}
               alt="BusinessWallpaper"
               fill
+              priority
               //loader={"eager"}
               style={{
                 position: "absolute",
