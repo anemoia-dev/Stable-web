@@ -35,7 +35,7 @@ const Selected = ({
 
         backgroundImage:
           cat === "Global"
-            ? `url("/Card1.svg")`
+            ? `url("https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371556/Stable%20Mockups/selected/Card1_nepbdq.svg")`
             : `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
                 `${cat}.thirdColor`
               )})`,
@@ -124,8 +124,20 @@ const Selected = ({
                 borderBottom: "2px solid black",
               }}
             >
-              <Image src={"/appleWallet.svg"} width={136} height={50} />
-              <Image src={"/googleWallet.svg"} width={156} height={50} />
+              <Image
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371609/Stable%20Mockups/selected/appleWallet_ibxsbp.svg"
+                }
+                width={136}
+                height={50}
+              />
+              <Image
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371610/Stable%20Mockups/selected/googleWallet_b16uys.svg"
+                }
+                width={156}
+                height={50}
+              />
             </Box>{" "}
             <AddIcon sx={{ right: 10, position: "absolute" }} />
             <Typography

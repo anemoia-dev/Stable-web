@@ -74,14 +74,18 @@ const Life = () => {
       >
         <Box
           component={"img"}
-          src={"/googleBlack.svg"}
+          src={
+            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+          }
           sx={{
             width: { xs: "142px", md: "172px" },
           }}
         ></Box>
         <Box
           component={"img"}
-          src={"/appleblack.svg"}
+          src={
+            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+          }
           sx={{
             width: { xs: "132px", md: "158px" },
           }}

@@ -26,6 +26,7 @@ import Slide from "@mui/material/Slide";
 function HideOnScroll(props) {
   const { t, i18n } = useTranslation();
   const { children, window } = props;
+
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
@@ -123,6 +124,7 @@ const NavBar = ({
             width: { xs: "100%", sm: "80%", md: "80%" },
             //height: "10vh",
             backgroundColor: color,
+            gap: { sm: "1rem" },
             padding: { xs: "0 2rem", sm: 0 },
             display: "flex",
             justifyContent: {
@@ -171,9 +173,11 @@ const NavBar = ({
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "space-between",
               gap: { sm: "1rem" },
-              padding: { xs: "2%" },
+              height: { xs: "100%", md: "100%" },
+              padding: { xs: "2vw" },
+
               color: color !== "#202020" ? "#202020" : "white",
             }}
           >
@@ -228,7 +232,7 @@ const NavBar = ({
               value={lang}
               onChange={(e) => handleChange(e.target.value)}
               label={"language"}
-              displayEmpty
+              //displayEmpty
               size="small"
               sx={{
                 border: "none",

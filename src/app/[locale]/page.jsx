@@ -4,22 +4,21 @@ import Image from "next/image";
 /* import styles from "./page.module.css"; */
 import NavBar from "./components/NavBar";
 import { Box, Typography, Button, Grid } from "@mui/material";
+import dynamic from "next/dynamic";
 
 import SocialMedia from "./components/SocialMedia";
 /* import DownloadMain from "./components/DownloadMain"; */
-const DownloadMain = lazy(() => import("./components/DownloadMain"));
+const DownloadMain = dynamic(() => import("./components/DownloadMain"));
 import { Business } from "@mui/icons-material";
-const Options = lazy(() => import("./components/Options"));
-const Life = lazy(() => import("./components/Life"));
-const People = lazy(() => import("./components/People"));
-const HowToUse = lazy(() => import("./components/HowToUse"));
-const BusinessComp = lazy(() => import("./components/BusinessComp"));
-const Selected = lazy(() => import("./components/Selected"));
-const Footer = lazy(() => import("./components/Footer"));
+const Options = dynamic(() => import("./components/Options"));
+const Life = dynamic(() => import("./components/Life"));
+const People = dynamic(() => import("./components/People"));
+const HowToUse = dynamic(() => import("./components/HowToUse"));
+const BusinessComp = dynamic(() => import("./components/BusinessComp"));
+const Footer = dynamic(() => import("./components/Footer"));
 import parse from "html-react-parser";
 import Head from "next/head";
 
-/* const wals = ["./wal1.svg", "./wal2.svg", "./wal3.svg"]; */
 const wals = [
   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",

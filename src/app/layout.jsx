@@ -9,7 +9,7 @@ export const metadata = {
   title: "Stable Home",
   description: "Imagine a Stable World",
   icons: {
-    icon: "/icon.png",
+    icon: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712374010/Stable%20Mockups/Main/icon_jdfsgg.png",
   },
 };
 

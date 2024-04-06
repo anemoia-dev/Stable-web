@@ -68,14 +68,18 @@ const HowToUse = () => {
         >
           <Box
             component={"img"}
-            src={"/googleBlack.svg"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+            }
             sx={{
               width: "172px",
             }}
           ></Box>
           <Box
             component={"img"}
-            src={"/appleblack.svg"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+            }
             sx={{
               width: "158px",
             }}
