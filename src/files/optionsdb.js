@@ -4,7 +4,7 @@ module.exports = [
     color: "#FFE6FB",
     secondColor: "#FFD1FF",
     coverImage:
-      "https://res.cloudinary.com/dnatws9zh/image/upload/v1703608394/Mocks/Main/eoqrw6i31igw4vbywfc2.png",
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365004/Stable%20Mockups/options/eoqrw6i31igw4vbywfc2_aenszh.png",
     thirdColor: "#a1a1a2",
     insideImages: [
       "https://res.cloudinary.com/dizj6clit/image/upload/v1682469954/Stable/webportal/fd62nswa6offr6wijuqp.gif",
@@ -20,7 +20,7 @@ module.exports = [
     color: "#FFF7C6",
     secondColor: "#FDEEA4",
     coverImage:
-      "https://res.cloudinary.com/dizj6clit/image/upload/v1682468684/Stable/webportal/di5lb5jjlkrkttpystxx.png",
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365157/Stable%20Mockups/options/_shutterstock_2214534305-copia_vynnxx.png",
     thirdColor: "#EAB67D",
     insideImages: [
       "https://res.cloudinary.com/dizj6clit/image/upload/v1682470081/Stable/webportal/seto9itzm4n6vkdsjxph.png",
@@ -37,7 +37,7 @@ module.exports = [
     color: "#D0FFE6",
     secondColor: "#BCFADA",
     coverImage:
-      "https://res.cloudinary.com/dizj6clit/image/upload/v1682468784/Stable/webportal/kujtdbrepmgwj3fpbucm.png",
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365248/Stable%20Mockups/options/fashionable-woman-posing-copia_cu667b.png",
     thirdColor: "#7DCCA1",
     insideImages: [
       "https://res.cloudinary.com/dizj6clit/image/upload/v1682470258/Stable/webportal/nnmm3govw0gnaue1igjy.png",
@@ -55,7 +55,7 @@ module.exports = [
     color: "#FFE6FB",
     secondColor: "#FFD1FF",
     coverImage:
-      "https://res.cloudinary.com/dizj6clit/image/upload/v1682468853/Stable/webportal/kyvx4tuzh4zh2wgqpwzc.png",
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365363/Stable%20Mockups/options/_Responsibility_zpumsn.png",
     thirdColor: "#D385D6",
     insideImages: [
       "https://res.cloudinary.com/dizj6clit/image/upload/v1682470931/Stable/webportal/xm0hutmbdszsx133y9tc.png",
@@ -71,7 +71,7 @@ module.exports = [
     color: "#FFF7C6",
     secondColor: "#FDEEA4",
     coverImage:
-      "https://res.cloudinary.com/dizj6clit/image/upload/v1682469208/Stable/webportal/rw7lcu6qhbis6muttbmd.png",
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365396/Stable%20Mockups/options/_Commited_va2qha.png",
     thirdColor: "#EAB67D",
     insideImages: [
       "https://res.cloudinary.com/dizj6clit/image/upload/v1682471047/Stable/webportal/blm1l2br3pty80lyvxya.png",

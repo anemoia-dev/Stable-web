@@ -24,21 +24,26 @@ const Selected = ({
  */
 
   const { t, i18n } = useTranslation("Selected");
-
+  console.log(t(`${cat}.secondColor`));
   return (
     <Box
       sx={{
         height: cat === "Global" ? "100vh" : "100vh",
-        backgroundImage: `linear-gradient(to bottom,${t(
+        /* backgroundImage: `linear-gradient(to bottom,${t(
           `${cat}.secondColor`
-        )},${t(`${cat}.secondColor`)})`,
+        )},${t(`${cat}.thirdColor`)})`, */
+
         backgroundImage:
-          info.title !== "Global"
-            ? `linear-gradient(to bottom,${info.secondColor},${info.thirdColor})`
-            : `url("/Card1.jpg")`,
+          cat === "Global"
+            ? `url("/Card1.svg")`
+            : `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
+                `${cat}.thirdColor`
+              )})`,
+
         backgroundRepeat: "no-repeat",
+
         backgroundSize: "100%",
-        backgroundPosition: "center 60%",
+        backgroundPosition: "60%",
         position: "relative",
         width: "100%",
         bgcolor: "gray",
@@ -220,7 +225,7 @@ const Selected = ({
           sx={{
             position: "absolute",
             width: "60%",
-            bgcolor: cat !== "Global" ? info.thirdColor : "none",
+            bgcolor: cat !== "Global" ? t(`${cat}.thirdColor`) : "none",
             bottom: "0vh",
             right: "10%",
             height: "33vh",

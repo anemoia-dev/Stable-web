@@ -20,15 +20,15 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import useTranslation from "next-translate/useTranslation";
-
+/* import useTranslation from "next-translate/useTranslation"; */
+import { useTranslation } from "react-i18next";
 import Head from "next/head";
 /* import * as options from "../components/files/optionsdb.js"; */
 import { Language } from "@mui/icons-material";
 
 const BurgerButton = () => {
   //const { t, lang } = useTranslation();
-  const { t, lang } = useTranslation("common:Links");
+  const { t, lang } = useTranslation();
   const Links = t("common:Links", {}, { returnObjects: true });
   const languages = {
     en: "English",
@@ -131,7 +131,7 @@ const BurgerButton = () => {
                 //display: { xs: "none", md: "flex" },
               }}
             >
-              Formulario
+              {t("navBarMain.form")}
             </Typography>
 
             <Typography
@@ -140,7 +140,7 @@ const BurgerButton = () => {
                 //display: { xs: "none", md: "flex" },
               }}
             >
-              Centro de ayuda
+              {t("navBarMain.centerHelp")}
             </Typography>
           </Box>
         </Menu>

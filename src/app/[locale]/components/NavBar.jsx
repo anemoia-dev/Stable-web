@@ -147,7 +147,11 @@ const NavBar = ({
               }}
             >
               <Image
-                src={optionChosen === -1 ? "/whiteGif.gif" : "/blackGif.gif"}
+                src={
+                  optionChosen === -1
+                    ? "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                    : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
+                }
                 alt="logo"
                 width={140}
                 height={79}

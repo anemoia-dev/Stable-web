@@ -18,7 +18,13 @@ const Selected = lazy(() => import("./components/Selected"));
 const Footer = lazy(() => import("./components/Footer"));
 import parse from "html-react-parser";
 import Head from "next/head";
-const wals = ["./wal1.svg", "./wal2.svg", "./wal3.svg"];
+
+/* const wals = ["./wal1.svg", "./wal2.svg", "./wal3.svg"]; */
+const wals = [
+  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
+  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
+  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
+];
 import * as textList from "../../files/Selected.json";
 import NewDownloadImage from "./components/NewDownloadMain";
 
@@ -156,9 +162,10 @@ export default function Home() {
               }}
             >
               <Image
-                src="/LifeWallpaper.svg"
+                src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344217/Stable%20Mockups/Main/LifeWallpaper_dys5ud.svg"
                 alt="LifeWallpaper"
                 fill
+                load={() => "lazy"}
                 style={{
                   objectFit: "cover",
                   objectPosition: "Top",
@@ -243,9 +250,10 @@ export default function Home() {
             }}
           >
             <Image
-              src="/BusinessWallpaper.svg"
+              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344451/Stable%20Mockups/Main/BusinessWallpaper_bdwosi.svg"
               alt="BusinessWallpaper"
               fill
+              load={() => "lazy"}
               style={{
                 objectFit: "cover",
                 objectPosition: "bottom",

@@ -1,212 +1,298 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useImage } from "react-image";
-import { Box, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import DownloadMain from "./DownloadMain";
-import SocialMedia from "./SocialMedia";
-import * as S from "../../../styles/carrusel.module.css";
+import { motion, AnimatePresence } from "framer-motion";
+import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-const texts = [
-  "Eres más libre cuando  puedes disfrutar tu dinero en todo el mundo.",
-  "Una experiencia única se vive intensamente y se recuerda siempre.",
-  "Conoce tu tarjeta de entrada al mundo entero.",
-];
-const NewDownloadImage = ({ navbarHeight }) => {
-  const { t, i18n } = useTranslation();
-  const [loaded, setLoaded] = useState(false);
-  const [currentWallpaper, setCurrentWallpaper] = useState(0);
-  const [nextWallpaper, setNextWallpaper] = useState(1);
+/* const imagenes = [
+  {
+    imagen:
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
+  },
+  {
+    imagen:
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344451/Stable%20Mockups/Main/BusinessWallpaper_bdwosi.svg",
+  },
+  {
+    imagen:
+      "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344217/Stable%20Mockups/Main/LifeWallpaper_dys5ud.svg",
+  },
+]; */
 
-  const wallpapers = ["./wal1.svg", "./wal2.svg", "./wal3.svg"];
-  const wallpapersMobile = [
-    "./wal1Mobile.svg",
-    "./wal2Mobile.svg",
-    "./wal3Mobile.svg",
-  ];
+const imagenes = [
+  {
+    imagen: "/wal1.svg",
+  },
+  {
+    imagen: "/wal2.svg",
+  },
+  {
+    imagen: "/wal3.svg",
+  },
+];
+const imagenesMobile = [
+  {
+    imagen: "/wal1Mobile.svg",
+  },
+  {
+    imagen: "/wal2Mobile.svg",
+  },
+  {
+    imagen: "/wal3Mobile.svg",
+  },
+];
+
+const NewDownloadImage = () => {
+  const { t, i18n } = useTranslation();
+  const [backgroundIndex, setBackgroundIndex] = useState(0);
+  const [backgrounds] = useState(imagenes.map((imagen) => imagen.imagen));
+  const [backgroundsMobile] = useState(
+    imagenesMobile.map((imagen) => imagen.imagen)
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setNextWallpaper((prevWallpaper) =>
-        prevWallpaper >= wallpapers.length - 1 ? 0 : prevWallpaper + 1
-      );
+      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
     }, 5000);
+
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    setLoaded(false);
-
-    const timeout = setTimeout(() => {
-      setCurrentWallpaper(nextWallpaper);
-    }, 1000);
-
-    const imageLoadTimeout = setTimeout(() => {
-      setLoaded(true);
-    }, 1500);
-
-    return () => {
-      clearTimeout(timeout);
-      clearTimeout(imageLoadTimeout);
-    };
-  }, [nextWallpaper]);
-
-  const { src } = useImage({
-    srcList: wallpapers[currentWallpaper],
-    //srcList: wallpapersMobile[currentWallpaper],
-    useSuspense: false,
-  });
+  }, [backgroundIndex]);
 
   return (
     <Box
       sx={{
         width: "100%",
         /* height: `calc(100% - ${navbarHeight}px)`, */
-        height: { xs: "100%", md: "100%" },
+        height: { xs: "100%", md: "100vh" },
 
-        position: "absolute",
+        position: "relative",
         alignItems: "center",
         bgcolor: { xs: "#20201f", md: "#20201f" },
         justifyContent: "center",
       }}
     >
-      <Box sx={{ width: "100%" }}>
-        <Box
-          sx={{
-            display: { xs: "none", md: "block" },
-          }}
-        >
-          <Image
-            src={src}
-            alt={"Loading..."}
-            fill
-            priority={false}
-            //placeholder="blur"
-            style={{
-              display: {
-                xs: "none",
-                md: "block",
-              },
-              opacity: loaded ? 1 : 0,
-              transition: "opacity 0.5s",
-              "object-fit": "cover",
-              objectPosition: "Top",
-            }}
-            onLoad={() => setLoaded(true)}
-          />
-        </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: "100%", md: "100vh" },
+          position: "relative",
+          alignItems: "center",
+          bgcolor: { xs: "#20201f", md: "#20201f" },
+          justifyContent: "center",
 
-        <Box
-          sx={{
-            display: { xs: "block", md: "none" },
-          }}
-        >
-          <Image
-            src={wallpapersMobile[nextWallpaper]}
-            alt={"Loading..."}
-            fill
-            priority={false}
-            //placeholder="blur"
-            style={{
-              display: {
-                xs: "none",
-                md: "block",
-              },
-              opacity: loaded ? 1 : 0,
-              transition: "opacity 0.5s",
-              "object-fit": "cover",
-              objectPosition: "Top",
-            }}
-            onLoad={() => setLoaded(true)}
-          />
-        </Box>
-
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            width: "100%",
-          }}
-        >
-          <SocialMedia /* optionChosen={optionChosen} */ />
-        </Box>
-
-        <Box
-          key={nextWallpaper}
-          sx={{
-            bgcolor: "red",
-            padding: { xs: "0 1rem", md: "0 3rem" },
-            width: { xs: "90%", md: "60vw" },
-            //height: "70vh",
-            display: "flex",
-            position: "absolute",
-            flexDirection: "column",
-            justifyContent: { md: "center" },
-            gap: "1rem",
-            bottom: { xs: "0vh", md: "10vh" },
-          }}
-        >
-          <Box
-            key={nextWallpaper}
-            sx={{
-              //height: "100%",
-              fontWeight: "bold",
-              color: "white",
-              paddingTop: "0vh",
-              //opacity: 1,
-
-              //transition: "text 3s fade-in",
-              position: "absolute",
-              bottom: { xs: "20vh", md: "11vh" },
-            }}
+          display: { xs: "none", md: "block" },
+          flexDirection: "column",
+          gap: "1rem",
+        }}
+      >
+        <AnimatePresence>
+          <motion.div
+            key={backgroundIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
-            {texts.map((el, id) => {
-              return (
+            <Image
+              src={backgrounds[backgroundIndex]}
+              alt="BusinessWallpaper"
+              fill
+              //loader={"eager"}
+              style={{
+                position: "absolute",
+                transition: "opacity 2.5s",
+                "object-fit": "cover",
+                objectPosition: "Top",
+              }}
+            />
+
+            <Box
+              sx={{
+                bgcolor: "red",
+                padding: { xs: "0 1rem", md: "0 3rem" },
+                width: { xs: "90%", md: "60vw" },
+                //height: "70vh",
+                display: "flex",
+                position: "absolute",
+                flexDirection: "column",
+                justifyContent: { md: "center" },
+                gap: "1rem",
+                bottom: { xs: "0vh", md: "10vh" },
+              }}
+            >
+              <Box
+                sx={{
+                  //height: "100%",
+                  fontWeight: "bold",
+                  color: "white",
+                  paddingTop: "0vh",
+                  //opacity: 1,
+
+                  //transition: "text 3s fade-in",
+                  position: "absolute",
+                  bottom: { xs: "20vh", md: "11vh" },
+                }}
+              >
                 <Typography
-                  key={id + el}
-                  className={S.fadein}
+                  key={backgroundIndex}
+                  //className={S.fadein}
                   sx={{
                     fontFamily: "unset",
                     fontSize: { xs: "30px", md: "3.5rem" },
                     fontWeight: "bold",
                     color: "white",
                     lineHeight: 1.1,
-                    display: id === nextWallpaper ? "inline" : "none",
+                    //display: id === nextWallpaper ? "inline" : "none",
                   }}
                 >
-                  {t(`downloadMain.text${id}`)}
+                  {t(`downloadMain.text${backgroundIndex}`)}
                 </Typography>
-              );
-            })}
-            {/*  */}
-          </Box>
+              </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: { xs: "center", md: "left" },
-              gap: "1rem",
-              position: "absolute",
-              bottom: { xs: "9vh", md: "0vh" },
-              width: { xs: "100%" },
-            }}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "left" },
+                  gap: "1rem",
+                  position: "absolute",
+                  bottom: { xs: "9vh", md: "0vh" },
+                  width: { xs: "100%" },
+                }}
+              >
+                <Box
+                  component={"img"}
+                  src={
+                    "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+                  }
+                  sx={{
+                    width: { xs: "165px", md: "220px" },
+                  }}
+                ></Box>
+                <Box
+                  component={"img"}
+                  src={
+                    "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+                  }
+                  sx={{
+                    width: { xs: "155px", md: "210px" },
+                  }}
+                ></Box>
+              </Box>
+            </Box>
+          </motion.div>
+        </AnimatePresence>
+      </Box>
+      {/* MOBILE */}
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: "100%", md: "100vh" },
+          position: "relative",
+          alignItems: "center",
+          bgcolor: { xs: "#20201f", md: "#20201f" },
+          justifyContent: "center",
+
+          display: { xs: "block", md: "none" },
+          flexDirection: "column",
+          gap: "1rem",
+        }}
+      >
+        <AnimatePresence>
+          <motion.div
+            key={backgroundIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
-            <Box
-              component={"img"}
-              src={"/google-us.svg"}
-              sx={{
-                width: { xs: "165px", md: "220px" },
+            <Image
+              src={backgroundsMobile[backgroundIndex]}
+              alt="BusinessWallpaper"
+              fill
+              //loader={"eager"}
+              style={{
+                position: "absolute",
+                transition: "opacity 2.5s",
+                "object-fit": "cover",
+                objectPosition: "Top",
               }}
-            ></Box>
+            />
+
             <Box
-              component={"img"}
-              src={"/apple.svg"}
               sx={{
-                width: { xs: "155px", md: "210px" },
+                bgcolor: "red",
+                padding: { xs: "0 1rem", md: "0 3rem" },
+                width: { xs: "90%", md: "60vw" },
+                //height: "70vh",
+                display: "flex",
+                position: "absolute",
+                flexDirection: "column",
+                justifyContent: { md: "center" },
+                gap: "1rem",
+                bottom: { xs: "0vh", md: "10vh" },
               }}
-            ></Box>
-          </Box>
-        </Box>
+            >
+              <Box
+                sx={{
+                  //height: "100%",
+                  fontWeight: "bold",
+                  color: "white",
+                  paddingTop: "0vh",
+                  //opacity: 1,
+
+                  //transition: "text 3s fade-in",
+                  position: "absolute",
+                  bottom: { xs: "20vh", md: "11vh" },
+                }}
+              >
+                <Typography
+                  key={backgroundIndex}
+                  //className={S.fadein}
+                  sx={{
+                    fontFamily: "unset",
+                    fontSize: { xs: "30px", md: "3.5rem" },
+                    fontWeight: "bold",
+                    color: "white",
+                    lineHeight: 1.1,
+                    //display: id === nextWallpaper ? "inline" : "none",
+                  }}
+                >
+                  {t(`downloadMain.text${backgroundIndex}`)}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "left" },
+                  gap: "1rem",
+                  position: "absolute",
+                  bottom: { xs: "9vh", md: "0vh" },
+                  width: { xs: "100%" },
+                }}
+              >
+                <Box
+                  component={"img"}
+                  src={
+                    "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+                  }
+                  sx={{
+                    width: { xs: "165px", md: "220px" },
+                  }}
+                ></Box>
+                <Box
+                  component={"img"}
+                  src={
+                    "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+                  }
+                  sx={{
+                    width: { xs: "155px", md: "210px" },
+                  }}
+                ></Box>
+              </Box>
+            </Box>
+          </motion.div>
+        </AnimatePresence>
       </Box>
     </Box>
   );

@@ -14,6 +14,7 @@
     "@formatjs/intl-localematcher": "^0.5.4",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
+    "framer-motion": "^11.0.25",
     "html-react-parser": "^5.1.8",
     "i18next": "^23.10.0",
     "i18next-resources-to-backend": "^1.2.0",
