@@ -111,7 +111,12 @@ const Expanded = ({ text, id, background, video }) => {
             <ReactPlayer
               url={t(`op${id}.video`)}
               width={"100%"}
-              light={<img src="./whiteGif.gif" alt="Thumbnail" />}
+              light={
+                <img
+                  src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                  alt="Thumbnail"
+                />
+              }
             />
           </Box>
         </Box>

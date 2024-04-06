@@ -74,7 +74,7 @@ const People = () => {
         <ReactPlayer
           light={
             <img
-              src="./whiteGif.gif"
+              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
               alt="Thumbnail"
               width={{ xs: "50%", md: "100%" }}
             />
