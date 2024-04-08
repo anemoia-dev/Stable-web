@@ -97,7 +97,7 @@ const People = () => {
             xs: "flex",
             md: "none",
           },
-          height: { xs: "40vh", md: "100vh" },
+          height: { xs: "50vh", md: "100vh" },
           width: "80%",
           bgcolor: "white",
           //marginTop: "4vh",

@@ -95,7 +95,7 @@ const NavBar = ({
   }, []);
 
   return (
-    <Box sx={{ flexGrow: 1 }} id="navBar">
+    <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
       {/* <HideOnScroll> */}
       <AppBar
         // Styling the app bar
@@ -103,8 +103,9 @@ const NavBar = ({
         sx={{
           position: {
             xs: "fixed",
-            md: cat !== "Global" ? "fixed" : "fixed",
+            md: cat !== "Global" ? "static" : "static",
           },
+          width: "100vw",
           display: "flex",
           alignItems: "center",
           backgroundColor: color ? color : " #d7d7d7",

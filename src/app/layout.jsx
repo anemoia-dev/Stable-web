@@ -20,6 +20,10 @@ export function generateStaticParams() {
 export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
+      <Head>
+        <meta charset="utf-8" />
+      </Head>
+
       <body className={montserrat.className}>{children}</body>
     </html>
   );

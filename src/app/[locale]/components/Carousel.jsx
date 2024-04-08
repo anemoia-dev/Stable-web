@@ -1,109 +1,52 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// Import Swiper React components
+"use client";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-function CustomSlide(props) {
-  const { index, ...otherProps } = props;
-  return (
-    <div
-      {...otherProps}
-      style={{
-        width: "100%",
-        height: "40vh",
-        backgroundColor: "rgba(217, 217, 217, 1)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "black",
-      }}
-    >
-      <h3>{index}</h3>
-    </div>
-  );
-}
+import "../../../styles/styles-carousel.css";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", color: "black" }}
-      onClick={onClick}
-    />
-  );
-}
+// import required modules
+import { Pagination, Navigation } from "swiper/modules";
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        /* ...style */ display: "block",
-        color: "black",
-        position: "absolute",
-      }}
-      onClick={onClick}
-    />
-  );
-}
-export default function Responsive() {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    centerMode: false,
-    lazyLoad: true,
-
-    /*    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ], */
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
+export default function App() {
   return (
     <Box
-      //className="slider-container"
       sx={{
+        height: "100%",
         width: "100%",
-
-        display: "block",
       }}
     >
-      <Slider {...settings}>
-        <CustomSlide index={0} />
-        <CustomSlide index={1} />
-        <CustomSlide index={2} />
-      </Slider>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+        style={{
+          /*  */
+          "--swiper-pagination-bullet-size": "10px",
+        }}
+      >
+        <Box sx={{ bgcolor: "red", width: "100%", height: "100%" }}>
+          <SwiperSlide className="swiper-slide">Slide 1</SwiperSlide>
+        </Box>
+        <Box>
+          <SwiperSlide>Slide 2</SwiperSlide>
+        </Box>
+        <Box>
+          <SwiperSlide>Slide 3</SwiperSlide>
+        </Box>
+      </Swiper>
     </Box>
   );
 }
