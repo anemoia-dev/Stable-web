@@ -1,20 +1,11 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
-import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
 import Expanded from "./Expanded";
-import parse from "html-react-parser";
 
 import { useTranslation } from "react-i18next";
 const texts = [0, 1, 2, 3];
 const HowToUse = () => {
   const { t, i18n } = useTranslation("HowToUse");
-  /*  const [open, setOpen] = useState(false);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setOpen(!open);
-  }; */
 
   return (
     <Box

@@ -5,7 +5,7 @@ import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "react-i18next";
 import CloseIcon from "@mui/icons-material/Close";
 
-const Expanded = ({ text, id, background, video }) => {
+const Expanded = ({ id }) => {
   const { t, i18n } = useTranslation("HowToUse");
   const [open, setOpen] = useState(false);
 
@@ -18,14 +18,6 @@ const Expanded = ({ text, id, background, video }) => {
   const width2 = id === 2 && open ? "95%" : "70%";
   const width3 = id === 3 && open ? "95%" : "60%";
 
-  const options = {
-    width: 900,
-    height: 325,
-    playerVars: {
-      autoplay: 0,
-      controls: 1,
-    },
-  };
   let widths = {
     width0,
     width1,
@@ -34,8 +26,6 @@ const Expanded = ({ text, id, background, video }) => {
   };
 
   const handleClose = (e) => {
-    //e.preventDefault();
-
     setOpen(false);
   };
   return (
@@ -121,8 +111,6 @@ const Expanded = ({ text, id, background, video }) => {
                     left: 0,
                     width: "100%",
                     margin: "50% auto",
-                    //height: "100%",
-                    //objectFit: "",
                   }}
                 />
               }

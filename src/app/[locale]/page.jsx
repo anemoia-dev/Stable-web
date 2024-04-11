@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useEffect, lazy } from "react";
 import Image from "next/image";
-
 import NavBar from "./components/NavBar";
 import { Box, Typography, Button, Grid } from "@mui/material";
-import dynamic from "next/dynamic";
 const Options = lazy(() => import("./components/Options"));
 const Life = lazy(() => import("./components/Life"));
 const People = lazy(() => import("./components/People"));
@@ -17,6 +15,7 @@ const wals = [
   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
 ];
+
 import * as textList from "../../files/Selected.json";
 import NewDownloadImage from "./components/NewDownloadMain";
 
@@ -25,16 +24,13 @@ const colors = [" #a9cce3", "#af7ac5", "#273746"];
 /* translated */
 
 import { useTranslation, Trans } from "react-i18next";
-import { usePathname, useRouter } from "next/navigation";
-import Responsive from "./components/Carousel";
-import SocialMedia from "./components/SocialMedia";
+
 export default function Home() {
   //console.log(dictionary)
 
   const { t, i18n } = useTranslation("Business");
   const [backgroundChanger, setBackgroundChanger] = useState(0);
   const [image, setImage] = useState(colors[backgroundChanger]);
-  //const [text, setText] = useState(texts[backgroundChanger]);
 
   const [optionChosen, setOptionChosen] = useState(-1);
 
@@ -71,9 +67,8 @@ export default function Home() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          //minHeight: "100vh",
+
           width: "100vw",
-          // overflow: "hidden",
         }}
       >
         <NavBar
@@ -92,7 +87,7 @@ export default function Home() {
             width: "100%",
             position: "relative",
             alignItems: "center",
-            //height: `calc(100vh - ${navbarHeight}px)`,
+
             height: { xs: "100vh", md: "100vh" },
             display: "flex",
             bgcolor: "red",
@@ -110,14 +105,13 @@ export default function Home() {
             sx={{
               height: { xs: "60vh", md: "50vh" },
               width: "100%",
-              //bgcolor: "#20201f",
+
               background: "linear-gradient(to bottom, #20201f, black)",
 
               position: "relative",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
-              //alignItems: "center",
             }}
           >
             <Options
@@ -174,7 +168,7 @@ export default function Home() {
         <React.Suspense fallback={<div>Loading...</div>}>
           <Box
             sx={{
-              height: { xs: "110vh", md: "100vh" },
+              height: { xs: "125vh", md: "100vh" },
               bgcolor: "#20201F",
 
               display: "flex",

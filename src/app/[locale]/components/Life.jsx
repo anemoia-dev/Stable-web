@@ -10,11 +10,8 @@ const Life = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: { md: "right" },
-
-        //height: { xs: "60%" },
         alignItems: { md: "flex-end" },
         position: { xs: "relative", md: "absolute" },
-        //bgcolor: { xs: "#20201F", md: "transparent" },
         top: { md: 0 },
         right: { md: 0 },
         bottom: { xs: 0 },
@@ -54,7 +51,6 @@ const Life = () => {
           textAlign: { xs: "right", md: "right" },
           marginTop: "2rem",
           color: { xs: "white", md: "black" },
-          //width: { xs: "100%", md: "50%" },
         }}
       >
         {t("description")}

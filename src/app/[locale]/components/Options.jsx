@@ -20,10 +20,6 @@ const options1 = {
   o5: "Compromiso",
   //o1Aux: "Experiencias",
 };
-const montserrat = Montserrat({
-  style: ["normal"],
-  subsets: ["latin"],
-});
 
 const Options = ({ OptionsToChoose, optionChosen }) => {
   const { t, i18n } = useTranslation();
@@ -75,11 +71,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
       key={optionChosen}
       sx={{
         bottom: 0,
-        //bgcolor: "20201F",
-        //zIndex: 1000,
         overflow: "hidden",
-        //position: "absolute",
-        //bottom: 0,
         "@media (orientation: landscape)": {
           height: { sm: "100vw", xs: "100vh", md: "100%" },
         },
@@ -97,15 +89,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
           position: { xs: "absolute", md: "absolute" },
           bottom: { xs: "8%", md: 0 },
           heigth: "100%",
-
-          /*  minHeight: {
-          xs: selectedNum !== -1 ? "95.5vh" : "10vh",
-          sm: selectedNum !== -1 ? "91vh" : "10vh",
-          md: selectedNum !== -1 ? "96.4vh" : "40vh",
-        }, */
-
           width: "100%",
-          //overflow: "hidden",
         }}
       >
         {options.map((el, id) => {
@@ -122,33 +106,11 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   setHoverNum(-1);
                   setHeights(initialHeights);
                 }}
-                /*   onClick={(e) => {
-                  setSelectedNum(e.currentTarget.id);
-                  OptionsToChoose(e.currentTarget.id);
-                }} */
                 sx={{
                   cursor: "pointer",
-                  /* backgroundImage: `url(${el.coverImage})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: {
-                    xs: "250px",
-                    md: id !== 0 ? "cover" : "85%",
-                  }, */
+
                   backgroundColor: { xs: "#202020", md: el.color },
                   display: selectedNum !== -1 && "none",
-                  /*  backgroundPosition: {
-                    xs:
-                      id === 0
-                        ? "0rem 12%"
-                        : id === 1
-                        ? "-8rem 24%"
-                        : id === 2
-                        ? "9rem 10%"
-                        : id === 3
-                        ? "-3rem 18%"
-                        : id === 4 && "5rem 23%",
-                    md: id === 0 ? "center center" : "center top",
-                  }, */
 
                   width: {
                     xs: `${((heights[id] - 41) * 20) / 4 + 70}vw`,
@@ -199,14 +161,11 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                       alt="cover"
                       fill
                       priority={false}
-                      //placeholder="blur"
                       style={{
-                        //opacity: loaded ? 1 : 0,
                         transition: "opacity 0.5s",
                         "object-fit": "cover",
                         objectPosition: "Top",
                       }}
-                      /* onLoad={() => setLoaded(true)} */
                     ></Image>
                   </Box>
 
@@ -229,7 +188,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                         md: "1.5rem",
                       },
                     }}
-                    /*  key={el.id} */
                   >
                     <Typography
                       sx={{
@@ -241,7 +199,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                           md: 0,
                         },
 
-                        //fontWeight: 500,
                         fontSize: {
                           xs: "1.25rem",
                           md: "24px",
@@ -249,7 +206,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                       }}
                     >
                       {t(`Options.o${id}`)}
-                      {/* {options1[`o${id + 1}`]} */}
                     </Typography>
                   </Box>
                 </Link>

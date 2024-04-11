@@ -6,34 +6,15 @@ import ClearIcon from "@mui/icons-material/Clear";
 import parse from "html-react-parser";
 import DownloadIcon from "@mui/icons-material/Download";
 import Link from "next/link";
-/* import Carrusel from "./Container"; */
 import Carrusel from "../components/Container";
 import { useTranslation } from "react-i18next";
-const Selected = ({
-  OptionsToChoose,
-  optionChosen,
-  navbarHeight,
-  info,
-  cat,
-}) => {
-  /*   const [infoAll, setInfoAll] = useState(info);
-
-  useState(() => {
-    setInfoAll(info);
-  }, [info]);
- */
-
+const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
   const { t, i18n } = useTranslation("Selected");
   console.log(t(`${cat}.secondColor`));
   return (
     <Box
       sx={{
-        /* display: "block",
-        flexDirection: "column", */
-        minHeight: { xs: "117vh", md: cat === "Global" ? "100vh" : "100vh" },
-        /* backgroundImage: `linear-gradient(to bottom,${t(
-          `${cat}.secondColor`
-        )},${t(`${cat}.thirdColor`)})`, */
+        minHeight: { xs: "130vh", md: cat === "Global" ? "100vh" : "100vh" },
         backgroundImage: {
           xs: `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
             `${cat}.thirdColor`
@@ -60,14 +41,13 @@ const Selected = ({
           position: "absolute",
           width: "100%",
           height: {
-            /* xs: "100vh",  */ md: cat === "Global" ? "100vh" : "89vh",
+            md: cat === "Global" ? "100vh" : "89vh",
           },
           top: {
-            //xs: cat !== "Global" ? "11vh" : "0vh",
             md: cat !== "Global" ? "11vh" : "0vh",
           },
           display: "flex",
-          //justifyContent: "center",
+
           alignItems: "center",
           flexDirection: "column",
         }}
@@ -85,7 +65,6 @@ const Selected = ({
               color: "black",
               fontSize: "1.3rem",
             }}
-            // onClick={() => OptionsToChoose(-1)}
           >
             <ClearIcon
               sx={{
@@ -100,9 +79,9 @@ const Selected = ({
           <Box
             sx={{
               //bgcolor: "red",
-              width: { xs: "55%", md: "22%" },
+              width: { xs: "60%", md: "22%" },
               position: "absolute",
-              left: { xs: "4%", md: "10%" },
+              left: { xs: "3%", md: "10%" },
               top: {
                 xs: "15vh",
                 md: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
@@ -116,7 +95,7 @@ const Selected = ({
               variant="h4"
               sx={{
                 fontFamily: "unset",
-                fontSize: { xs: "2.5rem", md: "3.5rem" },
+                fontSize: { xs: "2rem", md: "3.5rem" },
                 fontWeight: "700",
               }}
             >
@@ -247,14 +226,14 @@ const Selected = ({
       <Box
         sx={{
           position: { xs: "absolute", md: "absolute" },
-          width: { xs: "80%", md: "60%" },
+          width: { xs: "85vw", md: "60%" },
           bgcolor: {
             xs: t(`${cat}.thirdColor`),
             md: cat !== "Global" ? t(`${cat}.thirdColor`) : "transparent",
           },
           bottom: { xs: "12vh", md: "0vh" },
           right: { xs: 0, md: "10%" },
-          height: { xs: "15%", md: "33vh" },
+          height: { xs: "14%", md: "33vh" },
           zIndex: 0,
         }}
       >
@@ -262,7 +241,8 @@ const Selected = ({
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-end",
+            alignItems: { xs: "center", md: "flex-end" },
+            justifyContent: "right",
             gap: "0.5rem",
             padding: "1rem",
           }}
@@ -330,7 +310,6 @@ const Selected = ({
         }}
       >
         <Carrusel
-          //elements={options}
           selected={parseInt(optionChosen)}
           Options={OptionsToChoose}
           cat={cat}

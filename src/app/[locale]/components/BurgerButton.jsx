@@ -1,33 +1,11 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import {
-  AppBar,
-  Menu,
-  MenuItem,
-  Box,
-  InputLabel,
-  FormControl,
-  Select,
-  Button,
-  Container,
-  Drawer,
-  IconButton,
-  Popover,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Menu, Box, IconButton, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-/* import useTranslation from "next-translate/useTranslation"; */
+
 import { useTranslation } from "react-i18next";
-import Head from "next/head";
-/* import * as options from "../components/files/optionsdb.js"; */
-import { Language } from "@mui/icons-material";
 
 const BurgerButton = ({ cat }) => {
-  //const { t, lang } = useTranslation();
   const { t, lang } = useTranslation();
   const Links = t("common:Links", {}, { returnObjects: true });
   const languages = {
@@ -39,19 +17,6 @@ const BurgerButton = ({ cat }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [display, setDisplay] = useState(false);
   const open = Boolean(anchorEl);
-
-  // Updates the value to display in the select accordind to the language detected
-  /*   useEffect(() => {
-    setLanguageSelected(languages[lang]);
-  }, [lang]);
- */
-  const handleChangeLanguage = (e) => {
-    setLanguageSelected(e.target.value);
-  };
-
-  const displayAlert = (setAlert) => {
-    setDisplay(setAlert);
-  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -128,25 +93,25 @@ const BurgerButton = ({ cat }) => {
               sx={{
                 fontFamily: "unset",
                 color: "white",
-                //display: { xs: "none", md: "flex" },
               }}
             >
               {t("navBarMain.form")}
             </Typography>
 
-            <Link
-              href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
-              target="_blank"
+            <Typography
+              sx={{
+                fontFamily: "unset",
+                display: { xs: "flex", md: "flex" },
+              }}
             >
-              <Typography
-                sx={{
-                  fontFamily: "unset",
-                  display: { xs: "none", md: "flex" },
-                }}
+              {" "}
+              <Link
+                href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
+                target="_blank"
               >
                 {t("navBarMain.centerHelp")}
-              </Typography>
-            </Link>
+              </Link>
+            </Typography>
           </Box>
         </Menu>
       </Box>

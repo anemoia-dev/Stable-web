@@ -33,7 +33,6 @@ const People = () => {
 
       <Box
         sx={{
-          //boxShadow: "0px 4px 20px 0px rgba(32, 32, 31, 0.2)",
           border: { xs: "none", md: "1px solid white" },
           bgcolor: { xs: "transparent", md: "rgba(0,0,0,.5)" },
           padding: "2rem",
@@ -41,13 +40,9 @@ const People = () => {
           width: { xs: "100%", md: "80%" },
           height: { md: "75%" },
           display: "flex",
-          //bgcolor: "white",
-          //color: "white",
-          //opacity: 0.2,
+
           gap: "1rem",
           flexDirection: "column",
-
-          //boxShadow: "0px 4px 20px rgba(32, 32, 31, 0.2)",
         }}
       >
         <Box>
@@ -97,10 +92,9 @@ const People = () => {
             xs: "flex",
             md: "none",
           },
-          height: { xs: "50vh", md: "100vh" },
+          height: { xs: "55vh", md: "100vh" },
           width: "80%",
           bgcolor: "white",
-          //marginTop: "4vh",
         }}
       >
         {" "}

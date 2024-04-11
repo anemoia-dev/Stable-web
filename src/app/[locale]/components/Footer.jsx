@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Divider, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Typography } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneOutlineIcon from "@mui/icons-material/PhoneOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -163,7 +162,7 @@ const Footer = ({ optionChosen }) => {
               target="_blank"
             >
               {" "}
-              {/* {t("email")} */}clientes@stable-app.com
+              clientes@stable-app.com
             </a>
           </Typography>
         </Box>

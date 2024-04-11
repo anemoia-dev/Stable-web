@@ -1,10 +1,10 @@
 // Import Swiper React components
-"use client";
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+
+import React from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import Box from "@mui/material/Box";
-// Import Swiper styles
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -36,6 +36,7 @@ export default function App() {
         style={{
           /*  */
           "--swiper-pagination-bullet-size": "10px",
+          height: "100%",
         }}
       >
         <Box sx={{ width: "100%", height: "100%" }}>

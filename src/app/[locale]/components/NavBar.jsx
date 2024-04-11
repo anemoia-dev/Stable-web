@@ -11,15 +11,12 @@ import {
   Select,
   Toolbar,
   Typography,
-  Button,
 } from "@mui/material";
 
-import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
 import i18nConfig from "@/app/i18nConfig";
 
-import Container from "@mui/material/Container";
 import { useTranslation } from "next-i18next";
 import Slide from "@mui/material/Slide";
 
@@ -42,16 +39,11 @@ function HideOnScroll(props) {
 }
 const NavBar = ({
   onHeightChange,
-  OptionsToChoose,
+
   color,
   optionChosen,
   cat,
 }) => {
-  const languages = {
-    en: "English",
-    es: "Español",
-  };
-
   const { t, i18n } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
@@ -90,8 +82,6 @@ const NavBar = ({
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
       <HideOnScroll>
         <AppBar
-          // Styling the app bar
-          //position={cat !== "Global" ? "fixed" : "fixed"}
           sx={{
             position: {
               xs: "fixed",
@@ -110,9 +100,7 @@ const NavBar = ({
               color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
           }}
         >
-          {/* //background-image: linear-gradient(147deg, #d7d7d7 0%, #353535 74%); */}
           <Toolbar
-            // Styling the toolbar
             sx={{
               width: { xs: "100%", sm: "80%", md: "80%" },
               //height: "10vh",
@@ -196,26 +184,6 @@ const NavBar = ({
                   {t("navBarMain.centerHelp")}
                 </Typography>
               </Link>
-
-              {/* 
-            <Button
-              sx={{
-                bgcolor: "transparent",
-                color: "#FFD1FF",
-                display: "none",
-
-                textTransform: "none",
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              <p
-                style={{
-                  fontWeight: 600,
-                }}
-              >
-                Cerrar Sesión
-              </p>
-            </Button> */}
 
               <Box
                 sx={{

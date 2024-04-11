@@ -73,7 +73,6 @@ const BusinessComp = () => {
             alignItems: "center",
             gap: "1rem",
             marginTop: "2rem",
-            //position: "relative",
           }}
         >
           <Box

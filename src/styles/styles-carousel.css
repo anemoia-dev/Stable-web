@@ -28,7 +28,7 @@ body {
   text-align: center;
   font-size: 18px;
   background: gray;
-  height:86%;
+  height:80%;
   
 
   /* Center slide text vertically */
@@ -50,8 +50,9 @@ body {
 }
 
 .mySwiper{
-height: 110%;
+height: 120%;
 background-color: rgba(255, 230, 251, 1);
+
 }
 
 
@@ -61,7 +62,7 @@ color: black;
 position: absolute;
 size: 1px;
 background-size: 10px;
-top: 95%;
+top: 90%;
 /* bottom:10% */
 }
 

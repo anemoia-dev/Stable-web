@@ -1,15 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState, useRef } from "react";
-
 import * as newelements from "../../../files/Selected.json";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
-import { Montserrat } from "next/font/google";
+
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
-const montserrat = Montserrat({
-  style: ["normal"],
-  subsets: ["latin"],
-});
+
 let elements = newelements.List;
 function Carrusel({ Options, selected, cat }) {
   const { t, lang } = useTranslation();
@@ -47,13 +43,12 @@ function Carrusel({ Options, selected, cat }) {
   return (
     <Box
       sx={{
-        //display: "none",
         width: "100%",
         overflow: "hidden",
         color: "black",
         display: "flex",
         flexDirection: "row",
-        //cursor: "pointer",
+
         position: "relative",
         bottom: 0,
         zIndex: 0,
@@ -89,10 +84,6 @@ function Carrusel({ Options, selected, cat }) {
           return (
             <Box
               component="div"
-              /*  onClick={() => {
-                  Options(id);
-                }} */
-
               sx={{
                 "background-color": el.color,
                 display: "none",
@@ -165,7 +156,7 @@ function Carrusel({ Options, selected, cat }) {
                   padding: "0.5rem",
                   fontSize: { xs: "100%" },
                   fontWeight: 600,
-                  fontFamily: montserrat.style,
+                  fontFamily: "unset",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -179,7 +170,6 @@ function Carrusel({ Options, selected, cat }) {
                   },
                 }}
               >
-                {/* {id === 0 ? t(`o1Aux`) : t(`o${id + 1}`)} */}
                 <Link href={el.title}>{t(`Options.o${id}`)}</Link>
               </Typography>
             </Box>
