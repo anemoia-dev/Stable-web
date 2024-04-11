@@ -222,7 +222,30 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
 
         {}
       </Box>
+      <Box
+        sx={{
+          display: { xs: "block", md: "none" },
+          position: "absolute",
+          right: "-25%",
+          //top: "12vh",
+          bottom: "30vh",
+          height: "70vh",
 
+          width: "110%",
+          //height: "100%",
+          zIndex: 0,
+          display: { xs: "block", md: "none" },
+        }}
+      >
+        <Image
+          src={
+            cat !== "Global"
+              ? t(`${cat}.insideImages.0`)
+              : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712805384/Stable%20Mockups/selected/Clay_Phone_03_copia_1_owefoq.svg"
+          }
+          fill
+        />
+      </Box>
       <Box
         sx={{
           position: { xs: "absolute", md: "absolute" },
