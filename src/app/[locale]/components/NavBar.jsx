@@ -81,14 +81,6 @@ const NavBar = ({
     [currentLocale, currentPathname, router]
   );
 
-  const handleChangeLanguage = (e) => {
-    setLanguage(e.target.value);
-
-    const newLocale = e.target.value;
-
-    handleChange(newLocale);
-  };
-
   useEffect(() => {
     const navBarheight = document.getElementById("navBar").clientHeight;
     onHeightChange(navBarheight);
@@ -96,111 +88,116 @@ const NavBar = ({
 
   return (
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
-      {/* <HideOnScroll> */}
-      <AppBar
-        // Styling the app bar
-        //position={cat !== "Global" ? "fixed" : "fixed"}
-        sx={{
-          position: {
-            xs: "fixed",
-            md: cat !== "Global" ? "static" : "static",
-          },
-          width: "100vw",
-          display: "flex",
-          alignItems: "center",
-          backgroundColor: color ? color : " #d7d7d7",
-          /* backgroundImage:
+      <HideOnScroll>
+        <AppBar
+          // Styling the app bar
+          //position={cat !== "Global" ? "fixed" : "fixed"}
+          sx={{
+            position: {
+              xs: "fixed",
+              md: "fixed",
+            },
+            width: "100vw",
+            display: "flex",
+            alignItems: "center",
+            backgroundColor: color ? color : " #d7d7d7",
+            /* backgroundImage:
               optionChosen === 0 &&
               "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)", */
-          height: { xs: "12.5vh", md: "11vh" },
-          boxShadow: "none",
-          borderBottom:
-            color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
-        }}
-      >
-        {/* //background-image: linear-gradient(147deg, #d7d7d7 0%, #353535 74%); */}
-        <Toolbar
-          // Styling the toolbar
-          sx={{
-            width: { xs: "100%", sm: "80%", md: "80%" },
-            //height: "10vh",
-            backgroundColor: color,
-            gap: { sm: "1rem" },
-            padding: { xs: "0 2rem", sm: 0 },
-            display: "flex",
-            justifyContent: {
-              xs: "space-between",
-              sm: "space-around",
-              md: "space-between",
-            },
+            height: { xs: "10vh", md: "11vh" },
+            boxShadow: "none",
+            borderBottom:
+              color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
           }}
         >
-          {/* GIF Component */}
-          <Link href="/">
-            <Box
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: {
-                  xs: "8rem",
-                  md: "120px",
-                },
-              }}
-            >
-              <Image
-                src={
-                  optionChosen === -1
-                    ? "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
-                    : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
-                }
-                alt="logo"
-                width={140}
-                height={79}
-                priority
-                style={{
-                  backgroundColor: color,
+          {/* //background-image: linear-gradient(147deg, #d7d7d7 0%, #353535 74%); */}
+          <Toolbar
+            // Styling the toolbar
+            sx={{
+              width: { xs: "100%", sm: "80%", md: "80%" },
+              //height: "10vh",
+              backgroundColor: color,
+              gap: { sm: "1rem" },
+              padding: { xs: "0 2rem", sm: 0 },
+              display: "flex",
+              justifyContent: {
+                xs: "space-between",
+                sm: "space-around",
+                md: "space-between",
+              },
+            }}
+          >
+            {/* GIF Component */}
+            <Link href="/">
+              <Box
+                sx={{
+                  position: "relative",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  width: {
+                    xs: "8rem",
+                    md: "120px",
+                  },
                 }}
-              />
-            </Box>
-          </Link>
+              >
+                <Image
+                  src={
+                    optionChosen === -1
+                      ? "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                      : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
+                  }
+                  alt="logo"
+                  width={140}
+                  height={79}
+                  priority
+                  style={{
+                    backgroundColor: "transparent",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                />
+              </Box>
+            </Link>
 
-          <Box
-            // Creating a box to hold multiple items
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: { sm: "1rem" },
-              height: { xs: "100%", md: "100%" },
-              padding: { xs: "2vw" },
-
-              color: color !== "#202020" ? "#202020" : "white",
-            }}
-          >
-            <Typography
+            <Box
+              // Creating a box to hold multiple items
               sx={{
-                fontFamily: "unset",
-                display: { xs: "none", md: "flex" },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: { sm: "1rem" },
+                height: { xs: "100%", md: "100%" },
+                padding: { xs: "2vw" },
+
+                color: color !== "#202020" ? "#202020" : "white",
               }}
             >
-              {t("navBarMain.form")}
-            </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "unset",
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
+                {t("navBarMain.form")}
+              </Typography>
 
-            <Typography
-              sx={{
-                fontFamily: "unset",
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              {t("navBarMain.centerHelp")}
-            </Typography>
+              <Link
+                href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
+                target="_blank"
+              >
+                <Typography
+                  sx={{
+                    fontFamily: "unset",
+                    display: { xs: "none", md: "flex" },
+                  }}
+                >
+                  {t("navBarMain.centerHelp")}
+                </Typography>
+              </Link>
 
-            {/* 
+              {/* 
             <Button
               sx={{
                 bgcolor: "transparent",
@@ -220,69 +217,72 @@ const NavBar = ({
               </p>
             </Button> */}
 
-            <Box
-              sx={{
-                display: optionChosen !== -1 ? "flex" : "none",
-              }}
-            >
-              <SocialMedia optionChosen={optionChosen} />
-            </Box>
+              <Box
+                sx={{
+                  display: {
+                    xs: "none",
+                    md: optionChosen !== -1 ? "flex" : "none",
+                  },
+                }}
+              >
+                <SocialMedia optionChosen={optionChosen} />
+              </Box>
 
-            <Select
-              // Creating a language selection dropdown
-              value={lang}
-              onChange={(e) => handleChange(e.target.value)}
-              label={"language"}
-              //displayEmpty
-              size="small"
-              sx={{
-                border: "none",
-                borderRadius: 0,
-                color: color !== "#202020" ? "#202020" : "white",
-                fontFamily: "unset",
-                ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                "&:hover": {
-                  bgcolor: "gray",
-                },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              <Select
+                // Creating a language selection dropdown
+                value={lang}
+                onChange={(e) => handleChange(e.target.value)}
+                label={"language"}
+                //displayEmpty
+                size="small"
+                sx={{
                   border: "none",
-                  borderRadius: "0",
-                },
-                ".MuiSvgIcon-root ": {
-                  fill:
-                    color !== "#202020"
-                      ? "#202020 !important"
-                      : "white !important",
-                },
-              }}
-            >
-              <MenuItem value={"en"}>
-                <Typography
-                  sx={{
-                    fontFamily: "unset",
-                  }}
-                >
-                  {" "}
-                  English{" "}
-                </Typography>
-              </MenuItem>
+                  borderRadius: 0,
+                  color: color !== "#202020" ? "#202020" : "white",
+                  fontFamily: "unset",
+                  ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                  "&:hover": {
+                    bgcolor: "gray",
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    border: "none",
+                    borderRadius: "0",
+                  },
+                  ".MuiSvgIcon-root ": {
+                    fill:
+                      color !== "#202020"
+                        ? "#202020 !important"
+                        : "white !important",
+                  },
+                }}
+              >
+                <MenuItem value={"en"}>
+                  <Typography
+                    sx={{
+                      fontFamily: "unset",
+                    }}
+                  >
+                    {" "}
+                    English{" "}
+                  </Typography>
+                </MenuItem>
 
-              <MenuItem value={"es"}>
-                <Typography
-                  sx={{
-                    fontFamily: "unset",
-                  }}
-                >
-                  Español
-                </Typography>
-              </MenuItem>
-            </Select>
+                <MenuItem value={"es"}>
+                  <Typography
+                    sx={{
+                      fontFamily: "unset",
+                    }}
+                  >
+                    Español
+                  </Typography>
+                </MenuItem>
+              </Select>
 
-            <BurgerButton />
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {/* </HideOnScroll> */}
+              <BurgerButton cat={cat} />
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
     </Box>
   );
 };

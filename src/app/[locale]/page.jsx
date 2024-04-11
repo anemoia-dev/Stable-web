@@ -27,6 +27,7 @@ const colors = [" #a9cce3", "#af7ac5", "#273746"];
 import { useTranslation, Trans } from "react-i18next";
 import { usePathname, useRouter } from "next/navigation";
 import Responsive from "./components/Carousel";
+import SocialMedia from "./components/SocialMedia";
 export default function Home() {
   //console.log(dictionary)
 

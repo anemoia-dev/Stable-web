@@ -26,7 +26,7 @@ import Head from "next/head";
 /* import * as options from "../components/files/optionsdb.js"; */
 import { Language } from "@mui/icons-material";
 
-const BurgerButton = () => {
+const BurgerButton = ({ cat }) => {
   //const { t, lang } = useTranslation();
   const { t, lang } = useTranslation();
   const Links = t("common:Links", {}, { returnObjects: true });
@@ -88,7 +88,7 @@ const BurgerButton = () => {
           <MenuIcon
             sx={{
               fontSize: "2.5rem",
-              color: "#EFEFEF",
+              color: cat ? "#20201f" : "white",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -134,14 +134,19 @@ const BurgerButton = () => {
               {t("navBarMain.form")}
             </Typography>
 
-            <Typography
-              sx={{
-                fontFamily: "unset",
-                //display: { xs: "none", md: "flex" },
-              }}
+            <Link
+              href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
+              target="_blank"
             >
-              {t("navBarMain.centerHelp")}
-            </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "unset",
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
+                {t("navBarMain.centerHelp")}
+              </Typography>
+            </Link>
           </Box>
         </Menu>
       </Box>

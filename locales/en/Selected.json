@@ -5,9 +5,9 @@
         "description": "In your wallet or on your phone, you'll have a global card at your fingertips.",
         "featureText": "Your Stable® Mastercard is accepted at over 90 million establishments in 210 countries and territories.",
         "color": "#FFE6FB",
-        "secondColor": "#FFD1FF",
         "coverImage": "https://res.cloudinary.com/dizj6clit/image/upload/v1682468442/Stable/webportal/ihzzzqp3oeyqeadgdbhr.png",
-        "thirdColor": "#a1a1a2",
+        "secondColor": "#BCFADA",
+        "thirdColor": "#7DCCA1",
         "insideImages": {
             "0": "https://res.cloudinary.com/dizj6clit/image/upload/v1682469954/Stable/webportal/fd62nswa6offr6wijuqp.gif",
             "1": "https://res.cloudinary.com/dizj6clit/image/upload/v1682470419/Stable/webportal/airpwyzmxuaaa7vs5bww.png",

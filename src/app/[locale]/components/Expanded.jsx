@@ -115,6 +115,15 @@ const Expanded = ({ text, id, background, video }) => {
                 <img
                   src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
                   alt="Thumbnail"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    margin: "50% auto",
+                    //height: "100%",
+                    //objectFit: "",
+                  }}
                 />
               }
             />

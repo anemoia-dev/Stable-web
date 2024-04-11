@@ -18,7 +18,7 @@ const Life = () => {
         top: { md: 0 },
         right: { md: 0 },
         bottom: { xs: 0 },
-        padding: { xs: "1rem 1rem", md: "3.5rem 6rem" },
+        padding: { xs: "2rem 2rem", md: "3.5rem 6rem" },
         width: { xs: "100%", md: "60%" },
       }}
     >

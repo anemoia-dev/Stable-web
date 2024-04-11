@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import ReactPlayer from "react-player";
 
 import "../../../styles/styles-carousel.css";
 
@@ -37,8 +38,28 @@ export default function App() {
           "--swiper-pagination-bullet-size": "10px",
         }}
       >
-        <Box sx={{ bgcolor: "red", width: "100%", height: "100%" }}>
-          <SwiperSlide className="swiper-slide">Slide 1</SwiperSlide>
+        <Box sx={{ width: "100%", height: "100%" }}>
+          <SwiperSlide className="swiper-slide">
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <ReactPlayer
+                light={
+                  <img
+                    src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                    alt="Thumbnail"
+                    width={{ xs: "50%", md: "100%" }}
+                  />
+                }
+                url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
+                width={"100%"}
+                height={"100%"}
+              />
+            </Box>
+          </SwiperSlide>
         </Box>
         <Box>
           <SwiperSlide>Slide 2</SwiperSlide>

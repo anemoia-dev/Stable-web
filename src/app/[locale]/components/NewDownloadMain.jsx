@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import SocialMedia from "./SocialMedia";
 /* const imagenes = [
   {
     imagen:
@@ -65,12 +66,16 @@ const NewDownloadImage = () => {
         /* height: `calc(100% - ${navbarHeight}px)`, */
         height: { xs: "100%", md: "100vh" },
 
+        display: { xs: "block", md: "block" },
+        flexDirection: { md: "column" },
         position: "relative",
         alignItems: "center",
         bgcolor: { xs: "#20201f", md: "#20201f" },
         justifyContent: "center",
       }}
     >
+      {" "}
+      <SocialMedia />
       <Box
         sx={{
           width: "100%",
@@ -80,11 +85,12 @@ const NewDownloadImage = () => {
           bgcolor: { xs: "#20201f", md: "#20201f" },
           justifyContent: "center",
 
-          display: { xs: "none", md: "block" },
+          display: { xs: "block", md: "block" },
           flexDirection: "column",
           gap: "1rem",
         }}
       >
+        {" "}
         <AnimatePresence>
           <motion.div
             key={backgroundIndex}
@@ -184,7 +190,7 @@ const NewDownloadImage = () => {
         </AnimatePresence>
       </Box>
       {/* MOBILE */}
-      <Box
+      {/* <Box
         sx={{
           width: "100%",
           height: { xs: "100%", md: "100vh" },
@@ -295,7 +301,7 @@ const NewDownloadImage = () => {
             </Box>
           </motion.div>
         </AnimatePresence>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

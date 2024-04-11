@@ -28,7 +28,7 @@ const Selected = ({
   return (
     <Box
       sx={{
-        height: cat === "Global" ? "100vh" : "90vh",
+        height: { xs: "100vh", md: cat === "Global" ? "100vh" : "90vh" },
         backgroundImage: `linear-gradient(to bottom,${t(
           `${cat}.secondColor`
         )},${t(`${cat}.secondColor`)})`,
@@ -138,6 +138,7 @@ const Selected = ({
           {/* IMAGES */}
           <Box
             sx={{
+              display: { xs: "none", md: "flex" },
               //bgcolor: "yellow",
               width: "55%",
               position: "absolute",
@@ -200,10 +201,11 @@ const Selected = ({
             </Box>
           </Box>
         </Box>
+
         <Box
           sx={{
             position: "absolute",
-            width: "80%",
+            width: { xs: "100%", md: "80%" },
             bottom: 0,
             height: "18vh",
             zIndex: 1,

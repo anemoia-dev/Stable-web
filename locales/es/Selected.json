@@ -5,9 +5,9 @@
         "description": "<p> Accede a experiencias únicas como <b> deportes, viajes, cultura y más en el Mundo Stable®. </b> </p>",
         "featureText": "<p> Tu tarjeta Stable® Mastercard es aceptada en más de 90 millones de establecimientos en 210 países y territorios. </p>",
         "color": "#FFE6FB",
-        "secondColor": "#FFD1FF",
         "coverImage": "https://res.cloudinary.com/dizj6clit/image/upload/v1682468442/Stable/webportal/ihzzzqp3oeyqeadgdbhr.png",
-        "thirdColor": "#a1a1a2",
+        "secondColor": "#BCFADA",
+        "thirdColor": "#7DCCA1",
         "insideImages": {
             "0": "https://res.cloudinary.com/dizj6clit/image/upload/v1682469954/Stable/webportal/fd62nswa6offr6wijuqp.gif",
             "1": "https://res.cloudinary.com/dnatws9zh/image/upload/v1703174922/Mocks/Spanish/ES5_1_ommk17.png",

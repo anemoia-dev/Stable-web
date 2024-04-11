@@ -47,7 +47,7 @@ function Carrusel({ Options, selected, cat }) {
   return (
     <Box
       sx={{
-        display: "none",
+        //display: "none",
         width: "100%",
         overflow: "hidden",
         color: "black",
@@ -55,6 +55,7 @@ function Carrusel({ Options, selected, cat }) {
         flexDirection: "row",
         //cursor: "pointer",
         position: "relative",
+        bottom: 0,
         zIndex: 0,
       }}
     >
@@ -75,7 +76,7 @@ function Carrusel({ Options, selected, cat }) {
 
           "@media (orientation: landscape)": {
             width: { sm: "100%", md: "100%" },
-            height: { xs: "12vh", sm: "20vw", md: "16vh" },
+            height: { xs: "12vh", sm: "20vw", md: "17vh" },
           },
           "@media (orientation: portrait)": {
             width: "100%",
@@ -113,6 +114,7 @@ function Carrusel({ Options, selected, cat }) {
                     md: `${100 / (elements.length - 0.9)}%`,
                   },
                   overflow: "hidden",
+                  display: cat === el.title ? "none" : "flex",
                 },
                 transition:
                   "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
@@ -173,7 +175,7 @@ function Carrusel({ Options, selected, cat }) {
                   },
 
                   "@media (orientation: portrait)": {
-                    fontSize: { xs: "100%" },
+                    fontSize: { xs: "1.1rem" },
                   },
                 }}
               >

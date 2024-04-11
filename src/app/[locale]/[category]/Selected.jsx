@@ -28,20 +28,26 @@ const Selected = ({
   return (
     <Box
       sx={{
-        height: cat === "Global" ? "100vh" : "100vh",
+        /* display: "block",
+        flexDirection: "column", */
+        minHeight: { xs: "117vh", md: cat === "Global" ? "100vh" : "100vh" },
         /* backgroundImage: `linear-gradient(to bottom,${t(
           `${cat}.secondColor`
         )},${t(`${cat}.thirdColor`)})`, */
+        backgroundImage: {
+          xs: `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
+            `${cat}.thirdColor`
+          )})`,
 
-        backgroundImage:
-          cat === "Global"
-            ? `url("https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371556/Stable%20Mockups/selected/Card1_nepbdq.svg")`
-            : `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
-                `${cat}.thirdColor`
-              )})`,
+          md:
+            cat === "Global"
+              ? `url("https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371556/Stable%20Mockups/selected/Card1_nepbdq.svg")`
+              : `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
+                  `${cat}.thirdColor`
+                )})`,
+        },
 
         backgroundRepeat: "no-repeat",
-
         backgroundSize: "100%",
         backgroundPosition: "60%",
         position: "relative",
@@ -53,8 +59,13 @@ const Selected = ({
         sx={{
           position: "absolute",
           width: "100%",
-          height: cat === "Global" ? "100vh" : "89vh",
-          top: cat !== "Global" ? "11vh" : "0vh",
+          height: {
+            /* xs: "100vh",  */ md: cat === "Global" ? "100vh" : "89vh",
+          },
+          top: {
+            //xs: cat !== "Global" ? "11vh" : "0vh",
+            md: cat !== "Global" ? "11vh" : "0vh",
+          },
           display: "flex",
           //justifyContent: "center",
           alignItems: "center",
@@ -67,7 +78,10 @@ const Selected = ({
               position: "absolute",
               fontFamily: "unset",
               right: "7vw",
-              top: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
+              top: {
+                xs: "15vh",
+                md: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
+              },
               color: "black",
               fontSize: "1.3rem",
             }}
@@ -85,12 +99,15 @@ const Selected = ({
         <Box>
           <Box
             sx={{
-              // bgcolor: "red",
-              width: "22%",
+              //bgcolor: "red",
+              width: { xs: "55%", md: "22%" },
               position: "absolute",
-              left: "10%",
-              top: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
-              height: "60%",
+              left: { xs: "4%", md: "10%" },
+              top: {
+                xs: "15vh",
+                md: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
+              },
+              height: { md: "60%" },
               padding: "1rem",
               zIndex: 1,
             }}
@@ -99,7 +116,7 @@ const Selected = ({
               variant="h4"
               sx={{
                 fontFamily: "unset",
-                fontSize: "3.5rem",
+                fontSize: { xs: "2.5rem", md: "3.5rem" },
                 fontWeight: "700",
               }}
             >
@@ -118,9 +135,10 @@ const Selected = ({
             <Box
               sx={{
                 display: "flex",
+                flexDirection: { xs: "column", md: "row" },
                 marginTop: "1rem",
                 paddingBottom: "1rem",
-                gap: "1rem",
+                gap: { xs: 0, md: "1rem" },
                 borderBottom: "2px solid black",
               }}
             >
@@ -152,9 +170,11 @@ const Selected = ({
               {parse(t(`${cat}.featureText`))}
             </Typography>
           </Box>
+
           {/* IMAGES */}
           <Box
             sx={{
+              display: { md: "flex" },
               //bgcolor: "yellow",
               width: "55%",
               position: "absolute",
@@ -167,6 +187,7 @@ const Selected = ({
           >
             <Box
               sx={{
+                display: { xs: "none", md: "block" },
                 width: "100%",
                 display: "flex",
                 position: "relative",
@@ -175,6 +196,7 @@ const Selected = ({
               <Box
                 sx={{
                   //bgcolor: "white",
+                  display: { xs: "none", md: "block" },
                   width: "50%",
                   height: "100%",
                   left: "5%",
@@ -197,6 +219,7 @@ const Selected = ({
 
               <Box
                 sx={{
+                  display: { xs: "none", md: "block" },
                   //bgcolor: "blue",
                   right: 0,
                   position: "absolute",
@@ -217,92 +240,101 @@ const Selected = ({
             </Box>
           </Box>
         </Box>
+
+        {}
+      </Box>
+
+      <Box
+        sx={{
+          position: { xs: "absolute", md: "absolute" },
+          width: { xs: "80%", md: "60%" },
+          bgcolor: {
+            xs: t(`${cat}.thirdColor`),
+            md: cat !== "Global" ? t(`${cat}.thirdColor`) : "transparent",
+          },
+          bottom: { xs: "12vh", md: "0vh" },
+          right: { xs: 0, md: "10%" },
+          height: { xs: "15%", md: "33vh" },
+          zIndex: 0,
+        }}
+      >
         <Box
           sx={{
-            position: "absolute",
-            width: "80%",
-            bottom: 0,
-            height: "18vh",
-            zIndex: 1,
-          }}
-        >
-          <Carrusel
-            //elements={options}
-            selected={parseInt(optionChosen)}
-            Options={OptionsToChoose}
-            cat={cat}
-          />
-        </Box>
-        <Box
-          sx={{
-            position: "absolute",
-            width: "60%",
-            bgcolor: cat !== "Global" ? t(`${cat}.thirdColor`) : "none",
-            bottom: "0vh",
-            right: "10%",
-            height: "33vh",
-            zIndex: 0,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            gap: "0.5rem",
+            padding: "1rem",
           }}
         >
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
+            }}
+          >
+            <DownloadIcon
+              sx={{
+                fontSize: "2rem",
+              }}
+            />
+            <Typography
+              sx={{
+                fontFamily: "unset",
+                fontSize: "1.5rem",
+              }}
+            >
+              {t(`${cat}.downloadText`)}
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "right",
               gap: "0.5rem",
-              padding: "1rem",
+              padding: "0rem",
             }}
           >
             <Box
+              component={"img"}
+              src={
+                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+              }
               sx={{
-                display: "flex",
+                width: "140px",
               }}
-            >
-              <DownloadIcon
-                sx={{
-                  fontSize: "2rem",
-                }}
-              />
-              <Typography
-                sx={{
-                  fontFamily: "unset",
-                  fontSize: "1.5rem",
-                }}
-              >
-                {t(`${cat}.downloadText`)}
-              </Typography>
-            </Box>
-
+            ></Box>
             <Box
+              component={"img"}
+              src={
+                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+              }
               sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "right",
-                gap: "0.5rem",
-                padding: "0rem",
+                width: "130px",
               }}
-            >
-              <Box
-                component={"img"}
-                src={
-                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
-                }
-                sx={{
-                  width: "140px",
-                }}
-              ></Box>
-              <Box
-                component={"img"}
-                src={
-                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
-                }
-                sx={{
-                  width: "130px",
-                }}
-              ></Box>
-            </Box>
+            ></Box>
           </Box>
         </Box>
+      </Box>
+
+      {/* CARRUSEL */}
+      <Box
+        sx={{
+          position: { xs: "absolute", md: "absolute" },
+          width: { xs: "100%", md: "80%" },
+          bottom: { xs: 0, md: 0 },
+          left: { xs: 0, md: "10%" },
+          height: { /*  xs: 0 */ md: "18vh" },
+          zIndex: 1,
+        }}
+      >
+        <Carrusel
+          //elements={options}
+          selected={parseInt(optionChosen)}
+          Options={OptionsToChoose}
+          cat={cat}
+        />
       </Box>
     </Box>
   );

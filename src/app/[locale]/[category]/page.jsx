@@ -25,7 +25,7 @@ const layout = (props) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
+        minHeight: { xs: "110vh", md: "100vh" },
         width: "100vw",
         // overflow: "hidden",
       }}
@@ -39,15 +39,14 @@ const layout = (props) => {
           category !== "Global" ? t(`${category}.secondColor`) : "transparent"
         }
       />
-      {
-        <Selected
-          navbarHeight={navbarHeight}
-          //OptionsToChoose={OptionsToChoose}
-          //optionChosen={optionChosen}
-          info={info}
-          cat={category}
-        />
-      }
+
+      <Selected
+        navbarHeight={navbarHeight}
+        //OptionsToChoose={OptionsToChoose}
+        //optionChosen={optionChosen}
+        info={info}
+        cat={category}
+      />
 
       <Footer />
       {/* {props.params.category} */}
