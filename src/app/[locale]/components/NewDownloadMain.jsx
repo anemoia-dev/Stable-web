@@ -17,17 +17,7 @@ const imagenes = [
     imagen: "/wal3.svg",
   },
 ];
-const imagenesMobile = [
-  {
-    imagen: "/wal1Mobile.svg",
-  },
-  {
-    imagen: "/wal2Mobile.svg",
-  },
-  {
-    imagen: "/wal3Mobile.svg",
-  },
-];
+/*  */
 
 const NewDownloadImage = () => {
   const { t, i18n } = useTranslation();
@@ -118,53 +108,53 @@ const NewDownloadImage = () => {
                   bottom: { xs: "20vh", md: "11vh" },
                 }}
               >
-                <Typography
+                <p
                   key={backgroundIndex}
                   //className={S.fadein}
-                  sx={{
+                  style={{
                     fontFamily: "unset",
-                    fontSize: { xs: "30px", md: "3.5rem" },
+                    fontSize: "3.5rem",
                     fontWeight: "bold",
                     color: "white",
                     lineHeight: 1.1,
                   }}
                 >
                   {t(`downloadMain.text${backgroundIndex}`)}
-                </Typography>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: { xs: "center", md: "left" },
-                  gap: "1rem",
-                  position: "absolute",
-                  bottom: { xs: "9vh", md: "0vh" },
-                  width: { xs: "100%" },
-                }}
-              >
-                <Box
-                  component={"img"}
-                  src={
-                    "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
-                  }
-                  sx={{
-                    width: { xs: "165px", md: "220px" },
-                  }}
-                ></Box>
-                <Box
-                  component={"img"}
-                  src={
-                    "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
-                  }
-                  sx={{
-                    width: { xs: "155px", md: "210px" },
-                  }}
-                ></Box>
+                </p>
               </Box>
             </Box>
           </motion.div>
         </AnimatePresence>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: { xs: "center", md: "left" },
+            gap: "1rem",
+            position: "absolute",
+            bottom: { xs: "9vh", md: "9vh" },
+            padding: { xs: "0 0rem", md: "0 3rem" },
+            width: { xs: "100%" },
+          }}
+        >
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+            }
+            sx={{
+              width: { xs: "165px", md: "220px" },
+            }}
+          ></Box>
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+            }
+            sx={{
+              width: { xs: "155px", md: "210px" },
+            }}
+          ></Box>
+        </Box>
       </Box>
       {/* MOBILE */}
     </Box>
