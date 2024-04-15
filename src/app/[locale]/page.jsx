@@ -130,7 +130,7 @@ export default async function Home(props) {
         </Box>
         <Box
           sx={{
-            height: { xs: "125vh", md: "100vh" },
+            height: { xs: "125vh", md: "110vh" },
             bgcolor: "#20201F",
 
             display: "flex",

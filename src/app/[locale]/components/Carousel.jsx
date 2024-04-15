@@ -49,25 +49,13 @@ export default function App() {
             >
               <ReactPlayer
                 light={
-                  <Box
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-
-                      position: "absolute",
-                      display: "flex",
-                    }}
-                  >
-                    <Image
-                      src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
-                      alt="Thumbnail"
-                      width={100}
-                      height={100}
-
-                      /* width={"100%"}
-                    height={"100%"} */
-                    />
-                  </Box>
+                  <Image
+                    src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                    alt="Thumbnail"
+                    width={50}
+                    height={50}
+                    loading="lazy"
+                  />
                 }
                 url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
                 width={"100%"}

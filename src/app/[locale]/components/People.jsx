@@ -34,12 +34,12 @@ const People = () => {
 
       <Box
         sx={{
-          border: { xs: "none", md: "1px solid white" },
+          border: { xs: "none" /* md: "1px solid white" */ },
           bgcolor: { xs: "transparent", md: "rgba(0,0,0,.5)" },
           padding: "2rem",
           marginTop: { md: "3vh" },
           width: { xs: "100%", md: "80%" },
-          height: { md: "75%" },
+          height: { md: "80%" },
           display: "flex",
 
           gap: "1rem",
@@ -82,7 +82,7 @@ const People = () => {
             }
             url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
             width={"100%"}
-            height={"110%"}
+            //height={"150%"}
           />
         </Box>
       </Box>
