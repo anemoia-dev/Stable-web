@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -13,7 +14,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-const Footer = ({ optionChosen }) => {
+const Footer = ({ cat }) => {
   const { t, ready } = useTranslation("Footer");
   return (
     <Box
@@ -28,7 +29,7 @@ const Footer = ({ optionChosen }) => {
           display: "flex",
           flexDirection: { xs: "column" },
         },
-        bgcolor: optionChosen === -1 ? "#202020" : "rgba(0, 0, 0, 1)",
+        bgcolor: !cat ? "#202020" : "rgba(0, 0, 0, 1)",
         display: "block",
         width: "100vw",
         overflow: "hidden",

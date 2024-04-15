@@ -38,10 +38,8 @@ function HideOnScroll(props) {
   );
 }
 const NavBar = ({
-  onHeightChange,
-
   color,
-  optionChosen,
+
   cat,
 }) => {
   const { t, i18n } = useTranslation();
@@ -49,6 +47,7 @@ const NavBar = ({
   const router = useRouter();
   const currentPathname = usePathname();
   const [lang, setLanguage] = useState(i18n.language);
+
   const handleChange = React.useCallback(
     (e) => {
       const newLocale = e;
@@ -73,10 +72,10 @@ const NavBar = ({
     [currentLocale, currentPathname, router]
   );
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const navBarheight = document.getElementById("navBar").clientHeight;
     onHeightChange(navBarheight);
-  }, []);
+  }, []); */
 
   return (
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
@@ -90,21 +89,20 @@ const NavBar = ({
             width: "100vw",
             display: "flex",
             alignItems: "center",
-            backgroundColor: color ? color : " #d7d7d7",
+            backgroundColor: !cat ? "#20201F" : color,
             /* backgroundImage:
               optionChosen === 0 &&
               "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)", */
             height: { xs: "10vh", md: "11vh" },
             boxShadow: "none",
-            borderBottom:
-              color !== "#202020" ? "1px solid rgba(178, 172, 172, 1)" : "none",
+            borderBottom: cat ? "1px solid rgba(178, 172, 172, 1)" : "none",
           }}
         >
           <Toolbar
             sx={{
               width: { xs: "100%", sm: "80%", md: "80%" },
               //height: "10vh",
-              backgroundColor: color,
+              backgroundColor: !cat && "#20201F",
               gap: { sm: "1rem" },
               padding: { xs: "0 2rem", sm: 0 },
               display: "flex",
@@ -131,7 +129,7 @@ const NavBar = ({
               >
                 <Image
                   src={
-                    optionChosen === -1
+                    !cat
                       ? "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
                       : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
                   }
@@ -159,7 +157,7 @@ const NavBar = ({
                 height: { xs: "100%", md: "100%" },
                 padding: { xs: "2vw" },
 
-                color: color !== "#202020" ? "#202020" : "white",
+                color: cat ? "#202020" : "white",
               }}
             >
               <Typography
@@ -189,11 +187,11 @@ const NavBar = ({
                 sx={{
                   display: {
                     xs: "none",
-                    md: optionChosen !== -1 ? "flex" : "none",
+                    /*    md: optionChosen !== -1 ? "flex" : "none", */
                   },
                 }}
               >
-                <SocialMedia optionChosen={optionChosen} />
+                <SocialMedia /* optionChosen={optionChosen} */ />
               </Box>
 
               <Select
@@ -206,7 +204,7 @@ const NavBar = ({
                 sx={{
                   border: "none",
                   borderRadius: 0,
-                  color: color !== "#202020" ? "#202020" : "white",
+                  color: cat ? "#202020" : "white",
                   fontFamily: "unset",
                   ".MuiOutlinedInput-notchedOutline": { border: 0 },
                   "&:hover": {
@@ -217,10 +215,7 @@ const NavBar = ({
                     borderRadius: "0",
                   },
                   ".MuiSvgIcon-root ": {
-                    fill:
-                      color !== "#202020"
-                        ? "#202020 !important"
-                        : "white !important",
+                    fill: cat ? "#202020 !important" : "white !important",
                   },
                 }}
               >

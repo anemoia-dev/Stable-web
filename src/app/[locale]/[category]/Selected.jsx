@@ -10,7 +10,6 @@ import Carrusel from "../components/Container";
 import { useTranslation } from "react-i18next";
 const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
   const { t, i18n } = useTranslation("Selected");
-  console.log(t(`${cat}.secondColor`));
   return (
     <Box
       sx={{
@@ -79,7 +78,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
           <Box
             sx={{
               //bgcolor: "red",
-              width: { xs: "60%", md: "22%" },
+              width: { xs: "55%", md: "22%" },
               position: "absolute",
               left: { xs: "3%", md: "10%" },
               top: {
@@ -226,24 +225,36 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
         sx={{
           display: { xs: "block", md: "none" },
           position: "absolute",
-          right: "-25%",
+          //right: cat === "Global" || cat === "Confianza" ? "80%" : "-50%",
           //top: "12vh",
+          right: 0,
           bottom: "30vh",
           height: "70vh",
 
-          width: "110%",
+          width: cat === "Global" || cat === "Confianza" ? "50%" : "50%",
           //height: "100%",
-          zIndex: 0,
-          display: { xs: "block", md: "none" },
+          //zIndex: 50,
+          display: { xs: "flex", md: "none" },
+          justifyContent: "flex-end",
+          justifyItems: "flex-end",
+          alignItems: "flex-end",
         }}
       >
         <Image
           src={
-            cat !== "Global"
-              ? t(`${cat}.insideImages.0`)
-              : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712805384/Stable%20Mockups/selected/Clay_Phone_03_copia_1_owefoq.svg"
+            cat === "Global" || cat === "Confianza"
+              ? t(`${cat}.mobileImage`)
+              : t(`${cat}.insideImages.0`)
           }
           fill
+          style={{
+            position: "absolute",
+            right: 0,
+            objectFit:
+              cat === "Global" || cat === "Confianza" ? "contain" : "contain",
+            objectPosition: "bottom",
+            zIndex: 0,
+          }}
         />
       </Box>
       <Box

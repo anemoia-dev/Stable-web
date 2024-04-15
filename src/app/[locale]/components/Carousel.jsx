@@ -4,7 +4,7 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import Box from "@mui/material/Box";
-
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -49,11 +49,25 @@ export default function App() {
             >
               <ReactPlayer
                 light={
-                  <img
-                    src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
-                    alt="Thumbnail"
-                    width={{ xs: "50%", md: "100%" }}
-                  />
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: "100%",
+
+                      position: "absolute",
+                      display: "flex",
+                    }}
+                  >
+                    <Image
+                      src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                      alt="Thumbnail"
+                      width={100}
+                      height={100}
+
+                      /* width={"100%"}
+                    height={"100%"} */
+                    />
+                  </Box>
                 }
                 url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
                 width={"100%"}

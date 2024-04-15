@@ -11,7 +11,7 @@ const layout = (props) => {
 
   const [navbarHeight, setNavbarHeight] = useState(0);
   let category = props.params.category;
-
+  console.log(t(`${category}.secondColor`));
   let info = textList.List.filter(
     (el) => el.title.toLowerCase() === category.toLowerCase()
   );
@@ -37,9 +37,9 @@ const layout = (props) => {
         }
       />
 
-      <Selected navbarHeight={navbarHeight} info={info} cat={category} />
+      <Selected navbarHeight={navbarHeight} /* info={info} */ cat={category} />
 
-      <Footer />
+      <Footer cat={category} />
     </Box>
   );
 };

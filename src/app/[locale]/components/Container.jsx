@@ -1,3 +1,4 @@
+"use client";
 import { Box, Typography } from "@mui/material";
 import React, { useState, useRef } from "react";
 import * as newelements from "../../../files/Selected.json";

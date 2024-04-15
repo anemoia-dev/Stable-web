@@ -1,65 +1,48 @@
-"use client";
-import React, { useState, useEffect, lazy } from "react";
+"use strict";
+import React from "react";
 import Image from "next/image";
 import NavBar from "./components/NavBar";
-import { Box, Typography, Button, Grid } from "@mui/material";
-const Options = lazy(() => import("./components/Options"));
-const Life = lazy(() => import("./components/Life"));
-const People = lazy(() => import("./components/People"));
-const HowToUse = lazy(() => import("./components/HowToUse"));
-const BusinessComp = lazy(() => import("./components/BusinessComp"));
-const Footer = lazy(() => import("./components/Footer"));
 
-const wals = [
-  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
-  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
-  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344802/Stable%20Mockups/Main/wal1_1_nvxjpy.svg",
-];
-
-import * as textList from "../../files/Selected.json";
 import NewDownloadImage from "./components/NewDownloadMain";
 
-const colors = [" #a9cce3", "#af7ac5", "#273746"];
+//import { useTranslation, Trans } from "react-i18next";
+import dynamic from "next/dynamic";
+import { Box } from "@mui/material";
 
-/* translated */
+const Options = dynamic(() => import("./components/Options"), {
+  loading: () => <p>Loading...</p>,
+});
 
-import { useTranslation, Trans } from "react-i18next";
+const Life = dynamic(() => import("./components/Life"), {
+  loading: () => <p>Loading...</p>,
+});
 
-export default function Home() {
-  //console.log(dictionary)
+const People = dynamic(
+  () => import("./components/People"),
+  { ssr: false }
+  /*  {
+    loading: () => <p>Loading...</p>,
+  } */
+);
 
-  const { t, i18n } = useTranslation("Business");
-  const [backgroundChanger, setBackgroundChanger] = useState(0);
-  const [image, setImage] = useState(colors[backgroundChanger]);
+const HowToUse = dynamic(
+  () => import("./components/HowToUse"),
+  { ssr: false }
+  /* {
+  loading: () => <p>Loading...</p>,
+} */
+);
 
-  const [optionChosen, setOptionChosen] = useState(-1);
+const BusinessComp = dynamic(() => import("./components/BusinessComp"), {
+  loading: () => <p>Loading...</p>,
+});
 
-  const OptionsToChoose = (option) => {
-    setOptionChosen(option);
-  };
+const Footer = dynamic(() => import("./components/Footer"), {
+  loading: () => <p>Loading...</p>,
+});
 
-  useEffect(() => {
-    const changeIndexColor = setInterval(() => {
-      // Decrease the countdown value every second
-      setBackgroundChanger(
-        (prevCountdown) => (prevCountdown + 1) % colors.length
-      );
-    }, 10000);
-
-    // Cleanup function to clear the interval when the component unmounts
-    return () => clearInterval(changeIndexColor);
-  }, []);
-
-  useEffect(() => {
-    setImage(wals[backgroundChanger]);
-    //setText(texts[backgroundChanger]);
-  }, [backgroundChanger, wals]);
-
-  const [navbarHeight, setNavbarHeight] = useState(0);
-
-  const handleNavbarHeight = (height) => {
-    setNavbarHeight(height);
-  };
+export default async function Home(props) {
+  //const { t, i18n } = useTranslation("Business");
 
   return (
     <>
@@ -72,16 +55,9 @@ export default function Home() {
         }}
       >
         <NavBar
-          onHeightChange={handleNavbarHeight}
-          optionChosen={optionChosen}
-          OptionsToChoose={OptionsToChoose}
-          color={
-            optionChosen > 0
-              ? textList.List[optionChosen].secondColor
-              : optionChosen === -1 && "#202020"
-          }
+          color={!props.params.category ? "#202020" : props.params.category}
+          cat={props.params.category}
         />
-
         <Box
           sx={{
             width: "100%",
@@ -94,109 +70,90 @@ export default function Home() {
             flexDirection: "column",
           }}
         >
-          <NewDownloadImage
-            optionChosen={optionChosen}
-            navbarHeight={navbarHeight}
-          />
+          <NewDownloadImage />
         </Box>
+        <Box
+          sx={{
+            height: { xs: "60vh", md: "50vh" },
+            width: "100%",
 
-        <React.Suspense fallback={<div>Loading...</div>}>
+            background: "linear-gradient(to bottom, #20201f, black)",
+
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Options />
+        </Box>
+        <Box
+          sx={{
+            height: "100vh",
+            width: "100vw",
+            display: { xs: "block", md: "flex" },
+            flexDirection: "column",
+            position: "relative",
+          }}
+        >
           <Box
             sx={{
-              height: { xs: "60vh", md: "50vh" },
-              width: "100%",
-
-              background: "linear-gradient(to bottom, #20201f, black)",
-
+              height: { xs: "40%", md: "100%" },
               position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
             }}
           >
-            <Options
-              OptionsToChoose={OptionsToChoose}
-              optionChosen={optionChosen}
+            <Image
+              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344217/Stable%20Mockups/Main/LifeWallpaper_dys5ud.svg"
+              alt="LifeWallpaper"
+              fill
+              loading="lazy"
+              style={{
+                objectFit: "cover",
+                objectPosition: "Top",
+                zIndex: -1,
+              }}
             />
           </Box>
-        </React.Suspense>
-
-        <React.Suspense fallback={<div>Loading...</div>}>
           <Box
             sx={{
-              height: "100vh",
-              width: "100vw",
-              display: { xs: "block", md: "flex" },
-              flexDirection: "column",
-              position: "relative",
+              position: { xs: "relative", md: "absolute" },
+              top: { md: 0 },
+              bottom: { xs: "0", md: "0" },
+              height: { xs: "60%", md: "40%" },
+              width: "100%",
+              bgcolor: { xs: "#20201F", md: "transparent" },
+              display: { md: "block" },
             }}
           >
-            <Box
-              sx={{
-                height: { xs: "40%", md: "100%" },
-                position: "relative",
-              }}
-            >
-              <Image
-                src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344217/Stable%20Mockups/Main/LifeWallpaper_dys5ud.svg"
-                alt="LifeWallpaper"
-                fill
-                load={() => "lazy"}
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "Top",
-                  zIndex: -1,
-                }}
-              />
-            </Box>
-            <Box
-              sx={{
-                position: { xs: "relative", md: "absolute" },
-                top: { md: 0 },
-                bottom: { xs: "0", md: "0" },
-                height: { xs: "60%", md: "40%" },
-                width: "100%",
-                bgcolor: { xs: "#20201F", md: "transparent" },
-                display: { md: "block" },
-              }}
-            >
-              <Life />
-            </Box>{" "}
-          </Box>
-        </React.Suspense>
+            <Life />
+          </Box>{" "}
+        </Box>
+        <Box
+          sx={{
+            height: { xs: "125vh", md: "100vh" },
+            bgcolor: "#20201F",
 
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <Box
-            sx={{
-              height: { xs: "125vh", md: "100vh" },
-              bgcolor: "#20201F",
-
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-            }}
-          >
-            <People />
-          </Box>
-        </React.Suspense>
-
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <Box
-            sx={{
-              //minHeight: "100vh",
-              padding: { md: "3rem 6rem" },
-              background: "#202020",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-            }}
-          >
-            <HowToUse />
-          </Box>
-        </React.Suspense>
-
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+          }}
+        >
+          <People />
+        </Box>{" "}
+        <Box
+          sx={{
+            //minHeight: "100vh",
+            padding: { md: "3rem 6rem" },
+            background: "#202020",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+          }}
+        >
+          <HowToUse />
+        </Box>
         <Box
           sx={{
             height: { xs: "100vh", md: "100vh" },
@@ -214,7 +171,7 @@ export default function Home() {
               bottom: { xs: "0", md: "0" },
               height: { xs: "40%", md: "100%" },
               width: "100%",
-              bgcolor: { /* xs: "#20201F" */ md: "transparent" },
+              bgcolor: { md: "transparent" },
               display: { md: "block" },
             }}
           >
@@ -222,7 +179,8 @@ export default function Home() {
               src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344451/Stable%20Mockups/Main/BusinessWallpaper_bdwosi.svg"
               alt="BusinessWallpaper"
               fill
-              load={() => "lazy"}
+              loading="lazy"
+              //load={() => "lazy"}
               style={{
                 objectFit: "cover",
                 objectPosition: "bottom",
@@ -238,63 +196,8 @@ export default function Home() {
           >
             <BusinessComp />
           </Box>
-          {/* <Image
-            src="/BusinessWallpaper.svg"
-            alt="BusinessWallpaper"
-            fill
-            style={{
-              objectFit: "cover",
-              objectPosition: "bottom",
-              zIndex: -1,
-            }}
-          /> */}
-
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              position: "absolute",
-              bottom: 0,
-              width: "100%",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "0 4rem",
-              background:
-                "linear-gradient(93.25deg, #FFE6FB 34.35%, #D385D6 150.82%)",
-              //position: "relative",
-              height: "10%",
-            }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "unset",
-                fontSize: "1.5rem",
-              }}
-            >
-              <Trans i18nKey="Business">
-                {t("sponsorship")} <strong>Stable®?</strong>
-              </Trans>
-            </Typography>
-            <Button
-              sx={{
-                textTransform: "none",
-                borderRadius: "0",
-                fontFamily: "unset",
-                fontSize: "1.2rem",
-                color: "black",
-                bgcolor: "rgba(211, 133, 214, 1)",
-                //fontWeight: "bold",
-                "&:hover": {
-                  cursor: "pointer",
-                  bgcolor: "rgba(211, 133, 214, 0.8)",
-                },
-              }}
-            >
-              {t("button")}
-            </Button>
-          </Box>
         </Box>
-
-        <Footer optionChosen={-1} />
+        <Footer cat={props.params.category} />
       </Box>
     </>
   );
