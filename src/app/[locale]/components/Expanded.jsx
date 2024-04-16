@@ -5,6 +5,7 @@ import { Box, Typography, Button, CardMedia, Card } from "@mui/material";
 import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "react-i18next";
 import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/image";
 
 const Expanded = ({ id }) => {
   const { t, i18n } = useTranslation("HowToUse");
@@ -104,14 +105,16 @@ const Expanded = ({ id }) => {
               width={"100%"}
               //height={"100%"}
               light={
-                <img
+                <Image
                   src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
                   alt="Thumbnail"
+                  width={100}
+                  height={500}
                   style={{
                     position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
+
+                    width: "40%",
+                    height: "60%",
                     margin: "50% auto",
                   }}
                 />
