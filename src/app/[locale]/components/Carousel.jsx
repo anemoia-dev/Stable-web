@@ -8,7 +8,7 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 import "../../../styles/styles-carousel.css";
 

@@ -3,9 +3,8 @@ import React, { Fragment } from "react";
 import * as options from "../../../files/optionsdb";
 import Image from "next/image";
 import Link from "next/link";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Montserrat } from "next/font/google";
 import { useTranslation } from "react-i18next";
 
 function getRandomArbitrary(min, max) {
@@ -21,7 +20,7 @@ const options1 = {
   //o1Aux: "Experiencias",
 };
 
-const Options = ({ OptionsToChoose, optionChosen }) => {
+const Options = ({}) => {
   const { t, i18n } = useTranslation();
   let initialHeights = [45, 45, 45, 45, 45];
 
@@ -37,20 +36,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
       return () => clearInterval(setHeightsEach);
     }
   }, [heights]);
-
-  const [orientation, seOrientation] = useState(0);
-  useEffect(() => {
-    function handleresize() {
-      return seOrientation(window.screen.orientation.angle);
-    }
-
-    window.addEventListener("resize", handleresize);
-    return () => window.removeEventListener("resize", handleresize);
-  }, []);
-  const Selected = (value) => {
-    setSelectedNum(value);
-    OptionsToChoose(value);
-  };
 
   const handleChange = (index) => {
     setHoverNum(index);
@@ -68,7 +53,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
   };
   return (
     <Box
-      key={optionChosen}
       sx={{
         bottom: 0,
         overflow: "hidden",
@@ -81,7 +65,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
       }}
     >
       <Box
-        key={optionChosen}
         sx={{
           display: { xs: "block", md: "flex" },
           alignItems: "flex-end",
@@ -94,10 +77,10 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
       >
         {options.map((el, id) => {
           return (
-            <Fragment key={id + optionChosen}>
+            <Fragment key={id}>
               <Box
                 id={id}
-                key={id + optionChosen}
+                key={id}
                 component="div"
                 onMouseEnter={(e) => {
                   handleChange(id);
@@ -118,7 +101,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   },
                   "@media (orientation: landscape)": {
                     height: {
-                      //xs: "12vh",
                       sm: "20vw",
                       md: `${heights[id]}vh`,
                     },
@@ -148,7 +130,6 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   },
                   transition: "all 1s",
                 }}
-                /* key={el.id} */
               >
                 <Link href={options1[`o${id + 1}`]}>
                   <Box
@@ -170,7 +151,7 @@ const Options = ({ OptionsToChoose, optionChosen }) => {
                   </Box>
 
                   <Box
-                    key={id + optionChosen}
+                    key={id}
                     sx={{
                       display: "flex",
                       alignItems: { xs: "left", md: "center" },

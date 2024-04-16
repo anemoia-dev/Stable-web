@@ -159,7 +159,7 @@ const NewDownloadImage = () => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "20vh", md: "11vh" },
+                    bottom: { xs: "0vh", md: "10vh" },
                   }}
                 >
                   <Typography

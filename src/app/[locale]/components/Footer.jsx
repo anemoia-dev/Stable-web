@@ -4,15 +4,9 @@ import { Box, Typography } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneOutlineIcon from "@mui/icons-material/PhoneOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { Montserrat } from "next/font/google";
 import * as S from "../../../styles/mastercardlogo.module.css";
 import * as T from "../../../styles/divider.module.css";
 import { useTranslation } from "react-i18next";
-
-const montserrat = Montserrat({
-  style: ["normal"],
-  subsets: ["latin"],
-});
 
 const Footer = ({ cat }) => {
   const { t, ready } = useTranslation("Footer");
@@ -151,7 +145,7 @@ const Footer = ({ cat }) => {
           />
           <Typography
             sx={{
-              fontFamily: montserrat.style,
+              fontFamily: "unset",
               fontSize: "1.1rem",
               textDecorationLine: "underline",
               color: "white",
@@ -192,7 +186,7 @@ const Footer = ({ cat }) => {
           />
           <Typography
             sx={{
-              fontFamily: montserrat.style,
+              fontFamily: "unset",
               fontSize: "1.1rem",
               color: "white",
             }}
@@ -225,7 +219,7 @@ const Footer = ({ cat }) => {
           />
           <Typography
             sx={{
-              fontFamily: montserrat.style,
+              fontFamily: "unset",
               fontSize: "1.1rem",
               textDecorationLine: "underline",
               color: "white",
@@ -267,7 +261,7 @@ const Footer = ({ cat }) => {
         <Typography
           sx={{
             textAlign: "center",
-            fontFamily: montserrat.style,
+            fontFamily: "unset",
           }}
         >
           {t("title")}
@@ -275,7 +269,7 @@ const Footer = ({ cat }) => {
         <Typography
           sx={{
             display: { xs: "none", md: "flex" },
-            fontFamily: montserrat.style,
+            fontFamily: "unset",
           }}
         >
           Stable®

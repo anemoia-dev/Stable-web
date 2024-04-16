@@ -2,8 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import NavBar from "./components/NavBar";
-
-//import { useTranslation, Trans } from "react-i18next";
 import dynamic from "next/dynamic";
 import { Box } from "@mui/material";
 
@@ -16,21 +14,9 @@ const Life = dynamic(() => import("./components/Life"), {
   loading: () => <p>Loading...</p>,
 });
 
-const People = dynamic(
-  () => import("./components/People"),
-  { ssr: false }
-  /*  {
-    loading: () => <p>Loading...</p>,
-  } */
-);
+const People = dynamic(() => import("./components/People"), { ssr: false });
 
-const HowToUse = dynamic(
-  () => import("./components/HowToUse"),
-  { ssr: false }
-  /* {
-  loading: () => <p>Loading...</p>,
-} */
-);
+const HowToUse = dynamic(() => import("./components/HowToUse"), { ssr: false });
 
 const BusinessComp = dynamic(() => import("./components/BusinessComp"), {
   loading: () => <p>Loading...</p>,
@@ -41,8 +27,6 @@ const Footer = dynamic(() => import("./components/Footer"), {
 });
 
 export default async function Home(props) {
-  //const { t, i18n } = useTranslation("Business");
-
   return (
     <>
       <Box
@@ -62,10 +46,8 @@ export default async function Home(props) {
             width: "100%",
             position: "relative",
             alignItems: "center",
-
             height: { xs: "100vh", md: "100vh" },
             display: "flex",
-
             flexDirection: "column",
           }}
         >
@@ -75,9 +57,7 @@ export default async function Home(props) {
           sx={{
             height: { xs: "60vh", md: "50vh" },
             width: "100%",
-
             background: "linear-gradient(to bottom, #20201f, black)",
-
             position: "relative",
             display: "flex",
             flexDirection: "column",
@@ -131,7 +111,6 @@ export default async function Home(props) {
           sx={{
             height: { xs: "125vh", md: "110vh" },
             bgcolor: "#20201F",
-
             display: "flex",
             flexDirection: "column",
             position: "relative",
@@ -141,8 +120,8 @@ export default async function Home(props) {
         </Box>{" "}
         <Box
           sx={{
-            //minHeight: "100vh",
-            padding: { md: "3rem 6rem" },
+            padding: { xs: "0rem 1rem", md: "0rem 6rem" },
+            height: { xs: "100vh", md: "100vh" },
             background: "#202020",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -158,7 +137,6 @@ export default async function Home(props) {
             height: { xs: "100vh", md: "100vh" },
             width: "100vw",
             display: "flex",
-            //opacity: 0.5,
             flexDirection: "column",
             position: "relative",
           }}
@@ -179,7 +157,6 @@ export default async function Home(props) {
               alt="BusinessWallpaper"
               fill
               loading="lazy"
-              //load={() => "lazy"}
               style={{
                 objectFit: "cover",
                 objectPosition: "bottom",
