@@ -14,13 +14,13 @@ export default async function Layout({ children, params: { locale } }) {
       resources={resources}
       namespaces={i18nNamespaces}
     >
-      <script
+      {/* <script
         type="text/javascript"
         id="hs-script-loader"
         async
         defer
         src="//js-na1.hs-scripts.com/41506338.js"
-      ></script>
+      ></script> */}
       {children}
     </TranslationProvider>
   );

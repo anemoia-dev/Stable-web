@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import SocialMedia from "./SocialMedia";
@@ -16,7 +16,6 @@ import {
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
 import i18nConfig from "@/app/i18nConfig";
-
 import { useTranslation } from "next-i18next";
 import Slide from "@mui/material/Slide";
 
@@ -72,11 +71,6 @@ const NavBar = ({
     [currentLocale, currentPathname, router]
   );
 
-  /*  useEffect(() => {
-    const navBarheight = document.getElementById("navBar").clientHeight;
-    onHeightChange(navBarheight);
-  }, []); */
-
   return (
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
       <HideOnScroll>
@@ -90,9 +84,6 @@ const NavBar = ({
             display: "flex",
             alignItems: "center",
             backgroundColor: !cat ? "#20201F" : color,
-            /* backgroundImage:
-              optionChosen === 0 &&
-              "linear-gradient(147deg, #353535 0%,  #d7d7d7  74%)", */
             height: { xs: "10vh", md: "11vh" },
             boxShadow: "none",
             borderBottom: cat ? "1px solid rgba(178, 172, 172, 1)" : "none",
@@ -101,7 +92,7 @@ const NavBar = ({
           <Toolbar
             sx={{
               width: { xs: "100%", sm: "80%", md: "80%" },
-              //height: "10vh",
+
               backgroundColor: !cat && "#20201F",
               gap: { sm: "1rem" },
               padding: { xs: "0 2rem", sm: 0 },

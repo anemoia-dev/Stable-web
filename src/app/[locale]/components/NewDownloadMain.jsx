@@ -1,16 +1,13 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import SocialMedia from "./SocialMedia";
 import { Swiper, SwiperSlide } from "swiper/react";
-/* import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation"; */
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
-const NewDownloadImage = () => {
+const NewDownloadImage = memo(() => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -287,6 +284,6 @@ const NewDownloadImage = () => {
       </Box>
     </Box>
   );
-};
+});
 
 export default NewDownloadImage;
