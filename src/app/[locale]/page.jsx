@@ -121,7 +121,7 @@ export default async function Home(props) {
         <Box
           sx={{
             padding: { xs: "0rem 1rem", md: "0rem 6rem" },
-            height: { xs: "100vh", md: "100vh" },
+            minHeight: { xs: "100vh", md: "100vh" },
             background: "#202020",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",

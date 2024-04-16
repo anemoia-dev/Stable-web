@@ -12,7 +12,7 @@ const HowToUse = () => {
     <Box
       sx={{
         minHeight: { /* xs: "80vh" */ md: "90vh" },
-        padding: { xs: "0rem 2rem" },
+        padding: { xs: "2rem 2rem" },
         display: "flex",
         flexDirection: { xs: "column", md: "column" },
         justifyContent: "center",
