@@ -14,7 +14,7 @@ const SocialMedia = ({ optionChosen }) => {
         padding: { xs: "1rem 1rem", md: "1rem 3rem" },
         alignItems: "flex-end",
         gap: "1rem",
-        zIndex: 1,
+        zIndex: 10,
         position: "absolute",
         top: { xs: "11vh", md: "11vh" },
         right: { xs: "0.5rem", md: "1rem" },
