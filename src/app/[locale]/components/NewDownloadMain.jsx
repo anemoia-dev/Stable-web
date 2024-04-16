@@ -5,9 +5,9 @@ import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import SocialMedia from "./SocialMedia";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+/* import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/navigation"; */
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const NewDownloadImage = () => {
@@ -33,7 +33,7 @@ const NewDownloadImage = () => {
         pagination={false}
         navigation={false}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper"
+        //className="mySwiper"
         style={{
           /*  */
           backgroundColor: "#20201f",
@@ -71,7 +71,6 @@ const NewDownloadImage = () => {
               />
               <Box
                 sx={{
-                  bgcolor: "red",
                   padding: { xs: "0 1rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
                   //height: "70vh",
@@ -89,7 +88,7 @@ const NewDownloadImage = () => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "20vh", md: "0vh" },
+                    bottom: { xs: "20vh", md: "11vh" },
                   }}
                 >
                   <Typography
@@ -143,7 +142,6 @@ const NewDownloadImage = () => {
               />
               <Box
                 sx={{
-                  bgcolor: "red",
                   padding: { xs: "0 1rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
                   //height: "70vh",
@@ -152,7 +150,7 @@ const NewDownloadImage = () => {
                   flexDirection: "column",
                   justifyContent: { md: "center" },
                   gap: "1rem",
-                  bottom: { xs: "20vh", md: "10vh" },
+                  bottom: { xs: "20vh", md: "11vh" },
                 }}
               >
                 <Box
@@ -161,7 +159,7 @@ const NewDownloadImage = () => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "0vh", md: "0vh" },
+                    bottom: { xs: "20vh", md: "11vh" },
                   }}
                 >
                   <Typography
@@ -183,6 +181,7 @@ const NewDownloadImage = () => {
             </Box>
           </SwiperSlide>
         </Box>
+
         <Box sx={{ width: "100%", height: "100%" }}>
           <SwiperSlide style={{ width: "100%", height: "100%" }}>
             <Box
@@ -214,7 +213,6 @@ const NewDownloadImage = () => {
               />
               <Box
                 sx={{
-                  bgcolor: "red",
                   padding: { xs: "0 1rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
                   //height: "70vh",
@@ -232,7 +230,7 @@ const NewDownloadImage = () => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "20vh", md: "0vh" },
+                    bottom: { xs: "20vh", md: "11vh" },
                   }}
                 >
                   <Typography
