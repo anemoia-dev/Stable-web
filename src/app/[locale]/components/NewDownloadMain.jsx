@@ -6,10 +6,31 @@ import { useTranslation } from "react-i18next";
 import SocialMedia from "./SocialMedia";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const NewDownloadImage = memo(() => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const { t, i18n } = useTranslation();
 
+  const imageUrls = {
+    xs: "/wal1Mobile.svg",
+    md: "/wal1.svg",
+  };
+
+  const imagesUrls2 = {
+    xs: "/wal2Mobile.svg",
+    md: "/wal2.svg",
+  };
+
+  const imagesUrls3 = {
+    xs: "/wal3Mobile.svg",
+    md: "/wal3.svg",
+  };
+
+  const imageUrl = isSmallScreen ? imageUrls.xs : imageUrls.md;
+  const imageUrl2 = isSmallScreen ? imagesUrls2.xs : imagesUrls2.md;
+  const imageUrl3 = isSmallScreen ? imagesUrls3.xs : imagesUrls3.md;
   return (
     <Box
       sx={{
@@ -53,7 +74,7 @@ const NewDownloadImage = memo(() => {
               }}
             >
               <Image
-                src={"/wal1.svg"}
+                src={imageUrl}
                 alt="BusinessWallpaper"
                 fill
                 priority
@@ -61,7 +82,7 @@ const NewDownloadImage = memo(() => {
                   position: "absolute",
                   transition: "opacity 2.5s",
                   "object-fit": "cover",
-                  objectPosition: "Top",
+                  objectPosition: !isSmallScreen ? "Top" : "Top Right",
                 }}
               />
               <Box
@@ -121,15 +142,14 @@ const NewDownloadImage = memo(() => {
               }}
             >
               <Image
-                src={"/wal2.svg"}
+                src={imageUrl2}
                 alt="BusinessWallpaper"
                 fill
-                priority
                 style={{
                   position: "absolute",
                   transition: "opacity 2.5s",
                   "object-fit": "cover",
-                  objectPosition: "Top",
+                  objectPosition: !isSmallScreen ? "Top" : "Top Left",
                 }}
               />
               <Box
@@ -189,15 +209,14 @@ const NewDownloadImage = memo(() => {
               }}
             >
               <Image
-                src={"/wal3.svg"}
-                alt="BusinessWallpaper"
+                src={imageUrl3}
+                alt="wal3"
                 fill
-                priority
                 style={{
                   position: "absolute",
                   transition: "opacity 2.5s",
                   "object-fit": "cover",
-                  objectPosition: "Top",
+                  objectPosition: !isSmallScreen ? "Top" : "Top Center",
                 }}
               />
               <Box

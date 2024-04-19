@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
-
+import Image from "next/image";
 const Life = () => {
   const { t, i18n } = useTranslation("Options");
   return (
@@ -60,44 +60,36 @@ const Life = () => {
 
       <Box
         sx={{
-          display: "flex",
-          width: { xs: "100%", md: "50%" },
-
-          justifyContent: { xs: "center", md: "right" },
-          alignItems: "center",
+          display: { xs: "flex", md: "flex" },
+          justifyContent: "left",
           gap: "1rem",
           marginTop: "2rem",
-          position: "relative",
         }}
       >
         <Link
           href={"https://play.google.com/store/apps/details?id=com.stable"}
           target={"_blank"}
+          rel="noreferrer"
         >
-          <Box
-            component={"img"}
-            src={
-              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-            }
-            sx={{
-              width: { xs: "142px", md: "172px" },
-            }}
-          ></Box>
+          <Image
+            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+            alt="Google Logo"
+            width={172}
+            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
+          />
         </Link>
 
         <Link
-          href={"https://apps.apple.com/us/app/stable/id1617106220"}
+          href={"https://itunes.apple.com/app/stable/id1487099550"}
           target={"_blank"}
+          rel="noreferrer"
         >
-          <Box
-            component={"img"}
-            src={
-              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-            }
-            sx={{
-              width: { xs: "132px", md: "158px" },
-            }}
-          ></Box>
+          <Image
+            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+            alt="Google Logo"
+            width={172}
+            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
+          />
         </Link>
       </Box>
     </Box>

@@ -13,7 +13,16 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
   return (
     <Box
       sx={{
-        minHeight: { xs: "130vh", md: cat === "Global" ? "100vh" : "100vh" },
+        minHeight: {
+          xs:
+            cat === "Cercania"
+              ? "120vh"
+              : cat === "Responsabilidad"
+              ? "135vh"
+              : "135vh",
+
+          md: cat === "Global" ? "100vh" : "100vh",
+        },
         backgroundImage: {
           xs: `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
             `${cat}.thirdColor`
@@ -46,7 +55,6 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
             md: cat !== "Global" ? "11vh" : "0vh",
           },
           display: "flex",
-
           alignItems: "center",
           flexDirection: "column",
         }}
@@ -58,7 +66,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
               fontFamily: "unset",
               right: "7vw",
               top: {
-                xs: "15vh",
+                xs: "10vh",
                 md: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
               },
               color: "black",
@@ -78,7 +86,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
           <Box
             sx={{
               //bgcolor: "red",
-              width: { xs: "55%", md: "22%" },
+              width: { xs: cat === "Global" ? "50%" : "65%", md: "22%" },
               position: "absolute",
               left: { xs: "3%", md: "10%" },
               top: {
@@ -138,8 +146,9 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
             <AddIcon sx={{ right: 10, position: "absolute" }} />
             <Typography
               sx={{
+                width: { xs: cat === "Cercania" ? "80%" : "100%" },
                 fontFamily: "unset",
-                marginTop: "1.3rem",
+                marginTop: "1.4rem",
                 fontSize: "1.2rem",
                 lineHeight: "1.3rem",
                 fontWeight: "600",
@@ -221,42 +230,48 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
 
         {}
       </Box>
+
+      {/* PHINESS */}
       <Box
         sx={{
-          display: { xs: "block", md: "none" },
           position: "absolute",
-          //right: cat === "Global" || cat === "Confianza" ? "80%" : "-50%",
-          //top: "12vh",
-          right: -10,
-          bottom: "30vh",
-          height: "70vh",
-
-          width: cat === "Global" || cat === "Confianza" ? "50%" : "50%",
-          //height: "100%",
-          //zIndex: 50,
-          display: { xs: "flex", md: "none" },
+          right: 0,
+          bottom: "25vh",
+          width: "100%", // Ancho por defecto
+          display: { xs: "block", md: "none" }, // Mostrar en pantallas extra pequeñas y ocultar en medianas y grandes
           justifyContent: "flex-end",
-          justifyItems: "flex-end",
           alignItems: "flex-end",
         }}
       >
         <Image
-          src={
-            cat === "Global" || cat === "Confianza"
-              ? t(`${cat}.mobileImage`)
-              : t(`${cat}.insideImages.0`)
+          src={t(`${cat}.mobilePerson`)}
+          width={
+            cat === "Cercania" ? 300 : cat === "Responsabilidad" ? 470 : 400
           }
-          fill
+          height={600}
+          //layout="responsive"
+          objectFit={
+            cat === "Global" || cat === "Confianza" ? "contain" : "contain"
+          }
+          objectPosition="right"
           style={{
             position: "absolute",
-            right: 0,
-            objectFit:
-              cat === "Global" || cat === "Confianza" ? "contain" : "contain",
-            objectPosition: "bottom",
+            bottom: 25,
+            right:
+              cat === "Confianza"
+                ? -120
+                : cat === "Responsabilidad"
+                ? -150
+                : cat === "Compromiso"
+                ? -150
+                : cat === "Global"
+                ? -90
+                : 0,
             zIndex: 0,
           }}
         />
       </Box>
+
       <Box
         sx={{
           position: { xs: "absolute", md: "absolute" },

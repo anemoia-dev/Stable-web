@@ -46,7 +46,7 @@ const Expanded = ({ id }) => {
         width: widths["width" + id],
         padding: "2rem",
         marginTop: id !== 0 ? "-10vh" : "0",
-        height: open ? "75vh" : "20vh",
+        height: open ? "75vh" : "22vh",
         transition: "all 0.3s ease-in-out",
         background: t(`op${id}.background`),
         position: "relative",
@@ -81,7 +81,7 @@ const Expanded = ({ id }) => {
         <Typography
           sx={{
             fontFamily: "unset",
-            fontSize: "1.5rem",
+            fontSize: { xs: "1.3rem", md: "1.5rem" },
             overflow: "hidden",
             textOverflow: "ellipsis",
             display: "-webkit-box",

@@ -73,16 +73,8 @@ const People = () => {
           }}
         >
           <ReactPlayer
-            light={
-              <img
-                src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
-                alt="Thumbnail"
-                width={{ xs: "50%", md: "100%" }}
-              />
-            }
             url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
             width={"100%"}
-            //height={"150%"}
           />
         </Box>
       </Box>
