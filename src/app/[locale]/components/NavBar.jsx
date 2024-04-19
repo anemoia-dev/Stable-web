@@ -15,12 +15,12 @@ import {
 
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 import i18nConfig from "@/app/i18nConfig";
 import { useTranslation } from "next-i18next";
 import Slide from "@mui/material/Slide";
 
 function HideOnScroll(props) {
+  const { t, i18n } = useTranslation();
   const { children, window } = props;
 
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -47,10 +47,12 @@ const NavBar = ({ color, cat }) => {
     (e) => {
       const newLocale = e;
       setLanguage(newLocale);
-      const days = 30;
-      const expires = days * 24 * 60 * 60; // Expresado en segundos
 
-      Cookies.set("NEXT_LOCALE", newLocale, { expires, path: "/" });
+      const days = 30;
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      const expires = "; expires=" + date.toUTCString();
+      document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
       if (currentLocale === i18nConfig.defaultLocale) {
         router.push("/" + newLocale + currentPathname);
@@ -59,10 +61,12 @@ const NavBar = ({ color, cat }) => {
           currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
         );
       }
+
       router.refresh();
     },
     [currentLocale, currentPathname, router]
   );
+
   return (
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
       <HideOnScroll>
@@ -113,13 +117,12 @@ const NavBar = ({ color, cat }) => {
                 <Image
                   src={
                     !cat
-                      ? "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362743/Stable%20Mockups/Main/whiteGif_wjaxvz.gif"
+                      ? "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto,q_auto/v1/Stable%20Mockups/Main/whiteGif_wjaxvz"
                       : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
                   }
                   alt="logo"
                   width={140}
                   height={79}
-                  priority
                   style={{
                     backgroundColor: "transparent",
                     display: "flex",

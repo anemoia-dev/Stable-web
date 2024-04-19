@@ -3,7 +3,6 @@ import React, { memo } from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import Link from "next/link";
 import SocialMedia from "./SocialMedia";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
@@ -32,6 +31,7 @@ const NewDownloadImage = memo(() => {
         navigation={false}
         modules={[Pagination, Navigation, Autoplay]}
         style={{
+          /*  */
           backgroundColor: "#20201f",
           "--swiper-pagination-bullet-size": "10px",
           height: "100%",
@@ -68,7 +68,7 @@ const NewDownloadImage = memo(() => {
                 sx={{
                   padding: { xs: "0 1rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
-                  //height: "70vh",
+
                   display: "flex",
                   position: "absolute",
                   flexDirection: "column",
@@ -125,7 +125,6 @@ const NewDownloadImage = memo(() => {
                 alt="BusinessWallpaper"
                 fill
                 priority
-                //loader={"eager"}
                 style={{
                   position: "absolute",
                   transition: "opacity 2.5s",
@@ -205,7 +204,7 @@ const NewDownloadImage = memo(() => {
                 sx={{
                   padding: { xs: "0 1rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
-
+                  //height: "70vh",
                   display: "flex",
                   position: "absolute",
                   flexDirection: "column",
@@ -254,40 +253,24 @@ const NewDownloadImage = memo(() => {
           zIndex: 1,
         }}
       >
-        <Link
-          href={
-            "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es_CL"
+        <Box
+          component={"img"}
+          src={
+            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
           }
-          target={"_blank"}
-          rel="noopener noreferrer"
-        >
-          <Box
-            component={"img"}
-            src={
-              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
-            }
-            sx={{
-              width: { xs: "165px", md: "220px" },
-            }}
-          ></Box>
-        </Link>
-
-        <Link
-          href={"https://apps.apple.com/co/app/stable/id6446915567"}
-          target={"_blank"}
-          rel="noopener noreferrer"
-        >
-          {" "}
-          <Box
-            component={"img"}
-            src={
-              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
-            }
-            sx={{
-              width: { xs: "155px", md: "205px" },
-            }}
-          ></Box>
-        </Link>
+          sx={{
+            width: { xs: "165px", md: "220px" },
+          }}
+        ></Box>
+        <Box
+          component={"img"}
+          src={
+            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+          }
+          sx={{
+            width: { xs: "155px", md: "210px" },
+          }}
+        ></Box>
       </Box>
     </Box>
   );
