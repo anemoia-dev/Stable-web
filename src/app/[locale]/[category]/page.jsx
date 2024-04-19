@@ -11,11 +11,11 @@ const layout = (props) => {
 
   const [navbarHeight, setNavbarHeight] = useState(0);
   let category = props.params.category;
-  console.log(t(`${category}.secondColor`));
   let info = textList.List.filter(
     (el) => el.title.toLowerCase() === category.toLowerCase()
   );
   info = info[0];
+
   const handleNavbarHeight = (height) => {
     setNavbarHeight(height);
   };
@@ -24,9 +24,8 @@ const layout = (props) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: { xs: "110vh", md: "100vh" },
+        minHeight: { xs: "120vh", md: "100vh" },
         width: "100vw",
-        // overflow: "hidden",
       }}
     >
       <NavBar
@@ -36,9 +35,7 @@ const layout = (props) => {
           category !== "Global" ? t(`${category}.secondColor`) : "transparent"
         }
       />
-
       <Selected navbarHeight={navbarHeight} /* info={info} */ cat={category} />
-
       <Footer cat={category} />
     </Box>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import AddIcon from "@mui/icons-material/Add";
@@ -8,7 +8,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import Link from "next/link";
 import Carrusel from "../components/Container";
 import { useTranslation } from "react-i18next";
-const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
+const Selected = ({ optionChosen, navbarHeight, cat }) => {
   const { t, i18n } = useTranslation("Selected");
   return (
     <Box
@@ -227,7 +227,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
           position: "absolute",
           //right: cat === "Global" || cat === "Confianza" ? "80%" : "-50%",
           //top: "12vh",
-          right: 0,
+          right: -10,
           bottom: "30vh",
           height: "70vh",
 
@@ -345,7 +345,7 @@ const Selected = ({ OptionsToChoose, optionChosen, navbarHeight, cat }) => {
       >
         <Carrusel
           selected={parseInt(optionChosen)}
-          Options={OptionsToChoose}
+          /*    Options={OptionsToChoose} */
           cat={cat}
         />
       </Box>

@@ -27,7 +27,7 @@ const BusinessComp = () => {
             alignItems: "flex-end",
             zIndex: 1,
             top: { xs: 0, md: 30 },
-            padding: { xs: "1rem 1rem", md: "1rem 5rem" },
+            padding: { xs: "2rem 2rem", md: "1rem 5rem" },
             right: 0,
           }}
         >
@@ -76,26 +76,42 @@ const BusinessComp = () => {
               alignItems: "center",
               gap: "1rem",
               marginTop: "2rem",
+              paddingBottom: { xs: "2rem", md: "0" },
             }}
           >
-            <Box
-              component={"img"}
-              src={
-                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+            <Link
+              href={
+                "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es_CL&gl=US"
               }
-              sx={{
-                width: { xs: "142px", md: "172px" },
-              }}
-            ></Box>
-            <Box
-              component={"img"}
-              src={
-                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-              }
-              sx={{
-                width: { xs: "132px", md: "158px" },
-              }}
-            ></Box>
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              <Box
+                component={"img"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+                }
+                sx={{
+                  width: { xs: "142px", md: "172px" },
+                }}
+              ></Box>
+            </Link>
+
+            <Link
+              href={"https://apps.apple.com/cl/app/stable/id1586528537"}
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              <Box
+                component={"img"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+                }
+                sx={{
+                  width: { xs: "132px", md: "158px" },
+                }}
+              ></Box>
+            </Link>
           </Box>
         </Box>
       </Box>

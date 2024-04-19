@@ -167,7 +167,7 @@ export default async function Home(props) {
 
           <Box
             sx={{
-              height: { xs: "60%" },
+              height: { xs: "80%" },
             }}
           >
             <BusinessComp />

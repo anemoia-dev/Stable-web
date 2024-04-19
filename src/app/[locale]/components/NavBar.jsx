@@ -15,12 +15,12 @@ import {
 
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import i18nConfig from "@/app/i18nConfig";
 import { useTranslation } from "next-i18next";
 import Slide from "@mui/material/Slide";
 
 function HideOnScroll(props) {
-  const { t, i18n } = useTranslation();
   const { children, window } = props;
 
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -36,11 +36,7 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
-const NavBar = ({
-  color,
-
-  cat,
-}) => {
+const NavBar = ({ color, cat }) => {
   const { t, i18n } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
@@ -51,12 +47,10 @@ const NavBar = ({
     (e) => {
       const newLocale = e;
       setLanguage(newLocale);
-
       const days = 30;
-      const date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      const expires = "; expires=" + date.toUTCString();
-      document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+      const expires = days * 24 * 60 * 60; // Expresado en segundos
+
+      Cookies.set("NEXT_LOCALE", newLocale, { expires, path: "/" });
 
       if (currentLocale === i18nConfig.defaultLocale) {
         router.push("/" + newLocale + currentPathname);
@@ -65,12 +59,10 @@ const NavBar = ({
           currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
         );
       }
-
       router.refresh();
     },
     [currentLocale, currentPathname, router]
   );
-
   return (
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
       <HideOnScroll>
@@ -151,15 +143,6 @@ const NavBar = ({
                 color: cat ? "#202020" : "white",
               }}
             >
-              <Typography
-                sx={{
-                  fontFamily: "unset",
-                  display: { xs: "none", md: "flex" },
-                }}
-              >
-                {t("navBarMain.form")}
-              </Typography>
-
               <Link
                 href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
                 target="_blank"
@@ -178,11 +161,10 @@ const NavBar = ({
                 sx={{
                   display: {
                     xs: "none",
-                    /*    md: optionChosen !== -1 ? "flex" : "none", */
                   },
                 }}
               >
-                <SocialMedia /* optionChosen={optionChosen} */ />
+                <SocialMedia />
               </Box>
 
               <Select

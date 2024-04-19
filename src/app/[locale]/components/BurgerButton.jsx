@@ -7,15 +7,9 @@ import { useTranslation } from "react-i18next";
 
 const BurgerButton = ({ cat }) => {
   const { t, lang } = useTranslation();
-  const Links = t("common:Links", {}, { returnObjects: true });
-  const languages = {
-    en: "English",
-    es: "Español",
-  };
 
-  const [languageSelected, setLanguageSelected] = useState("es");
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [display, setDisplay] = useState(false);
+
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -89,15 +83,6 @@ const BurgerButton = ({ cat }) => {
               color: "white",
             }}
           >
-            <Typography
-              sx={{
-                fontFamily: "unset",
-                color: "white",
-              }}
-            >
-              {t("navBarMain.form")}
-            </Typography>
-
             <Typography
               sx={{
                 fontFamily: "unset",

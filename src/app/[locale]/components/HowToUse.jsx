@@ -2,6 +2,7 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
 import Expanded from "./Expanded";
+import Link from "next/link";
 
 import { useTranslation } from "react-i18next";
 const texts = [0, 1, 2, 3];
@@ -11,7 +12,7 @@ const HowToUse = () => {
   return (
     <Box
       sx={{
-        minHeight: { /* xs: "80vh" */ md: "90vh" },
+        minHeight: { xs: "80vh", md: "90vh" },
         padding: { xs: "2rem 2rem" },
         display: "flex",
         flexDirection: { xs: "column", md: "column" },
@@ -58,24 +59,37 @@ const HowToUse = () => {
             marginTop: "2rem",
           }}
         >
-          <Box
-            component={"img"}
-            src={
-              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-            }
-            sx={{
-              width: "172px",
-            }}
-          ></Box>
-          <Box
-            component={"img"}
-            src={
-              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-            }
-            sx={{
-              width: "158px",
-            }}
-          ></Box>
+          <Link
+            href={"https://play.google.com/store/apps/details?id=com.stable"}
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <Box
+              component={"img"}
+              src={
+                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+              }
+              sx={{
+                width: "172px",
+              }}
+            ></Box>
+          </Link>
+
+          <Link
+            href={"https://itunes.apple.com/app/stable/id1487099550"}
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <Box
+              component={"img"}
+              src={
+                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+              }
+              sx={{
+                width: "155px",
+              }}
+            ></Box>
+          </Link>
         </Box>
       </Box>
 

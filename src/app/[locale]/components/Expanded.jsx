@@ -6,8 +6,18 @@ import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "react-i18next";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
+const imageSize = {
+  xs: { width: "100%", height: "40%" }, // Para pantallas extra pequeñas
+  sm: { width: "60%", height: "40%" }, // Para pantallas pequeñas
+  md: { width: "40%", height: "60%" }, // Para pantallas medianas
+  lg: { width: "30%", height: "20%" }, // Para pantallas grandes
+};
 const Expanded = ({ id }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const { t, i18n } = useTranslation("HowToUse");
   const [open, setOpen] = useState(false);
 
@@ -112,10 +122,17 @@ const Expanded = ({ id }) => {
                   height={500}
                   style={{
                     position: "absolute",
-
-                    width: "40%",
-                    height: "60%",
+                    width: imageSize[isSmallScreen ? "xs" : "md"].width,
+                    height: imageSize[isSmallScreen ? "xs" : "md"].height,
                     margin: "50% auto",
+                    [theme.breakpoints.down("sm")]: {
+                      width: imageSize.sm.width,
+                      height: imageSize.sm.height,
+                    },
+                    [theme.breakpoints.down("xs")]: {
+                      width: imageSize.xs.width,
+                      height: imageSize.xs.height,
+                    },
                   }}
                 />
               }

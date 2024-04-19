@@ -2,6 +2,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 const Life = () => {
   const { t, i18n } = useTranslation("Options");
@@ -69,24 +70,35 @@ const Life = () => {
           position: "relative",
         }}
       >
-        <Box
-          component={"img"}
-          src={
-            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-          }
-          sx={{
-            width: { xs: "142px", md: "172px" },
-          }}
-        ></Box>
-        <Box
-          component={"img"}
-          src={
-            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-          }
-          sx={{
-            width: { xs: "132px", md: "158px" },
-          }}
-        ></Box>
+        <Link
+          href={"https://play.google.com/store/apps/details?id=com.stable"}
+          target={"_blank"}
+        >
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+            }
+            sx={{
+              width: { xs: "142px", md: "172px" },
+            }}
+          ></Box>
+        </Link>
+
+        <Link
+          href={"https://apps.apple.com/us/app/stable/id1617106220"}
+          target={"_blank"}
+        >
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+            }
+            sx={{
+              width: { xs: "132px", md: "158px" },
+            }}
+          ></Box>
+        </Link>
       </Box>
     </Box>
   );

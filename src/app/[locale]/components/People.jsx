@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Box from "@mui/material/Box";
-import { Typography, Card } from "@mui/material";
+import { Typography } from "@mui/material";
 import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "next-i18next";
 import Responsive from "./Carousel";
@@ -14,7 +14,7 @@ const People = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        padding: { xs: "2rem 0rem", md: "2.5rem 3rem" },
+        padding: { xs: "2rem 1.5rem", md: "2.5rem 3rem" },
         backgroundColor: { xs: "rgba(255, 230, 251, 1)", md: "rgba(0,0,0,.5)" },
         color: "#fff",
         minHeight: { xs: "110vh", md: "100vh" },
