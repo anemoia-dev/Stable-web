@@ -36,7 +36,7 @@ const NewDownloadImage = memo(() => {
       sx={{
         width: "100vw",
         bgcolor: "#20201f",
-        height: "100vh",
+        height: "90vh",
       }}
     >
       <SocialMedia />{" "}
@@ -88,7 +88,7 @@ const NewDownloadImage = memo(() => {
               />
               <Box
                 sx={{
-                  padding: { xs: "0 1rem", md: "0 3rem" },
+                  padding: { xs: "0 2rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
 
                   display: "flex",
@@ -105,7 +105,7 @@ const NewDownloadImage = memo(() => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "20vh", md: "11vh" },
+                    bottom: { xs: "20vh", md: "20vh" },
                   }}
                 >
                   <Typography
@@ -116,6 +116,7 @@ const NewDownloadImage = memo(() => {
                       fontWeight: "bold",
                       color: "white",
                       lineHeight: 1.1,
+                      bottom: { md: "11vh" },
                     }}
                   >
                     {t(`downloadMain.text0`)}
@@ -156,7 +157,7 @@ const NewDownloadImage = memo(() => {
               />
               <Box
                 sx={{
-                  padding: { xs: "0 1rem", md: "0 3rem" },
+                  padding: { xs: "0 2rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
 
                   display: "flex",
@@ -164,7 +165,7 @@ const NewDownloadImage = memo(() => {
                   flexDirection: "column",
                   justifyContent: { md: "center" },
                   gap: "1rem",
-                  bottom: { xs: "20vh", md: "11vh" },
+                  bottom: { xs: "20vh", md: "20vh" },
                 }}
               >
                 <Box
@@ -224,7 +225,7 @@ const NewDownloadImage = memo(() => {
               />
               <Box
                 sx={{
-                  padding: { xs: "0 1rem", md: "0 3rem" },
+                  padding: { xs: "0 2rem", md: "0 3rem" },
                   width: { xs: "90%", md: "60vw" },
                   //height: "70vh",
                   display: "flex",
@@ -232,7 +233,7 @@ const NewDownloadImage = memo(() => {
                   flexDirection: "column",
                   justifyContent: { md: "center" },
                   gap: "1rem",
-                  bottom: { xs: "0vh", md: "10vh" },
+                  bottom: { xs: "0vh", md: "20vh" },
                 }}
               >
                 <Box
@@ -267,9 +268,10 @@ const NewDownloadImage = memo(() => {
         sx={{
           display: "flex",
           justifyContent: { xs: "center", md: "left" },
+
           gap: "1rem",
           position: "absolute",
-          bottom: { xs: "9vh", md: "9vh" },
+          bottom: { xs: "21vh", md: "9vh" },
           padding: { xs: "0 0rem", md: "0 3rem" },
           width: { xs: "100%" },
           zIndex: 1,

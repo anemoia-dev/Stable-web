@@ -46,7 +46,7 @@ export default async function Home(props) {
             width: "100%",
             position: "relative",
             alignItems: "center",
-            height: { xs: "100vh", md: "100vh" },
+            height: { xs: "100vh", md: "90vh" },
             display: "flex",
             flexDirection: "column",
           }}

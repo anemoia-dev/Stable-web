@@ -133,49 +133,59 @@ function Carrusel({ Options, selected, cat }) {
                 whiteSpace: "nowrap",
               }}
             >
-              <Image
-                src={el.coverImage}
-                width={110}
-                height={110}
-                style={{
-                  objectFit: "cover",
+              <Link href={el.title}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "left",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={el.coverImage}
+                    style={{
+                      "object-fit": "cover",
+                      width: "30%",
+                      "object-position": "bottom",
+                      height: "100%",
+                      marginTop:
+                        id === 0 ? "0rem" : id === 2 ? "1rem" : "1.5rem",
+                    }}
+                  />
 
-                  /* width: id === 0 ? "35%" : "35%", */
-                  //height: "100%",
-                  objectPosition: id === 0 ? "center  top" : "center top",
-                }}
-              />
-              <NorthEastIcon
-                sx={{
-                  position: "absolute",
-                  top: 0,
-                  right: 0,
-                  fontSize: "1.5rem",
-                  margin: "0.5rem",
-                }}
-              />
+                  <NorthEastIcon
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      right: 0,
+                      fontSize: "1.5rem",
+                      margin: "0.5rem",
+                    }}
+                  />
 
-              <Typography
-                sx={{
-                  padding: "0.5rem",
-                  fontSize: { xs: "100%" },
-                  fontWeight: 600,
-                  fontFamily: "unset",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
+                  <Typography
+                    sx={{
+                      padding: "0.5rem",
+                      fontSize: { xs: "100%" },
+                      fontWeight: 600,
+                      fontFamily: "unset",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
 
-                  "@media (orientation: landscape)": {
-                    fontSize: { xs: "1rem", sm: "1.3rem", md: "1rem" },
-                  },
+                      "@media (orientation: landscape)": {
+                        fontSize: { xs: "1rem", sm: "1.3rem", md: "1rem" },
+                      },
 
-                  "@media (orientation: portrait)": {
-                    fontSize: { xs: "1.1rem" },
-                  },
-                }}
-              >
-                <Link href={el.title}>{t(`Options.o${id}`)}</Link>
-              </Typography>
+                      "@media (orientation: portrait)": {
+                        fontSize: { xs: "1.1rem" },
+                      },
+                    }}
+                  >
+                    {t(`Options.o${id}`)}
+                  </Typography>
+                </Box>
+              </Link>
             </Box>
           );
         })}

@@ -47,7 +47,7 @@ const BurgerButton = ({ cat }) => {
           <MenuIcon
             sx={{
               fontSize: "2.5rem",
-              color: cat ? "#20201f" : "white",
+              color: cat && cat !== "Global" ? "#20201f" : "white",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

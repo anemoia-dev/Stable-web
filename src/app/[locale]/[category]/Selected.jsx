@@ -16,12 +16,14 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
         minHeight: {
           xs:
             cat === "Cercania"
-              ? "120vh"
+              ? "110vh"
               : cat === "Responsabilidad"
-              ? "135vh"
-              : "135vh",
+              ? "130vh"
+              : cat === "Confianza"
+              ? "120vh"
+              : "125vh",
 
-          md: cat === "Global" ? "100vh" : "100vh",
+          md: cat === "Global" ? "89vh" : "89vh",
         },
         backgroundImage: {
           xs: `linear-gradient(to bottom,${t(`${cat}.secondColor`)},${t(
@@ -38,7 +40,9 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
 
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
-        backgroundPosition: "60%",
+        backgroundPosition: {
+          md: cat === "Global" ? "top -20vh left 0" : "40%",
+        },
         position: "relative",
         width: "100%",
         bgcolor: "gray",
@@ -52,7 +56,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
             md: cat === "Global" ? "100vh" : "89vh",
           },
           top: {
-            md: cat !== "Global" ? "11vh" : "0vh",
+            md: cat !== "Global" ? "0vh" : "0vh",
           },
           display: "flex",
           alignItems: "center",
@@ -66,7 +70,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
               fontFamily: "unset",
               right: "7vw",
               top: {
-                xs: "10vh",
+                xs: "5vh",
                 md: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
               },
               color: "black",
@@ -86,11 +90,11 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
           <Box
             sx={{
               //bgcolor: "red",
-              width: { xs: cat === "Global" ? "50%" : "65%", md: "22%" },
+              width: { xs: cat === "Global" ? "50%" : "63%", md: "22%" },
               position: "absolute",
               left: { xs: "3%", md: "10%" },
               top: {
-                xs: "15vh",
+                xs: "5vh",
                 md: cat === "Global" ? `${navbarHeight + 12}vh` : "4vh",
               },
               height: { md: "60%" },
@@ -146,12 +150,15 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
             <AddIcon sx={{ right: 10, position: "absolute" }} />
             <Typography
               sx={{
-                width: { xs: cat === "Cercania" ? "80%" : "100%" },
+                width: { xs: cat === "Cercania" ? "76%" : "100%" },
                 fontFamily: "unset",
                 marginTop: "1.4rem",
                 fontSize: "1.2rem",
                 lineHeight: "1.3rem",
                 fontWeight: "600",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                //whiteSpace: "nowrap",
               }}
             >
               {parse(t(`${cat}.featureText`))}
@@ -192,34 +199,25 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
                   backgroundRepeat: "no-repeat",
                   backgroundImage:
                     cat !== "Global" && `url(${t(`${cat}.insideImages.0`)})`,
-
                   backgroundSize: `${t(`${cat}.backgroundSizeMain`)}`,
-                  /*   optionChosen === 1
-                      ? "85%"
-                      : optionChosen === 2
-                      ? "68%"
-                      : optionChosen === 4
-                      ? "81%"
-                      : "cover", */
                 }}
               ></Box>
 
               <Box
                 sx={{
                   display: { xs: "none", md: "block" },
-                  //bgcolor: "blue",
+
                   right: 0,
                   position: "absolute",
                   width: "45%",
-                  //zIndex: -10,
+
                   height: "85%",
-                  //position: "absolute",
-                  //right: 0,
+
                   backgroundSize: cat === "Compromiso" ? "56%" : "cover",
-                  //bgcolor: "white",
+
                   backgroundImage:
                     cat !== "Global" && `url(${t(`${cat}.insideImages.1`)})`,
-                  //backgroundSize: "cover",
+
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "top center",
                 }}
@@ -236,7 +234,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
         sx={{
           position: "absolute",
           right: 0,
-          bottom: "25vh",
+          bottom: "23vh",
           width: "100%", // Ancho por defecto
           display: { xs: "block", md: "none" }, // Mostrar en pantallas extra pequeñas y ocultar en medianas y grandes
           justifyContent: "flex-end",
@@ -246,9 +244,17 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
         <Image
           src={t(`${cat}.mobilePerson`)}
           width={
-            cat === "Cercania" ? 300 : cat === "Responsabilidad" ? 470 : 400
+            cat === "Cercania"
+              ? 280
+              : cat === "Responsabilidad"
+              ? 470
+              : cat === "Global"
+              ? 300
+              : cat === "Confianza"
+              ? 350
+              : 400
           }
-          height={600}
+          height={cat === "Global" ? 500 : 550}
           //layout="responsive"
           objectFit={
             cat === "Global" || cat === "Confianza" ? "contain" : "contain"
@@ -256,17 +262,17 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
           objectPosition="right"
           style={{
             position: "absolute",
-            bottom: 25,
+            bottom: cat === "Global" ? 70 : 25,
             right:
               cat === "Confianza"
-                ? -120
+                ? -160
                 : cat === "Responsabilidad"
-                ? -150
+                ? -200
                 : cat === "Compromiso"
                 ? -150
                 : cat === "Global"
-                ? -90
-                : 0,
+                ? -100
+                : -20,
             zIndex: 0,
           }}
         />

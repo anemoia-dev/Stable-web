@@ -69,159 +69,167 @@ const NavBar = ({ color, cat }) => {
 
   return (
     <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
-      <HideOnScroll>
-        <AppBar
+      {/*    <HideOnScroll> */}
+      <AppBar
+        sx={{
+          position: {
+            xs: "static",
+            md: cat === "Global" ? "static" : "static",
+          },
+          width: "100vw",
+          display: "flex",
+          alignItems: "center",
+          backgroundColor:
+            !cat || cat === "Global"
+              ? "#20201F"
+              : cat === "Global"
+              ? "white"
+              : color,
+          height: { xs: "10vh", md: "11vh" },
+          boxShadow: "none",
+          borderBottom: cat ? "1px solid rgba(178, 172, 172, 1)" : "none",
+        }}
+      >
+        <Toolbar
           sx={{
-            position: {
-              xs: "fixed",
-              md: "fixed",
-            },
-            width: "100vw",
+            width: { xs: "100%", sm: "80%", md: "80%" },
+
+            backgroundColor: !cat && "#20201F",
+            gap: { sm: "1rem" },
+            padding: { xs: "0 2rem", sm: 0 },
             display: "flex",
-            alignItems: "center",
-            backgroundColor: !cat ? "#20201F" : color,
-            height: { xs: "10vh", md: "11vh" },
-            boxShadow: "none",
-            borderBottom: cat ? "1px solid rgba(178, 172, 172, 1)" : "none",
+            justifyContent: {
+              xs: "space-between",
+              sm: "space-around",
+              md: "space-between",
+            },
           }}
         >
-          <Toolbar
-            sx={{
-              width: { xs: "100%", sm: "80%", md: "80%" },
-
-              backgroundColor: !cat && "#20201F",
-              gap: { sm: "1rem" },
-              padding: { xs: "0 2rem", sm: 0 },
-              display: "flex",
-              justifyContent: {
-                xs: "space-between",
-                sm: "space-around",
-                md: "space-between",
-              },
-            }}
-          >
-            {/* GIF Component */}
-            <Link href="/">
-              <Box
-                sx={{
-                  position: "relative",
+          {/* GIF Component */}
+          <Link href="/">
+            <Box
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: {
+                  xs: "8rem",
+                  md: "120px",
+                },
+              }}
+            >
+              <Image
+                src={
+                  !cat || cat === "Global"
+                    ? "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto,q_auto/v1/Stable%20Mockups/Main/whiteGif_wjaxvz"
+                    : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
+                }
+                alt="logo"
+                width={170}
+                height={99}
+                style={{
+                  backgroundColor: "transparent",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: {
-                    xs: "8rem",
-                    md: "120px",
-                  },
+                }}
+              />
+            </Box>
+          </Link>
+
+          <Box
+            // Creating a box to hold multiple items
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: { sm: "1rem" },
+              height: { xs: "100%", md: "100%" },
+              padding: { xs: "2vw" },
+
+              color: cat && cat !== "Global" ? "#202020" : "white",
+            }}
+          >
+            <Link
+              href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
+              target="_blank"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "unset",
+                  display: { xs: "none", md: "flex" },
                 }}
               >
-                <Image
-                  src={
-                    !cat
-                      ? "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto,q_auto/v1/Stable%20Mockups/Main/whiteGif_wjaxvz"
-                      : "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712362833/Stable%20Mockups/Main/blackGif_d4zj72.gif"
-                  }
-                  alt="logo"
-                  width={170}
-                  height={99}
-                  style={{
-                    backgroundColor: "transparent",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                />
-              </Box>
+                {t("navBarMain.centerHelp")}
+              </Typography>
             </Link>
 
             <Box
-              // Creating a box to hold multiple items
               sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: { sm: "1rem" },
-                height: { xs: "100%", md: "100%" },
-                padding: { xs: "2vw" },
-
-                color: cat ? "#202020" : "white",
+                display: {
+                  xs: "none",
+                },
               }}
             >
-              <Link
-                href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
-                target="_blank"
-              >
+              <SocialMedia />
+            </Box>
+
+            <Select
+              // Creating a language selection dropdown
+              value={lang}
+              onChange={(e) => handleChange(e.target.value)}
+              label={"language"}
+              //displayEmpty
+              size="small"
+              sx={{
+                border: "none",
+                borderRadius: 0,
+                color: cat && cat !== "Global" ? "#202020" : "white",
+                fontFamily: "unset",
+                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                "&:hover": {
+                  bgcolor: "gray",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                  borderRadius: "0",
+                },
+                ".MuiSvgIcon-root ": {
+                  fill:
+                    cat && cat !== "Global"
+                      ? "#202020 !important"
+                      : "white !important",
+                },
+              }}
+            >
+              <MenuItem value={"en"}>
                 <Typography
                   sx={{
                     fontFamily: "unset",
-                    display: { xs: "none", md: "flex" },
                   }}
                 >
-                  {t("navBarMain.centerHelp")}
+                  {" "}
+                  English{" "}
                 </Typography>
-              </Link>
+              </MenuItem>
 
-              <Box
-                sx={{
-                  display: {
-                    xs: "none",
-                  },
-                }}
-              >
-                <SocialMedia />
-              </Box>
+              <MenuItem value={"es"}>
+                <Typography
+                  sx={{
+                    fontFamily: "unset",
+                  }}
+                >
+                  Español
+                </Typography>
+              </MenuItem>
+            </Select>
 
-              <Select
-                // Creating a language selection dropdown
-                value={lang}
-                onChange={(e) => handleChange(e.target.value)}
-                label={"language"}
-                //displayEmpty
-                size="small"
-                sx={{
-                  border: "none",
-                  borderRadius: 0,
-                  color: cat ? "#202020" : "white",
-                  fontFamily: "unset",
-                  ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                  "&:hover": {
-                    bgcolor: "gray",
-                  },
-                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    border: "none",
-                    borderRadius: "0",
-                  },
-                  ".MuiSvgIcon-root ": {
-                    fill: cat ? "#202020 !important" : "white !important",
-                  },
-                }}
-              >
-                <MenuItem value={"en"}>
-                  <Typography
-                    sx={{
-                      fontFamily: "unset",
-                    }}
-                  >
-                    {" "}
-                    English{" "}
-                  </Typography>
-                </MenuItem>
-
-                <MenuItem value={"es"}>
-                  <Typography
-                    sx={{
-                      fontFamily: "unset",
-                    }}
-                  >
-                    Español
-                  </Typography>
-                </MenuItem>
-              </Select>
-
-              <BurgerButton cat={cat} />
-            </Box>
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
+            <BurgerButton cat={cat} />
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {/*     </HideOnScroll> */}
     </Box>
   );
 };

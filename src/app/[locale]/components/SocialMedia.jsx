@@ -16,7 +16,7 @@ const SocialMedia = ({ optionChosen }) => {
         gap: "1rem",
         zIndex: 10,
         position: "absolute",
-        top: { xs: "11vh", md: "11vh" },
+        //top: { xs: "11vh", md: "11vh" },
         right: { xs: "0.5rem", md: "1rem" },
       }}
     >
