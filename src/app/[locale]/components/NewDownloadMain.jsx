@@ -80,6 +80,7 @@ const NewDownloadImage = memo(() => {
                 priority
                 style={{
                   position: "absolute",
+                  opacity: 0.6,
                   transition: "opacity 2.5s",
                   "object-fit": "cover",
                   objectPosition: !isSmallScreen ? "Top" : "Top Right",
@@ -148,6 +149,7 @@ const NewDownloadImage = memo(() => {
                 style={{
                   position: "absolute",
                   transition: "opacity 2.5s",
+                  opacity: 0.6,
                   "object-fit": "cover",
                   objectPosition: !isSmallScreen ? "Top" : "Top Left",
                 }}
@@ -215,6 +217,7 @@ const NewDownloadImage = memo(() => {
                 style={{
                   position: "absolute",
                   transition: "opacity 2.5s",
+                  opacity: 0.6,
                   "object-fit": "cover",
                   objectPosition: !isSmallScreen ? "Top" : "Top Center",
                 }}
