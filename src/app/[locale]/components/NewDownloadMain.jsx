@@ -9,6 +9,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Link from "next/link";
 
+// eslint-disable-next-line react/display-name
 const NewDownloadImage = memo(() => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -279,7 +280,7 @@ const NewDownloadImage = memo(() => {
         }}
       >
         <Link
-          href="https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es_PY&gl=US"
+          href="https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es"
           target="_blank"
           rel="noopener noreferrer"
         >

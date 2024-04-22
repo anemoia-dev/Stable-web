@@ -79,39 +79,39 @@ const BusinessComp = () => {
               paddingBottom: { xs: "2rem", md: "0" },
             }}
           >
-            {/* <Link
+            <Link
               href={
-                "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es_CL&gl=US"
+                "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es"
               }
               target={"_blank"}
               rel="noreferrer"
-            > */}
-            <Box
-              component={"img"}
-              src={
-                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-              }
-              sx={{
-                width: { xs: "142px", md: "172px" },
-              }}
-            ></Box>
-            {/*  </Link> */}
+            >
+              <Box
+                component={"img"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+                }
+                sx={{
+                  width: { xs: "142px", md: "172px" },
+                }}
+              ></Box>
+            </Link>
 
-            {/*  <Link
-              href={"https://apps.apple.com/cl/app/stable/id1586528537"}
+            <Link
+              href={"https://apps.apple.com/co/app/stable/id6446915567"}
               target={"_blank"}
               rel="noreferrer"
-            > */}
-            <Box
-              component={"img"}
-              src={
-                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-              }
-              sx={{
-                width: { xs: "132px", md: "158px" },
-              }}
-            ></Box>
-            {/*   </Link> */}
+            >
+              <Box
+                component={"img"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+                }
+                sx={{
+                  width: { xs: "132px", md: "158px" },
+                }}
+              ></Box>
+            </Link>
           </Box>
         </Box>
       </Box>

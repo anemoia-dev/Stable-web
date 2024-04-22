@@ -6,7 +6,7 @@ import Selected from "./Selected";
 import { useTranslation } from "react-i18next";
 import * as textList from "../../../files/Selected.json";
 import Footer from "../components/Footer";
-const layout = (props) => {
+const Layout = (props) => {
   const { t, i18n } = useTranslation("Selected");
 
   const [navbarHeight, setNavbarHeight] = useState(0);
@@ -40,4 +40,4 @@ const layout = (props) => {
     </Box>
   );
 };
-export default layout;
+export default Layout;

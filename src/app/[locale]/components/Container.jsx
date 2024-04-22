@@ -84,6 +84,7 @@ function Carrusel({ Options, selected, cat }) {
         {elements.map((el, id) => {
           return (
             <Box
+              key={id + cat}
               component="div"
               sx={{
                 "background-color": el.color,
@@ -142,6 +143,7 @@ function Carrusel({ Options, selected, cat }) {
                   }}
                 >
                   <img
+                    alt={el.title}
                     src={el.coverImage}
                     style={{
                       "object-fit": "cover",

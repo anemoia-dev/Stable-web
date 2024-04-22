@@ -132,7 +132,10 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
                 borderBottom: "2px solid black",
               }}
             >
+              {/*  <Link>
+              </Link> */}
               <Image
+                alt="Apple Wallet"
                 src={
                   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371609/Stable%20Mockups/selected/appleWallet_ibxsbp.svg"
                 }
@@ -140,6 +143,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
                 height={50}
               />
               <Image
+                alt="Google Wallet"
                 src={
                   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712371610/Stable%20Mockups/selected/googleWallet_b16uys.svg"
                 }
@@ -242,6 +246,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
         }}
       >
         <Image
+          alt={`${cat}person`}
           src={t(`${cat}.mobilePerson`)}
           width={
             cat === "Cercania"
@@ -331,24 +336,39 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
               padding: "0rem",
             }}
           >
-            <Box
-              component={"img"}
-              src={
-                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+            <Link
+              href={
+                "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es"
               }
-              sx={{
-                width: "140px",
-              }}
-            ></Box>
-            <Box
-              component={"img"}
-              src={
-                "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
-              }
-              sx={{
-                width: "130px",
-              }}
-            ></Box>
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Box
+                component={"img"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+                }
+                sx={{
+                  width: "140px",
+                }}
+              ></Box>
+            </Link>
+
+            <Link
+              href={"https://apps.apple.com/co/app/stable/id6446915567"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Box
+                component={"img"}
+                src={
+                  "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+                }
+                sx={{
+                  width: "130px",
+                }}
+              ></Box>
+            </Link>
           </Box>
         </Box>
       </Box>

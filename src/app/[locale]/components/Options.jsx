@@ -35,7 +35,7 @@ const Options = ({}) => {
       }, 2000);
       return () => clearInterval(setHeightsEach);
     }
-  }, [heights]);
+  }, [heights, hoverNum]);
 
   const handleChange = (index) => {
     setHoverNum(index);
