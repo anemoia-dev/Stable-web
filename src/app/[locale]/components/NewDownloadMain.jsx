@@ -7,6 +7,7 @@ import SocialMedia from "./SocialMedia";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useMediaQuery, useTheme } from "@mui/material";
+import Link from "next/link";
 
 const NewDownloadImage = memo(() => {
   const theme = useTheme();
@@ -277,24 +278,38 @@ const NewDownloadImage = memo(() => {
           zIndex: 1,
         }}
       >
-        <Box
-          component={"img"}
-          src={
-            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
-          }
-          sx={{
-            width: { xs: "165px", md: "220px" },
-          }}
-        ></Box>
-        <Box
-          component={"img"}
-          src={
-            "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
-          }
-          sx={{
-            width: { xs: "155px", md: "210px" },
-          }}
-        ></Box>
+        <Link
+          href="https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es_PY&gl=US"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
+            }
+            sx={{
+              width: { xs: "165px", md: "220px" },
+              cursor: "pointer",
+            }}
+          ></Box>
+        </Link>
+
+        <Link
+          href={"https://apps.apple.com/co/app/stable/id6446915567"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
+            }
+            sx={{
+              width: { xs: "155px", md: "210px" },
+            }}
+          ></Box>
+        </Link>
       </Box>
     </Box>
   );
