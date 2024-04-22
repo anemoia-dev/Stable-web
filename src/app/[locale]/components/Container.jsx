@@ -135,11 +135,13 @@ function Carrusel({ Options, selected, cat }) {
             >
               <Image
                 src={el.coverImage}
-                fill
+                width={110}
+                height={110}
                 style={{
                   objectFit: "cover",
-                  width: id === 0 ? "35%" : "35%",
-                  height: "100%",
+
+                  /* width: id === 0 ? "35%" : "35%", */
+                  //height: "100%",
                   objectPosition: id === 0 ? "center  top" : "center top",
                 }}
               />
