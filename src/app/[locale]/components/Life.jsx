@@ -66,31 +66,31 @@ const Life = () => {
           marginTop: "2rem",
         }}
       >
-        <Link
+        {/* <Link
           href={"https://play.google.com/store/apps/details?id=com.stable"}
           target={"_blank"}
           rel="noreferrer"
-        >
-          <Image
-            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-            alt="Google Logo"
-            width={172}
-            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
-          />
-        </Link>
+        > */}
+        <Image
+          src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+          alt="Google Logo"
+          width={172}
+          height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
+        />
+        {/* </Link> */}
 
-        <Link
+        {/*  <Link
           href={"https://itunes.apple.com/app/stable/id1487099550"}
           target={"_blank"}
           rel="noreferrer"
-        >
-          <Image
-            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-            alt="Google Logo"
-            width={172}
-            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
-          />
-        </Link>
+        > */}
+        <Image
+          src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+          alt="Google Logo"
+          width={172}
+          height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
+        />
+        {/* </Link> */}
       </Box>
     </Box>
   );

@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import React, { useState, useRef } from "react";
 import * as newelements from "../../../files/Selected.json";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
-
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 
@@ -133,8 +133,9 @@ function Carrusel({ Options, selected, cat }) {
                 whiteSpace: "nowrap",
               }}
             >
-              <img
+              <Image
                 src={el.coverImage}
+                fill
                 style={{
                   objectFit: "cover",
                   width: id === 0 ? "35%" : "35%",
