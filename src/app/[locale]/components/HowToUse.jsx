@@ -100,8 +100,8 @@ const HowToUse = () => {
           alignItems: "flex-end",
         }}
       >
-        {texts.map((el) => {
-          return <Expanded id={el} />;
+        {texts.map((el, id) => {
+          return <Expanded id={el} key={id + id} />;
         })}
       </Box>
     </Box>
