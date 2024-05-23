@@ -207,6 +207,11 @@ const NavBar = ({ color, cat }) => {
                 <Typography
                   sx={{
                     fontFamily: "unset",
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "1.3rem",
+                      md: "1rem",
+                    },
                   }}
                 >
                   {" "}
@@ -218,6 +223,11 @@ const NavBar = ({ color, cat }) => {
                 <Typography
                   sx={{
                     fontFamily: "unset",
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "1.3rem",
+                      md: "1rem",
+                    },
                   }}
                 >
                   Español

@@ -13,12 +13,13 @@ const HowToUse = () => {
   return (
     <Box
       sx={{
-        minHeight: { xs: "80vh", md: "90vh" },
+        minHeight: { xs: "80vh", sm: "100%", md: "100%" },
         padding: { xs: "2rem 2rem" },
         display: "flex",
+        position: "relative",
         flexDirection: { xs: "column", md: "column" },
         justifyContent: "center",
-        marginTop: { /*  xs: "-10vh" */ md: 0 },
+        marginTop: { /*  xs: "-10vh" */ sm: 0, md: 0 },
       }}
     >
       <Typography

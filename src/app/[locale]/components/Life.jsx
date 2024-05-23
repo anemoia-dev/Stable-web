@@ -23,7 +23,7 @@ const Life = () => {
     >
       <Typography
         sx={{
-          fontSize: { xs: "30px", md: "5.5rem" },
+          fontSize: { xs: "30px", sm: "3.5rem", md: "5.5rem" },
           fontWeight: "bold",
           color: { xs: "white", md: "black" },
           textAlign: { xs: "right", md: "right" },
@@ -34,7 +34,7 @@ const Life = () => {
       </Typography>
       <Typography
         sx={{
-          fontSize: { xs: "20px", md: "2rem" },
+          fontSize: { xs: "20px", sm: "2rem", md: "2rem" },
           textAlign: { xs: "right", md: "right" },
           color: { xs: "white", md: "black" },
           fontFamily: "unset",
@@ -47,9 +47,9 @@ const Life = () => {
 
       <Typography
         sx={{
-          fontSize: { xs: "14px", md: "1.4rem" },
+          fontSize: { xs: "14px", sm: "1.4rem", md: "1.4rem" },
           fontFamily: "unset",
-          lineHeight: { xs: "1.5rem", md: "2.5rem" },
+          lineHeight: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
           textAlign: { xs: "right", md: "right" },
           marginTop: "2rem",
           color: { xs: "white", md: "black" },
@@ -63,9 +63,8 @@ const Life = () => {
           display: { xs: "flex", md: "flex" },
           flexDirection: { xs: "row", md: "row" },
           justifyContent: "center",
-
           gap: "1rem",
-          marginTop: "2rem",
+          marginTop: { sm: "1rem" },
         }}
       >
         <Link
@@ -78,8 +77,8 @@ const Life = () => {
           <Image
             src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
             alt="Google Logo"
-            width={172}
-            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
+            width={222}
+            height={100} // Se puede dejar undefined para mantener la proporción original de la imagen
           />
         </Link>
 
@@ -91,8 +90,8 @@ const Life = () => {
           <Image
             src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
             alt="Google Logo"
-            width={172}
-            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
+            width={202}
+            height={100} // Se puede dejar undefined para mantener la proporción original de la imagen
           />
         </Link>
       </Box>

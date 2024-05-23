@@ -26,7 +26,11 @@ const SocialMedia = ({ optionChosen }) => {
       >
         <LinkedInIcon
           sx={{
-            fontSize: /* optionChosen !== -1 ? "1.8rem" : */ "2.2rem",
+            fontSize: /* optionChosen !== -1 ? "1.8rem" : */ {
+              xs: "2.2rem",
+              sm: "2.5rem",
+              md: "2.5rem",
+            },
           }}
         />
       </Link>
@@ -34,7 +38,12 @@ const SocialMedia = ({ optionChosen }) => {
       <Link href={"https://www.instagram.com/stablelatam/"} target={"_blank"}>
         <InstagramIcon
           sx={{
-            fontSize: /*  optionChosen !== -1 ? "1.8rem" :  */ "2.2rem",
+            /*  optionChosen !== -1 ? "1.8rem" :  */
+            fontSize: /* optionChosen !== -1 ? "1.8rem" : */ {
+              xs: "2.2rem",
+              sm: "2.5rem",
+              md: "2.5rem",
+            },
           }}
         />
       </Link>
@@ -42,7 +51,12 @@ const SocialMedia = ({ optionChosen }) => {
       <Link href={"https://www.facebook.com/StableLatam"} target={"_blank"}>
         <FacebookOutlinedIcon
           sx={{
-            fontSize: /* optionChosen !== -1 ? "1.8rem" : */ "2.2rem",
+            /* optionChosen !== -1 ? "1.8rem" : */
+            fontSize: /* optionChosen !== -1 ? "1.8rem" : */ {
+              xs: "2.2rem",
+              sm: "2.5rem",
+              md: "2.5rem",
+            },
           }}
         />
       </Link>

@@ -33,8 +33,8 @@ export default async function Home(props) {
         sx={{
           display: "flex",
           flexDirection: "column",
-
           width: "100vw",
+          minHeight: "100vh",
         }}
       >
         <NavBar
@@ -46,7 +46,7 @@ export default async function Home(props) {
             width: "100%",
             position: "relative",
             alignItems: "center",
-            height: { xs: "100vh", md: "90vh" },
+            height: { xs: "100vh", sm: "90vh", md: "90vh" },
             display: "flex",
             flexDirection: "column",
           }}
@@ -66,6 +66,7 @@ export default async function Home(props) {
         >
           <Options />
         </Box>
+        {/* LIFE COMPONENT */}
         <Box
           sx={{
             height: "100vh",
@@ -107,9 +108,10 @@ export default async function Home(props) {
             <Life />
           </Box>{" "}
         </Box>
+        {/* PEOPLE COMPONENT */}
         <Box
           sx={{
-            height: { xs: "125vh", md: "110vh" },
+            height: { xs: "125vh", sm: "110vh", md: "110vh" },
             bgcolor: "#20201F",
             display: "flex",
             flexDirection: "column",
@@ -117,11 +119,13 @@ export default async function Home(props) {
           }}
         >
           <People />
-        </Box>{" "}
+        </Box>
+
+        {/* HOW TO USE COMPONENT */}
         <Box
           sx={{
             padding: { xs: "0rem 1rem", md: "0rem 6rem" },
-            minHeight: { xs: "100vh", md: "100vh" },
+            minHeight: { xs: "100vh", sm: "50vh", md: "100vh" },
             background: "#202020",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -132,9 +136,11 @@ export default async function Home(props) {
         >
           <HowToUse />
         </Box>
+
+        {/* BUSINESS COMPONENT */}
         <Box
           sx={{
-            height: { xs: "100vh", md: "100vh" },
+            height: { xs: "100vh", sm: "100vh", md: "100vh" },
             width: "100vw",
             display: "flex",
             flexDirection: "column",
@@ -146,7 +152,7 @@ export default async function Home(props) {
               position: { xs: "relative", md: "absolute" },
               top: { md: 0 },
               bottom: { xs: "0", md: "0" },
-              height: { xs: "40%", md: "100%" },
+              height: { xs: "40%", sm: "55%", md: "100%" },
               width: "100%",
               bgcolor: { md: "transparent" },
               display: { md: "block" },
@@ -167,12 +173,14 @@ export default async function Home(props) {
 
           <Box
             sx={{
-              height: { xs: "60%" },
+              height: { xs: "60%", md: "40%" },
             }}
           >
             <BusinessComp />
           </Box>
         </Box>
+
+        {/* FOOTER COMPONENT */}
         <Footer cat={props.params.category} />
       </Box>
     </>
