@@ -68,7 +68,15 @@ const NavBar = ({ color, cat }) => {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
+    <Box
+      sx={{
+        /* flexGrow: 1, */ width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+      id="navBar"
+    >
       {/*    <HideOnScroll> */}
       <AppBar
         sx={{
@@ -79,6 +87,7 @@ const NavBar = ({ color, cat }) => {
           width: "100vw",
           display: "flex",
           alignItems: "center",
+          justifyContent: "space-between",
           backgroundColor:
             !cat || cat === "Global"
               ? "#20201F"
@@ -146,7 +155,7 @@ const NavBar = ({ color, cat }) => {
               justifyContent: "space-between",
               gap: { sm: "1rem" },
               height: { xs: "100%", md: "100%" },
-              padding: { xs: "2vw" },
+              padding: { xs: "0vw" },
 
               color: cat && cat !== "Global" ? "#202020" : "white",
             }}
@@ -208,7 +217,7 @@ const NavBar = ({ color, cat }) => {
                   sx={{
                     fontFamily: "unset",
                     fontSize: {
-                      xs: "0.8rem",
+                      xs: "1.2rem",
                       sm: "1.3rem",
                       md: "1rem",
                     },
@@ -224,7 +233,7 @@ const NavBar = ({ color, cat }) => {
                   sx={{
                     fontFamily: "unset",
                     fontSize: {
-                      xs: "0.8rem",
+                      xs: "1.2rem",
                       sm: "1.3rem",
                       md: "1rem",
                     },

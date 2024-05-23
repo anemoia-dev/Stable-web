@@ -17,7 +17,7 @@ const People = () => {
         padding: { xs: "2rem 1.5rem", md: "2.5rem 3rem" },
         backgroundColor: { xs: "rgba(255, 230, 251, 1)", md: "rgba(0,0,0,.5)" },
         color: "#fff",
-        minHeight: { xs: "110vh", sm: "100vh", md: "100vh" },
+        minHeight: { xs: "130vh", sm: "100vh", md: "100vh" },
         position: "relative",
       }}
     >
@@ -39,7 +39,7 @@ const People = () => {
           padding: "2rem",
           marginTop: { md: "3vh" },
           width: { xs: "100%", md: "80%" },
-          height: { md: "80%" },
+          height: { md: "90%" },
           display: "flex",
           gap: "1rem",
           flexDirection: "column",
@@ -75,7 +75,6 @@ const People = () => {
           <ReactPlayer
             url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
             width={"100%"}
-            height={"150%"}
           />
         </Box>
       </Box>

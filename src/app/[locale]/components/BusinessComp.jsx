@@ -11,7 +11,7 @@ const BusinessComp = () => {
       <Box
         sx={{
           width: "100%",
-          height: { xs: "100%", sm: "100%", md: "100%" },
+          minHeight: { xs: "70vh", sm: "70vh", md: "100%" },
           bgcolor: { xs: "#20201F", md: "transparent" },
           position: "relative",
           borderBottom: { xs: "1px solid white", md: "none" },
@@ -20,14 +20,14 @@ const BusinessComp = () => {
         <Box
           sx={{
             width: { xs: "100%", sm: "100%", md: "50%" },
-            height: { sm: "50%", md: "40%" },
+            minHeight: { xs: "60vh", sm: "50%", md: "40%" },
             position: "absolute",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-end",
             zIndex: 1,
             top: { xs: 0, sm: 0, md: 30 },
-            padding: { xs: "2rem 2rem", sm: "2rem 2.5rem", md: "1rem 5rem" },
+            padding: { xs: "2rem 2rem", sm: "2rem 4.5rem", md: "1rem 5rem" },
             right: 0,
           }}
         >

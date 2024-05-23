@@ -71,7 +71,7 @@ export default async function Home(props) {
         {/* LIFE COMPONENT */}
         <Box
           sx={{
-            height: "100vh",
+            height: { xs: "100vh", sm: "100vh", md: "100vh" },
             width: "100vw",
             display: { xs: "block", md: "flex" },
             flexDirection: "column",
@@ -80,7 +80,7 @@ export default async function Home(props) {
         >
           <Box
             sx={{
-              height: { xs: "55%", md: "100%" },
+              height: { xs: "40%", md: "100%" },
               position: "relative",
             }}
           >
@@ -101,7 +101,7 @@ export default async function Home(props) {
               position: { xs: "relative", md: "absolute" },
               top: { md: 0 },
               bottom: { xs: "0", md: "0" },
-              height: { xs: "55%", md: "40%" },
+              minHeight: { xs: "60vh", md: "40%" },
               width: "100%",
               bgcolor: { xs: "#20201F", md: "transparent" },
               display: { md: "block" },
@@ -114,7 +114,7 @@ export default async function Home(props) {
         {/* PEOPLE COMPONENT */}
         <Box
           sx={{
-            height: { xs: "125vh", sm: "110vh", md: "110vh" },
+            minHeight: { xs: "100vh", sm: "110vh", md: "100vh" },
             bgcolor: "#20201F",
             display: "flex",
             flexDirection: "column",
@@ -143,7 +143,7 @@ export default async function Home(props) {
         {/* BUSINESS COMPONENT */}
         <Box
           sx={{
-            height: { xs: "100vh", sm: "100vh", md: "100vh" },
+            minHeight: { xs: "110vh", sm: "110vh", md: "100vh" },
             width: "100vw",
             display: "flex",
             flexDirection: "column",
@@ -155,7 +155,7 @@ export default async function Home(props) {
               position: { xs: "relative", md: "absolute" },
               top: { md: 0 },
               bottom: { xs: "0", md: "0" },
-              height: { xs: "40%", sm: "55%", md: "100%" },
+              minHeight: { xs: "40vh", sm: "40vh", md: "100%" },
               width: "100%",
               bgcolor: { md: "transparent" },
               display: { md: "block" },
@@ -176,7 +176,7 @@ export default async function Home(props) {
 
           <Box
             sx={{
-              height: { xs: "60%", md: "40%" },
+              minHeight: { xs: "70vh", sm: "70vh", md: "40%" },
             }}
           >
             <BusinessComp />

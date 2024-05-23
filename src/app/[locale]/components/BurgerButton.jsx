@@ -29,7 +29,11 @@ const BurgerButton = ({ cat }) => {
     return () => window.removeEventListener("resize", handleresize);
   }, []);
   return (
-    <Box>
+    <Box
+      sx={{
+        position: "relative",
+      }}
+    >
       <Box
         sx={{
           "@media (orientation: portrait)": {
@@ -38,8 +42,8 @@ const BurgerButton = ({ cat }) => {
           "@media (orientation: landscape)": {
             display: { md: "none" },
 
-            alignItems: "center",
-            justifyContent: "center",
+            position: "absolute",
+            top: 0,
           },
         }}
       >
@@ -79,7 +83,7 @@ const BurgerButton = ({ cat }) => {
               display: "flex",
               flexDirection: "column",
               gap: "0.5rem",
-              padding: "1rem 2rem",
+              padding: "1rem 1rem",
               color: "white",
             }}
           >

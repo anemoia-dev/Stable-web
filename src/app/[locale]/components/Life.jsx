@@ -13,11 +13,12 @@ const Life = () => {
         flexDirection: "column",
         justifyContent: { md: "right" },
         alignItems: { md: "flex-end" },
+        gap: { sm: "2rem", md: "0" },
         position: { xs: "relative", md: "absolute" },
         top: { md: 0 },
         right: { md: 0 },
         bottom: { xs: 0 },
-        padding: { xs: "2rem 2rem", md: "3.5rem 6rem" },
+        padding: { xs: "2rem 2rem", sm: "2rem 5rem", md: "3.5rem 6rem" },
         width: { xs: "100%", md: "60%" },
       }}
     >
