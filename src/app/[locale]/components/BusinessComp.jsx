@@ -11,7 +11,7 @@ const BusinessComp = () => {
       <Box
         sx={{
           width: "100%",
-          height: { sm: "100%", md: "100%" },
+          height: { xs: "100%", sm: "100%", md: "100%" },
           bgcolor: { xs: "#20201F", md: "transparent" },
           position: "relative",
           borderBottom: { xs: "1px solid white", md: "none" },

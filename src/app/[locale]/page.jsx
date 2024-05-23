@@ -53,6 +53,8 @@ export default async function Home(props) {
         >
           <NewDownloadImage />
         </Box>
+
+        {/* OPTIONS COMPONENT */}
         <Box
           sx={{
             height: { xs: "60vh", md: "50vh" },
@@ -78,7 +80,7 @@ export default async function Home(props) {
         >
           <Box
             sx={{
-              height: { xs: "40%", md: "100%" },
+              height: { xs: "55%", md: "100%" },
               position: "relative",
             }}
           >
@@ -99,7 +101,7 @@ export default async function Home(props) {
               position: { xs: "relative", md: "absolute" },
               top: { md: 0 },
               bottom: { xs: "0", md: "0" },
-              height: { xs: "60%", md: "40%" },
+              height: { xs: "55%", md: "40%" },
               width: "100%",
               bgcolor: { xs: "#20201F", md: "transparent" },
               display: { md: "block" },
@@ -108,6 +110,7 @@ export default async function Home(props) {
             <Life />
           </Box>{" "}
         </Box>
+
         {/* PEOPLE COMPONENT */}
         <Box
           sx={{

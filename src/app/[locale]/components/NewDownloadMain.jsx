@@ -38,7 +38,7 @@ const NewDownloadImage = memo(() => {
       sx={{
         width: "100vw",
         bgcolor: "#20201f",
-        height: "90vh",
+        height: "100%",
       }}
     >
       <SocialMedia />{" "}
@@ -272,7 +272,7 @@ const NewDownloadImage = memo(() => {
 
           gap: "1rem",
           position: "absolute",
-          bottom: { xs: "21vh", sm: "5vh", md: "9vh" },
+          bottom: { xs: "10vh", sm: "5vh", md: "9vh" },
           padding: { xs: "0 0rem", md: "0 3rem" },
           width: { xs: "100%" },
           zIndex: 1,

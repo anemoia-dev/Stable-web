@@ -64,7 +64,7 @@ const Life = () => {
           flexDirection: { xs: "row", md: "row" },
           justifyContent: "center",
           gap: "1rem",
-          marginTop: { sm: "1rem" },
+          marginTop: { xs: "2rem", sm: "1rem" },
         }}
       >
         <Link
@@ -74,12 +74,15 @@ const Life = () => {
           target={"_blank"}
           rel="noreferrer"
         >
-          <Image
-            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-            alt="Google Logo"
-            width={222}
-            height={100} // Se puede dejar undefined para mantener la proporción original de la imagen
-          />
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+            }
+            sx={{
+              width: { xs: "142px", sm: "202px", md: "172px" },
+            }}
+          ></Box>
         </Link>
 
         <Link
@@ -87,12 +90,15 @@ const Life = () => {
           target={"_blank"}
           rel="noreferrer"
         >
-          <Image
-            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-            alt="Google Logo"
-            width={202}
-            height={100} // Se puede dejar undefined para mantener la proporción original de la imagen
-          />
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+            }
+            sx={{
+              width: { xs: "132px", sm: "182px", md: "158px" },
+            }}
+          ></Box>
         </Link>
       </Box>
     </Box>

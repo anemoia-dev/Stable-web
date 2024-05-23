@@ -46,7 +46,9 @@ const Expanded = ({ id }) => {
         width: widths["width" + id],
         padding: "2rem",
         marginTop: id !== 0 ? "-10vh" : "0",
-        height: open ? { sm: "50vh", md: "75vh" } : { sm: "18vh", md: "22vh" },
+        height: open
+          ? { sm: "50vh", md: "75vh" }
+          : { xs: "22vh", sm: "18vh", md: "22vh" },
         transition: "all 0.3s ease-in-out",
         background: t(`op${id}.background`),
         position: "relative",
