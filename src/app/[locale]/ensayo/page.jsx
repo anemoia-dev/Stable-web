@@ -1,5 +1,14 @@
+"use client";
 import React from "react";
-
-export const page = () => {
-  return <div>page</div>;
+import { useEffect } from "react";
+import HubSpotForm from "./Form";
+const page = () => {
+  return (
+    <div>
+      fsfs
+      <HubSpotForm />
+    </div>
+  );
 };
+
+export default page;
