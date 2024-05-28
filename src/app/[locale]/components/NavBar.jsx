@@ -4,6 +4,7 @@ import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import SocialMedia from "./SocialMedia";
 import Image from "next/image";
+
 import {
   AppBar,
   MenuItem,
@@ -160,6 +161,17 @@ const NavBar = ({ color, cat }) => {
               color: cat && cat !== "Global" ? "#202020" : "white",
             }}
           >
+            <Link href={"form"}>
+              <Typography
+                sx={{
+                  fontFamily: "unset",
+                  display: { xs: "none", md: "flex" },
+                  fontWeight: "600",
+                }}
+              >
+                {t("navBarMain.join")}
+              </Typography>
+            </Link>
             <Link
               href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
               target="_blank"

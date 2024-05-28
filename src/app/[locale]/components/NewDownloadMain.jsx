@@ -91,7 +91,7 @@ const NewDownloadImage = memo(() => {
               <Box
                 sx={{
                   padding: { xs: "0 2rem", md: "0 3rem" },
-                  width: { xs: "90%", md: "60vw" },
+                  width: { xs: "90%", md: "70vw" },
 
                   display: "flex",
                   position: "absolute",
