@@ -79,7 +79,7 @@ const ChatWindow = () => {
 
   return (
     <Paper
-      elevation={3}
+      elevation={13}
       sx={{
         transform: "translateY(-2vh)",
         height: { xs: "60vh", sm: "50vh" },

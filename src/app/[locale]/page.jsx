@@ -5,9 +5,6 @@ import NavBar from "./components/NavBar";
 import dynamic from "next/dynamic";
 import { Box } from "@mui/material";
 
-const ChatBotButton = dynamic(() => import("../Chatbot/ChatBotButton"), {
-  loading: () => <p>Loading...</p>,
-});
 const Options = dynamic(() => import("./components/Options"), {
   loading: () => <p>Loading...</p>,
 });
@@ -56,7 +53,7 @@ export default async function Home(props) {
         >
           <NewDownloadImage />
         </Box>
-        <ChatBotButton />
+
         {/* OPTIONS COMPONENT */}
         <Box
           sx={{

@@ -179,7 +179,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
               right: "10%",
               top: "7vh",
               height: "71.9%",
-              zIndex: 10,
+              zIndex: 2,
               display: "flex",
             }}
           >
