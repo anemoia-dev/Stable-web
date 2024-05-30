@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Link from "next/link";
-
+import ChatBotButton from "../../Chatbot/ChatBotButton";
 // eslint-disable-next-line react/display-name
 const NewDownloadImage = memo(() => {
   const theme = useTheme();
