@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Paper, Typography, TextField, IconButton, Box } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import UserMessage from "./UserMessage";
+import UserMessage from "./userMessage";
 import { FaRobot } from "react-icons/fa";
 import IAMessage from "./AiMessage";
 import TypingIndicator from "./Dots";
