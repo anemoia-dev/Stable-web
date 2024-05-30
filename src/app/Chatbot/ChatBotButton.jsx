@@ -38,7 +38,7 @@ const ChatBotButton = () => {
           top: "89vh",
           bottom: "10vh",
           right: { xs: "1rem", md: "2rem" },
-          zIndex: 1,
+          zIndex: 5,
         }}
       >
         <Box
