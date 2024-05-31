@@ -26,7 +26,10 @@ const ChatWindow = () => {
       setShowTyping(true);
       setTimeout(() => {
         setMessages([
-          { type: "ai", text: "Hola, soy SIA. Estoy aquí para ayudarte." },
+          {
+            type: "ai",
+            text: "¡Hola! Soy SIA, el Asistente de conversación de Stable. ¿En qué puedo ayudarte hoy? 😊",
+          },
         ]);
         setLoading(false);
         setShowTyping(false);
@@ -43,7 +46,7 @@ const ChatWindow = () => {
     }
   }, [messages]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     setMessages((prevMessages) => [
       ...prevMessages,
       { type: "user", text: inputValue },
@@ -51,14 +54,31 @@ const ChatWindow = () => {
     setInputValue("");
     setLoading(true);
     setShowTyping(true);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("/api/getMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: inputValue }),
+      });
+      const data = await response.json();
+
       setMessages((prevMessages) => [
         ...prevMessages,
-        { type: "ai", text: "Aquí está tu respuesta." },
+        { type: "ai", text: data.result },
       ]);
+    } catch (error) {
+      console.error("Error fetching OpenAI response:", error);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { type: "ai", text: "Error al obtener respuesta de OpenAI." },
+      ]);
+    } finally {
       setLoading(false);
       setShowTyping(false);
-    }, 2000);
+    }
   };
 
   const Message = ({ type, text, isNew }) => {
@@ -92,7 +112,7 @@ const ChatWindow = () => {
       elevation={13}
       sx={{
         transform: "translateY(-2vh)",
-        height: { xs: "60vh", sm: "50vh" },
+        height: { xs: "60vh", sm: "70vh" },
         position: "relative",
         borderRadius: "10px",
         paddingBottom: { xs: "1rem", sm: "0" },
@@ -166,6 +186,8 @@ const ChatWindow = () => {
       >
         <TextField
           variant="outlined"
+          multiline
+          fullWidth
           size="small"
           value={inputValue}
           placeholder="Escribe un mensaje..."
@@ -173,6 +195,7 @@ const ChatWindow = () => {
           InputProps={{
             sx: {
               color: "white",
+              fontFamily: "unset",
             },
           }}
           sx={{
@@ -189,6 +212,7 @@ const ChatWindow = () => {
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
+              e.preventDefault();
               handleSendMessage();
             }
           }}
@@ -197,6 +221,7 @@ const ChatWindow = () => {
           <SendIcon
             sx={{
               color: "white",
+              transform: "rotate(-45deg)",
             }}
           />
         </IconButton>

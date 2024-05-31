@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Grow, Fade, IconButton } from "@mui/material";
 
-import ChatWindow from "./ChatWindow"; // Asegúrate de tener este componente
-import { FaRobot, FaTimes } from "react-icons/fa"; // Assuming Font Awesome icons
+import ChatWindow from "./ChatWindow";
+import { FaRobot, FaTimes } from "react-icons/fa";
 
 const ChatBotButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -81,7 +81,7 @@ const ChatBotButton = () => {
             bottom: { xs: "5rem", sm: "6rem" },
             right: { xs: 0, sm: "2rem" },
             zIndex: 2,
-            width: { xs: "100%", md: "350px" },
+            width: { xs: "100%", sm: "350px", md: "350px" },
           }}
         >
           <ChatWindow />
