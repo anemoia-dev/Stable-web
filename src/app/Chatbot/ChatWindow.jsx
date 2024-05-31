@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Paper, Typography, TextField, IconButton, Box } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import UserMessage from "./userMessage";
@@ -14,6 +14,7 @@ const ChatWindow = () => {
   const [loading, setLoading] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const messagesEndRef = useRef(null);
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -31,7 +32,16 @@ const ChatWindow = () => {
         setShowTyping(false);
       }, 2000);
     }
-  }, []); // Ejecutar solo una vez al cargar el componente
+  }, []);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [messages]);
 
   const handleSendMessage = () => {
     setMessages((prevMessages) => [
@@ -115,12 +125,13 @@ const ChatWindow = () => {
         sx={{
           padding: "1rem 1rem",
           gap: "0.8rem",
-          height: "75%",
+          height: "70%",
           overflow: "auto",
           display: "flex",
           flexDirection: "column",
           overflowY: "scroll",
           scrollbarWidth: "none",
+          marginBottom: "1vh",
           "-ms-overflow-style": "none",
           "&::-webkit-scrollbar": {
             display: "none",
@@ -136,7 +147,10 @@ const ChatWindow = () => {
           />
         ))}
         {showTyping && <TypingIndicator />}
+        <div ref={messagesEndRef} />
       </Box>
+
+      {/* TEXT FIELD */}
       <Box
         sx={{
           display: "flex",
