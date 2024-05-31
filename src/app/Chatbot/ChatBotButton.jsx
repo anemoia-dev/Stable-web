@@ -81,6 +81,7 @@ const ChatBotButton = () => {
             bottom: { xs: "5rem", sm: "6rem" },
             right: { xs: 0, sm: "2rem" },
             zIndex: 2,
+            zIndex: 10,
             width: { xs: "100%", sm: "350px", md: "350px" },
           }}
         >
