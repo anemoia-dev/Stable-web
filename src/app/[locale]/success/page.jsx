@@ -1,29 +1,9 @@
 "use client";
 import React from "react";
-import Flag from "react-world-flags";
-import { validateInput } from "../../../../utils/validators";
-import {
-  Box,
-  Typography,
-  FormControl,
-  TextField,
-  InputLabel,
-  Select,
-  MenuItem,
-  Checkbox,
-  Button,
-  InputAdornment,
-  FormHelperText,
-} from "@mui/material";
-import { useTranslation } from "next-i18next";
-import { useState, useEffect } from "react";
+import { Box, Typography, Button } from "@mui/material";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
-import Link from "next/link";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import LinearProgress from "@mui/material/LinearProgress";
 import { redirect } from "next/navigation";
-import { Router } from "next/router";
-import HubSpotForm from "../ensayo/Form";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 

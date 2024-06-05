@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Link from "next/link";
-import ChatBotButton from "../../Chatbot/ChatBotButton";
+
 // eslint-disable-next-line react/display-name
 const NewDownloadImage = memo(() => {
   const theme = useTheme();
@@ -16,18 +16,18 @@ const NewDownloadImage = memo(() => {
   const { t, i18n } = useTranslation();
 
   const imageUrls = {
-    xs: "/wal1Mobile.svg",
-    md: "/wal1.svg",
+    xs: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1717620222/Stable%20Mockups/Mobile/wal1Mobile_ulgrdu.svg",
+    md: "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto/v1717619563/Stable%20Mockups/webp%20momcks/GettyImages-1448128130_cx20hn.webp",
   };
 
   const imagesUrls2 = {
-    xs: "/wal2Mobile.svg",
-    md: "/wal2.svg",
+    xs: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1717620440/Stable%20Mockups/Mobile/wal2Mobile_trabvc.svg",
+    md: "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto/v1717619563/Stable%20Mockups/webp%20momcks/GettyImages-691865429_e4wida.webp",
   };
 
   const imagesUrls3 = {
-    xs: "/wal3Mobile.svg",
-    md: "/wal3.svg",
+    xs: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1717620445/Stable%20Mockups/Mobile/wal3Mobile_uneiiz.svg.svg",
+    md: "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto/v1717619566/Stable%20Mockups/webp%20momcks/GettyImages-1158571484_d64q9v.webp",
   };
 
   const imageUrl = isSmallScreen ? imageUrls.xs : imageUrls.md;
@@ -84,15 +84,15 @@ const NewDownloadImage = memo(() => {
                   position: "absolute",
                   opacity: 0.6,
                   transition: "opacity 2.5s",
-                  "object-fit": "cover",
-                  objectPosition: !isSmallScreen ? "Top" : "Top Right",
+                  backgroundSize: "110%",
+                  //"object-fit": "cover",
+                  objectPosition: !isSmallScreen ? "Top Right" : "Top Right",
                 }}
               />
               <Box
                 sx={{
                   padding: { xs: "0 2rem", md: "0 3rem" },
-                  width: { xs: "90%", md: "70vw" },
-
+                  width: { xs: "90%", md: "90vw" },
                   display: "flex",
                   position: "absolute",
                   flexDirection: "column",

@@ -6,11 +6,15 @@ import UserMessage from "./userMessage";
 import { FaRobot } from "react-icons/fa";
 import IAMessage from "./AiMessage";
 import TypingIndicator from "./Dots";
-
+import generateToken from "../../../utils/generateToken";
+import { useTranslation } from "react-i18next";
 const ChatWindow = () => {
+  const { t, i18n } = useTranslation();
   const [messages, setMessages] = useState([
     /* { type: "user", text: "Hola, ¿cómo estás?" }, */
   ]);
+
+  const token = generateToken();
   const [loading, setLoading] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -28,7 +32,7 @@ const ChatWindow = () => {
         setMessages([
           {
             type: "ai",
-            text: "¡Hola! Soy SIA, el Asistente de conversación de Stable. ¿En qué puedo ayudarte hoy? 😊",
+            text: t("welcome"),
           },
         ]);
         setLoading(false);
@@ -60,6 +64,7 @@ const ChatWindow = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ prompt: inputValue }),
       });

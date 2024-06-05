@@ -85,7 +85,7 @@ export default async function Home(props) {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344217/Stable%20Mockups/Main/LifeWallpaper_dys5ud.svg"
+              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1717619563/Stable%20Mockups/webp%20momcks/GettyImages-1502799601_q6qluc.webp"
               alt="LifeWallpaper"
               fill
               loading="lazy"
@@ -162,13 +162,13 @@ export default async function Home(props) {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712344451/Stable%20Mockups/Main/BusinessWallpaper_bdwosi.svg"
+              src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1717619563/Stable%20Mockups/webp%20momcks/GettyImages-1356070782_owe1vx.webp"
               alt="BusinessWallpaper"
               fill
               loading="lazy"
               style={{
                 objectFit: "cover",
-                objectPosition: "bottom",
+                objectPosition: "center",
                 zIndex: -1,
               }}
             />
