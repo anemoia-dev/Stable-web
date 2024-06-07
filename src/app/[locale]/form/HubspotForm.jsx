@@ -2,9 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import "./myComponent.css";
 
-const HubSpotForm = () => {
-  const lang = "en";
-  console.log(lang);
+const HubSpotForm = ({ lang }) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "//js.hsforms.net/forms/embed/v2.js";
