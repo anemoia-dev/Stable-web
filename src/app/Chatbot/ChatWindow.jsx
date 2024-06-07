@@ -25,6 +25,7 @@ const ChatWindow = () => {
   };
   useEffect(() => {
     // Verificar si ya se ha enviado el mensaje inicial de la IA
+    console.log(process.env.NEXT_PUBLIC_API_MESSAGES);
     if (messages.length === 0) {
       setLoading(true);
       setShowTyping(true);
@@ -70,11 +71,17 @@ const ChatWindow = () => {
       });
 
       const data = await response.json();
-
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { type: "ai", text: data.result ? data.result : t("error") },
-      ]);
+      if (data.result) {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { type: "ai", text: data.result },
+        ]);
+      } else {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { type: "ai", text: t("error") },
+        ]);
+      }
     } catch (error) {
       console.error("Error fetching OpenAI response:", error);
       setMessages((prevMessages) => [
