@@ -60,7 +60,7 @@ const ChatWindow = () => {
     setShowTyping(true);
 
     try {
-      const response = await fetch("/api/getMessage", {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_MESSAGES, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,17 +68,18 @@ const ChatWindow = () => {
         },
         body: JSON.stringify({ prompt: inputValue }),
       });
+
       const data = await response.json();
 
       setMessages((prevMessages) => [
         ...prevMessages,
-        { type: "ai", text: data.result },
+        { type: "ai", text: data.result ? data.result : t("error") },
       ]);
     } catch (error) {
       console.error("Error fetching OpenAI response:", error);
       setMessages((prevMessages) => [
         ...prevMessages,
-        { type: "ai", text: "Error al obtener respuesta de OpenAI." },
+        { type: "ai", text: t("error") },
       ]);
     } finally {
       setLoading(false);
@@ -151,7 +152,7 @@ const ChatWindow = () => {
         sx={{
           padding: "1rem 1rem",
           gap: "0.8rem",
-          height: "70%",
+          height: "80%",
           overflow: "auto",
           display: "flex",
           flexDirection: "column",
@@ -218,12 +219,20 @@ const ChatWindow = () => {
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              e.preventDefault();
-              handleSendMessage();
+              if (inputValue.trim().length > 0) {
+                e.preventDefault();
+                handleSendMessage();
+              } else {
+                e.preventDefault(); // Para evitar el salto de línea en el campo multiline
+              }
             }
           }}
         />
-        <IconButton color="primary" onClick={handleSendMessage}>
+        <IconButton
+          color="primary"
+          onClick={handleSendMessage}
+          disabled={inputValue === "" ? true : false}
+        >
           <SendIcon
             sx={{
               color: "white",

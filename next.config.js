@@ -3,6 +3,8 @@
 /* const withNextIntl = require('next-intl/plugin') */
 const nextConfig = {
 
+
+    crossOrigin: 'anonymous',
     reactStrictMode: true,
     images: {
         remotePatterns: [

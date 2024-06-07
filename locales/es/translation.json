@@ -16,5 +16,6 @@
         "o3": "Responsabilidad",
         "o4": "Compromiso"
     },
-    "welcome": "¡Hola! Soy SIA, el Asistente de conversación de Stable. ¿En qué puedo ayudarte hoy? 😊"
+    "welcome": "¡Hola! Soy SIA, el Asistente de conversación de Stable. ¿En qué puedo ayudarte hoy? 😊",
+    "error": "¡Vaya! Parece que hay un problema técnico ahora mismo y la aplicación no está disponible. Por favor, intenta nuevamente más tarde. 🛠️ Si persiste el problema, contáctanos por email o WhatsApp. ¡Gracias por tu comprensión! 😊"
 }
