@@ -61,7 +61,7 @@ const ChatWindow = () => {
     setShowTyping(true);
 
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API_MESSAGES, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_MESSAGES}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
