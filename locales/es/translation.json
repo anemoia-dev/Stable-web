@@ -1,12 +1,13 @@
 {
     "navBarMain": {
         "form": "Formulario",
-        "centerHelp": "Centro de ayuda"
+        "centerHelp": "Centro de ayuda",
+        "join": "Únete al mundo Stable®"
     },
     "downloadMain": {
-        "text0": "Eres más libre cuando  puedes disfrutar tu dinero en todo el mundo.",
-        "text1": "Una experiencia única se vive intensamente y se recuerda siempre.",
-        "text2": "Conoce tu tarjeta de entrada al mundo entero."
+        "text0": "Pasa tus pesos a dólares desde tu celular con PSE y con efectivo en más de 10.700 puntos alrededor del país.",
+        "text1": "Usa tu Tarjeta Stable® Mastercard tanto física como virtual en cualquier parte del mundo.",
+        "text2": "Con Stable tendrás miles de beneficios para usar en tu día a día."
     },
     "Options": {
         "o0": "Global",
@@ -14,5 +15,7 @@
         "o2": "Confianza",
         "o3": "Responsabilidad",
         "o4": "Compromiso"
-    }
+    },
+    "welcome": "¡Hola! Soy SIA, el Asistente de conversación de Stable. ¿En qué puedo ayudarte hoy? 😊",
+    "error": "¡Vaya! Parece que hay un problema técnico ahora mismo y la aplicación no está disponible. Por favor, intenta nuevamente más tarde. 🛠️ Si persiste el problema, contáctanos por email o WhatsApp. ¡Gracias por tu comprensión! 😊"
 }

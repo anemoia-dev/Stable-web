@@ -16,18 +16,18 @@ const NewDownloadImage = memo(() => {
   const { t, i18n } = useTranslation();
 
   const imageUrls = {
-    xs: "/wal1Mobile.svg",
-    md: "/wal1.svg",
+    xs: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1717620222/Stable%20Mockups/Mobile/wal1Mobile_ulgrdu.svg",
+    md: "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto/v1717619563/Stable%20Mockups/webp%20momcks/GettyImages-1448128130_cx20hn.webp",
   };
 
   const imagesUrls2 = {
-    xs: "/wal2Mobile.svg",
-    md: "/wal2.svg",
+    xs: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1717620440/Stable%20Mockups/Mobile/wal2Mobile_trabvc.svg",
+    md: "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto/v1717619563/Stable%20Mockups/webp%20momcks/GettyImages-691865429_e4wida.webp",
   };
 
   const imagesUrls3 = {
-    xs: "/wal3Mobile.svg",
-    md: "/wal3.svg",
+    xs: "https://res.cloudinary.com/dzlhhijtz/image/upload/v1717620445/Stable%20Mockups/Mobile/wal3Mobile_uneiiz.svg.svg",
+    md: "https://res.cloudinary.com/dzlhhijtz/image/upload/f_auto/v1717619566/Stable%20Mockups/webp%20momcks/GettyImages-1158571484_d64q9v.webp",
   };
 
   const imageUrl = isSmallScreen ? imageUrls.xs : imageUrls.md;
@@ -38,7 +38,7 @@ const NewDownloadImage = memo(() => {
       sx={{
         width: "100vw",
         bgcolor: "#20201f",
-        height: "90vh",
+        height: "100%",
       }}
     >
       <SocialMedia />{" "}
@@ -84,15 +84,15 @@ const NewDownloadImage = memo(() => {
                   position: "absolute",
                   opacity: 0.6,
                   transition: "opacity 2.5s",
-                  "object-fit": "cover",
-                  objectPosition: !isSmallScreen ? "Top" : "Top Right",
+                  backgroundSize: "110%",
+                  //"object-fit": "cover",
+                  objectPosition: !isSmallScreen ? "Top Right" : "Top Right",
                 }}
               />
               <Box
                 sx={{
                   padding: { xs: "0 2rem", md: "0 3rem" },
-                  width: { xs: "90%", md: "60vw" },
-
+                  width: { xs: "90%", md: "90vw" },
                   display: "flex",
                   position: "absolute",
                   flexDirection: "column",
@@ -107,14 +107,14 @@ const NewDownloadImage = memo(() => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "20vh", md: "20vh" },
+                    bottom: { xs: "20vh", sm: "15vh", md: "20vh" },
                   }}
                 >
                   <Typography
                     sx={{
                       fontFamily: "unset",
                       textAlign: "left",
-                      fontSize: { xs: "35px", md: "3.5rem" },
+                      fontSize: { xs: "35px", sm: "4rem", md: "3.5rem" },
                       fontWeight: "bold",
                       color: "white",
                       lineHeight: 1.1,
@@ -139,7 +139,6 @@ const NewDownloadImage = memo(() => {
                 alignItems: "center",
                 bgcolor: { xs: "#20201f", md: "#20201f" },
                 justifyContent: "center",
-
                 display: { xs: "block", md: "block" },
                 flexDirection: "column",
                 gap: "1rem",
@@ -167,7 +166,7 @@ const NewDownloadImage = memo(() => {
                   flexDirection: "column",
                   justifyContent: { md: "center" },
                   gap: "1rem",
-                  bottom: { xs: "20vh", md: "20vh" },
+                  bottom: { xs: "20vh", sm: "15vh", md: "20vh" },
                 }}
               >
                 <Box
@@ -182,7 +181,7 @@ const NewDownloadImage = memo(() => {
                   <Typography
                     sx={{
                       fontFamily: "unset",
-                      fontSize: { xs: "35px", md: "3.5rem" },
+                      fontSize: { xs: "35px", sm: "4rem", md: "3.5rem" },
                       fontWeight: "bold",
                       color: "white",
                       lineHeight: 1.1,
@@ -244,13 +243,13 @@ const NewDownloadImage = memo(() => {
                     color: "white",
                     paddingTop: "0vh",
                     position: "absolute",
-                    bottom: { xs: "20vh", md: "11vh" },
+                    bottom: { xs: "20vh", sm: "15vh", md: "11vh" },
                   }}
                 >
                   <Typography
                     sx={{
                       fontFamily: "unset",
-                      fontSize: { xs: "35px", md: "3.5rem" },
+                      fontSize: { xs: "35px", sm: "4rem", md: "3.5rem" },
                       fontWeight: "bold",
                       color: "white",
                       textAlign: "left",
@@ -273,7 +272,7 @@ const NewDownloadImage = memo(() => {
 
           gap: "1rem",
           position: "absolute",
-          bottom: { xs: "21vh", md: "9vh" },
+          bottom: { xs: "10vh", sm: "5vh", md: "9vh" },
           padding: { xs: "0 0rem", md: "0 3rem" },
           width: { xs: "100%" },
           zIndex: 1,
@@ -290,7 +289,7 @@ const NewDownloadImage = memo(() => {
               "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
             }
             sx={{
-              width: { xs: "165px", md: "220px" },
+              width: { xs: "165px", sm: "220px", md: "220px" },
               cursor: "pointer",
             }}
           ></Box>
@@ -307,7 +306,7 @@ const NewDownloadImage = memo(() => {
               "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
             }
             sx={{
-              width: { xs: "155px", md: "210px" },
+              width: { xs: "155px", sm: "200px", md: "210px" },
             }}
           ></Box>
         </Link>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import SocialMedia from "./SocialMedia";
 import Image from "next/image";
+
 import {
   AppBar,
   MenuItem,
@@ -68,7 +69,15 @@ const NavBar = ({ color, cat }) => {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, width: "100%" }} id="navBar">
+    <Box
+      sx={{
+        /* flexGrow: 1, */ width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+      id="navBar"
+    >
       {/*    <HideOnScroll> */}
       <AppBar
         sx={{
@@ -79,6 +88,7 @@ const NavBar = ({ color, cat }) => {
           width: "100vw",
           display: "flex",
           alignItems: "center",
+          justifyContent: "space-between",
           backgroundColor:
             !cat || cat === "Global"
               ? "#20201F"
@@ -146,11 +156,22 @@ const NavBar = ({ color, cat }) => {
               justifyContent: "space-between",
               gap: { sm: "1rem" },
               height: { xs: "100%", md: "100%" },
-              padding: { xs: "2vw" },
+              padding: { xs: "0vw" },
 
               color: cat && cat !== "Global" ? "#202020" : "white",
             }}
           >
+            <Link href={"form"}>
+              <Typography
+                sx={{
+                  fontFamily: "unset",
+                  display: { xs: "none", md: "flex" },
+                  fontWeight: "600",
+                }}
+              >
+                {t("navBarMain.join")}
+              </Typography>
+            </Link>
             <Link
               href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
               target="_blank"
@@ -207,6 +228,11 @@ const NavBar = ({ color, cat }) => {
                 <Typography
                   sx={{
                     fontFamily: "unset",
+                    fontSize: {
+                      xs: "1.2rem",
+                      sm: "1.3rem",
+                      md: "1rem",
+                    },
                   }}
                 >
                   {" "}
@@ -218,6 +244,11 @@ const NavBar = ({ color, cat }) => {
                 <Typography
                   sx={{
                     fontFamily: "unset",
+                    fontSize: {
+                      xs: "1.2rem",
+                      sm: "1.3rem",
+                      md: "1rem",
+                    },
                   }}
                 >
                   Español

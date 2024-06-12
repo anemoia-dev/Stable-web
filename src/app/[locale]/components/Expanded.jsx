@@ -12,7 +12,7 @@ import { useTheme } from "@mui/material/styles";
 const imageSize = {
   xs: { width: "100%", height: "40%" }, // Para pantallas extra pequeñas
   sm: { width: "60%", height: "40%" }, // Para pantallas pequeñas
-  md: { width: "40%", height: "60%" }, // Para pantallas medianas
+  md: { width: "40%", height: "50%" }, // Para pantallas medianas
   lg: { width: "30%", height: "20%" }, // Para pantallas grandes
 };
 const Expanded = ({ id }) => {
@@ -46,7 +46,9 @@ const Expanded = ({ id }) => {
         width: widths["width" + id],
         padding: "2rem",
         marginTop: id !== 0 ? "-10vh" : "0",
-        height: open ? "75vh" : "22vh",
+        height: open
+          ? { sm: "50vh", md: "75vh" }
+          : { xs: "22vh", sm: "18vh", md: "22vh" },
         transition: "all 0.3s ease-in-out",
         background: t(`op${id}.background`),
         position: "relative",

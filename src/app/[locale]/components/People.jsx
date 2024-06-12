@@ -17,13 +17,13 @@ const People = () => {
         padding: { xs: "2rem 1.5rem", md: "2.5rem 3rem" },
         backgroundColor: { xs: "rgba(255, 230, 251, 1)", md: "rgba(0,0,0,.5)" },
         color: "#fff",
-        minHeight: { xs: "110vh", md: "100vh" },
+        minHeight: { xs: "130vh", sm: "100vh", md: "100vh" },
         position: "relative",
       }}
     >
       <Typography
         sx={{
-          fontSize: { xs: "30px", md: "4rem" },
+          fontSize: { xs: "30px", sm: "4rem", md: "4rem" },
           fontFamily: "unset",
           fontWeight: "bold",
           color: { xs: "black", md: "white" },
@@ -39,9 +39,8 @@ const People = () => {
           padding: "2rem",
           marginTop: { md: "3vh" },
           width: { xs: "100%", md: "80%" },
-          height: { md: "80%" },
+          height: { md: "90%" },
           display: "flex",
-
           gap: "1rem",
           flexDirection: "column",
         }}
@@ -50,7 +49,7 @@ const People = () => {
           <Typography
             sx={{
               color: { xs: "black", md: "white" },
-              fontSize: { xs: "20px", md: "1.7rem" },
+              fontSize: { xs: "20px", sm: "1.5rem", md: "1.7rem" },
               fontFamily: "unset",
               fontWeight: "500",
               position: "relative",
@@ -62,6 +61,7 @@ const People = () => {
             sx={{
               color: { xs: "black", md: "white" },
               fontFamily: "unset",
+              fontSize: { xs: "20px", sm: "1.5rem", md: "1.2rem" },
             }}
           >
             {t("description")}

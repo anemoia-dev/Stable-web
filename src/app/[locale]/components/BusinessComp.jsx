@@ -11,7 +11,7 @@ const BusinessComp = () => {
       <Box
         sx={{
           width: "100%",
-          height: "100%",
+          minHeight: { xs: "70vh", sm: "70vh", md: "100%" },
           bgcolor: { xs: "#20201F", md: "transparent" },
           position: "relative",
           borderBottom: { xs: "1px solid white", md: "none" },
@@ -19,15 +19,15 @@ const BusinessComp = () => {
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "50%" },
-            height: "50%",
+            width: { xs: "100%", sm: "100%", md: "50%" },
+            minHeight: { xs: "60vh", sm: "50%", md: "40%" },
             position: "absolute",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-end",
             zIndex: 1,
-            top: { xs: 0, md: 30 },
-            padding: { xs: "2rem 2rem", md: "1rem 5rem" },
+            top: { xs: 0, sm: 0, md: 30 },
+            padding: { xs: "2rem 2rem", sm: "2rem 4.5rem", md: "1rem 5rem" },
             right: 0,
           }}
         >
@@ -35,7 +35,7 @@ const BusinessComp = () => {
             sx={{
               color: "black",
               fontFamily: "unset",
-              fontSize: { xs: "30px", md: "3.5rem" },
+              fontSize: { xs: "30px", sm: "3.5rem", md: "3.5rem" },
               fontWeight: "bold",
               color: { xs: "white", md: "black" },
             }}
@@ -47,7 +47,7 @@ const BusinessComp = () => {
               color: "black",
               fontFamily: "unset",
               fontWeight: 300,
-              fontSize: { xs: "20px", md: "2rem" },
+              fontSize: { xs: "20px", sm: "1.4rem", md: "2rem" },
               textAlign: "right",
               borderBottom: { xs: "1px solid white", md: "1px solid black" },
               color: { xs: "white", md: "black" },
@@ -60,8 +60,8 @@ const BusinessComp = () => {
               marginTop: { xs: "2rem" },
               color: { xs: "white", md: "black" },
               fontFamily: "unset",
-              fontWeight: { md: 500 },
-              fontSize: { xs: "1rem", md: "1.1rem" },
+              fontWeight: { sm: 300, md: 500 },
+              fontSize: { xs: "1rem", sm: "1.2rem", md: "1.1rem" },
               textAlign: "right",
             }}
           >
@@ -71,7 +71,6 @@ const BusinessComp = () => {
             sx={{
               display: { xs: "flex", md: "none" },
               width: { xs: "100%", md: "50%" },
-
               justifyContent: { xs: "center", md: "right" },
               alignItems: "center",
               gap: "1rem",
@@ -92,7 +91,7 @@ const BusinessComp = () => {
                   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
                 }
                 sx={{
-                  width: { xs: "142px", md: "172px" },
+                  width: { xs: "142px", sm: "202px", md: "172px" },
                 }}
               ></Box>
             </Link>
@@ -108,7 +107,7 @@ const BusinessComp = () => {
                   "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
                 }
                 sx={{
-                  width: { xs: "132px", md: "158px" },
+                  width: { xs: "132px", sm: "182px", md: "158px" },
                 }}
               ></Box>
             </Link>
@@ -118,13 +117,14 @@ const BusinessComp = () => {
 
       <Box
         sx={{
-          display: { xs: "none", md: "flex" },
+          display: { xs: "none", sm: "flex", md: "flex" },
           position: "absolute",
           bottom: 0,
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "0 4rem",
+          padding: { sm: "0 3rem", md: "0 4rem" },
+          marginTop: { sm: "2rem", md: "0rem" },
           background:
             "linear-gradient(93.25deg, #FFE6FB 34.35%, #D385D6 150.82%)",
           //position: "relative",

@@ -13,17 +13,18 @@ const Life = () => {
         flexDirection: "column",
         justifyContent: { md: "right" },
         alignItems: { md: "flex-end" },
+        gap: { sm: "2rem", md: "0" },
         position: { xs: "relative", md: "absolute" },
         top: { md: 0 },
         right: { md: 0 },
         bottom: { xs: 0 },
-        padding: { xs: "2rem 2rem", md: "3.5rem 6rem" },
+        padding: { xs: "2rem 2rem", sm: "2rem 5rem", md: "3.5rem 6rem" },
         width: { xs: "100%", md: "60%" },
       }}
     >
       <Typography
         sx={{
-          fontSize: { xs: "30px", md: "5.5rem" },
+          fontSize: { xs: "30px", sm: "3.5rem", md: "5.5rem" },
           fontWeight: "bold",
           color: { xs: "white", md: "black" },
           textAlign: { xs: "right", md: "right" },
@@ -34,7 +35,7 @@ const Life = () => {
       </Typography>
       <Typography
         sx={{
-          fontSize: { xs: "20px", md: "2rem" },
+          fontSize: { xs: "20px", sm: "2rem", md: "2rem" },
           textAlign: { xs: "right", md: "right" },
           color: { xs: "white", md: "black" },
           fontFamily: "unset",
@@ -47,9 +48,9 @@ const Life = () => {
 
       <Typography
         sx={{
-          fontSize: { xs: "14px", md: "1.4rem" },
+          fontSize: { xs: "14px", sm: "1.4rem", md: "1.4rem" },
           fontFamily: "unset",
-          lineHeight: { xs: "1.5rem", md: "2.5rem" },
+          lineHeight: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
           textAlign: { xs: "right", md: "right" },
           marginTop: "2rem",
           color: { xs: "white", md: "black" },
@@ -63,9 +64,8 @@ const Life = () => {
           display: { xs: "flex", md: "flex" },
           flexDirection: { xs: "row", md: "row" },
           justifyContent: "center",
-
           gap: "1rem",
-          marginTop: "2rem",
+          marginTop: { xs: "2rem", sm: "1rem" },
         }}
       >
         <Link
@@ -75,12 +75,15 @@ const Life = () => {
           target={"_blank"}
           rel="noreferrer"
         >
-          <Image
-            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
-            alt="Google Logo"
-            width={172}
-            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
-          />
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"
+            }
+            sx={{
+              width: { xs: "142px", sm: "202px", md: "172px" },
+            }}
+          ></Box>
         </Link>
 
         <Link
@@ -88,12 +91,15 @@ const Life = () => {
           target={"_blank"}
           rel="noreferrer"
         >
-          <Image
-            src="https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
-            alt="Google Logo"
-            width={172}
-            height={50} // Se puede dejar undefined para mantener la proporción original de la imagen
-          />
+          <Box
+            component={"img"}
+            src={
+              "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372199/Stable%20Mockups/Main/appleblack_sbsiaj.svg"
+            }
+            sx={{
+              width: { xs: "132px", sm: "182px", md: "158px" },
+            }}
+          ></Box>
         </Link>
       </Box>
     </Box>

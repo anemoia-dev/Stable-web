@@ -70,7 +70,7 @@ const Options = ({}) => {
           alignItems: "flex-end",
           flexDirection: { xs: "column", md: "row" },
           position: { xs: "absolute", md: "absolute" },
-          bottom: { xs: "8%", md: 0 },
+          bottom: { xs: "8%", sm: "4%", md: 0 },
           heigth: "100%",
           width: "100%",
         }}
@@ -108,7 +108,7 @@ const Options = ({}) => {
                   "@media (orientation: portrait)": {
                     height: {
                       xs: "10vh",
-                      sm: "15vh",
+                      sm: "11vh",
 
                       md: `${heights[id]}vh`,
                     },
@@ -182,6 +182,7 @@ const Options = ({}) => {
 
                         fontSize: {
                           xs: "1.25rem",
+                          sm: "1.5rem",
                           md: "24px",
                         },
                       }}

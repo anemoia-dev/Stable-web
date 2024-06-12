@@ -1,12 +1,13 @@
 {
     "navBarMain": {
         "form": "Form",
-        "centerHelp": "Help center"
+        "centerHelp": "Help center",
+        "join": "Join to the Stable® World"
     },
     "downloadMain": {
-        "text0": "You're truly free when you can enjoy your money anywhere in the world.",
-        "text1": "An extraordinary experience is lived intensely and remembered forever.",
-        "text2": "Get to know your gateway card to the whole world."
+        "text0": "Transfer your pesos to dollars from your cell phone using PSE, or with cash at over 10,700 locations nationwide.",
+        "text1": "Use your Stable® Mastercard, both physical and virtual, anywhere in the world.",
+        "text2": "With Stable, you'll have thousands of benefits to use in your daily life."
     },
     "Options": {
         "o0": "Global",
@@ -14,5 +15,7 @@
         "o2": "Trust",
         "o3": "Responsibility",
         "o4": "Committed"
-    }
+    },
+    "welcome": "Hello! I'm SIA, the Conversation Assistant from Stable. How can I assist you today? 😊",
+    "error": "Oops! It looks like there's a technical issue right now and the app is unavailable. Please try again later. 🛠️ If the problem persists, reach out to us via email or WhatsApp. Thanks for your understanding! 😊"
 }
