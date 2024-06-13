@@ -116,7 +116,6 @@ const BurgerButton = ({ cat }) => {
             }}
           >
             <Typography
-              // The text is unstyled on small screens.
               sx={{
                 fontFamily: "unset",
                 display: { xs: "flex", md: "flex" },
@@ -130,6 +129,20 @@ const BurgerButton = ({ cat }) => {
               >
                 {/* The link text is translated. */}
                 {t("navBarMain.centerHelp")}
+              </Link>
+            </Typography>
+
+            <Typography
+              sx={{
+                fontFamily: "unset",
+                display: { xs: "flex", md: "flex" },
+              }}
+            >
+              {" "}
+              {/* The link opens in a new tab. */}
+              <Link href={"/form"} /* target="_blank" */>
+                {/* The link text is translated. */}
+                {t("navBarMain.join")}
               </Link>
             </Typography>
           </Box>
