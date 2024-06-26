@@ -204,6 +204,7 @@ const NavBar = ({ color, cat }) => {
               //displayEmpty
               size="small"
               sx={{
+                left: 10,
                 border: "none",
                 borderRadius: 0,
                 color: cat && cat !== "Global" ? "#202020" : "white",
