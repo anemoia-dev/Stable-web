@@ -1,6 +1,7 @@
 import React from "react";
 import initTranslations from "../i18n";
 import TranslationProvider from "../../app/[locale]/TranslationProvider";
+import GoogleAnalytics from "./components/GA";
 import dynamic from "next/dynamic";
 import { namesAllowed } from "../../names";
 const ChatBotButton = dynamic(() => import("../Chatbot/ChatBotButton"), {
@@ -25,6 +26,7 @@ export default async function Layout({ children, params: { locale } }) {
         src="//js-na1.hs-scripts.com/41506338.js"
       ></script> */}
       {children}
+      <GoogleAnalytics />
       <ChatBotButton />
     </TranslationProvider>
   );
