@@ -128,7 +128,7 @@ const ChatWindow = () => {
         width: { xs: "90vw", sm: "auto" },
         height: { xs: "60vh", sm: "50vh" },
         position: { xs: "absolute", sm: "relative" },
-        top: { xs: "-60vh", sm: "auto" },
+        top: { xs: "-56vh", sm: "auto" },
         margin: { xs: "0 auto", sm: "auto" },
         borderRadius: "10px",
         zIndex: 10,

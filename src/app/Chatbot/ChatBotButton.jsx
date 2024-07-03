@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Box, Button, Grow, Fade, IconButton } from "@mui/material";
 
 import ChatWindow from "./ChatWindow";
@@ -7,6 +7,7 @@ import { FaRobot, FaTimes } from "react-icons/fa";
 
 const ChatBotButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const componentRef = useRef(null);
 
   useEffect(() => {
     console.log("cargo");
@@ -16,6 +17,33 @@ const ChatBotButton = () => {
     setIsChatOpen(!isChatOpen);
   };
 
+  useEffect(() => {
+    const handleClick = (event) => {
+      // Obtener las coordenadas del clic
+      const x = event.clientX;
+      const y = event.clientY;
+
+      // Verificar si el clic ocurrió dentro del componente
+      if (componentRef.current && componentRef.current.contains(event.target)) {
+        console.log(
+          `Se hizo clic DENTRO del componente en las coordenadas: (${x}, ${y})`
+        );
+      } else {
+        if (isChatOpen) setIsChatOpen(false);
+        console.log(
+          `Se hizo clic FUERA del componente en las coordenadas: (${x}, ${y})`
+        );
+      }
+    };
+
+    // Agregar un event listener para clics en el documento
+    document.addEventListener("click", handleClick);
+
+    // Limpiar el event listener al desmontar el componente
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [isChatOpen]);
   const [icon, setIcon] = useState(<FaRobot size="2rem" color="#fff" />); // Initial icon
 
   useEffect(() => {
@@ -29,7 +57,7 @@ const ChatBotButton = () => {
   }, [isChatOpen]); // Update icon on setOpen change
 
   return (
-    <>
+    <Box ref={componentRef}>
       <Box
         sx={{
           position: "absolute",
@@ -54,8 +82,8 @@ const ChatBotButton = () => {
             sx={{
               background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
               borderRadius: "50%",
-              width: "4rem",
-              height: "4rem",
+              width: { xs: "3.5rem", sm: "4rem" },
+              height: { xs: "3.5rem", sm: "4rem" },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -86,7 +114,7 @@ const ChatBotButton = () => {
           <ChatWindow />
         </Box>
       </Fade>
-    </>
+    </Box>
   );
 };
 
