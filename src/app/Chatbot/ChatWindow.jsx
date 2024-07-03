@@ -125,8 +125,11 @@ const ChatWindow = () => {
       elevation={13}
       sx={{
         transform: { xs: "translateY(-3vh)", sm: "translateY(-3vh)" },
-        height: { xs: "50vh", sm: "50vh" },
-        position: "relative",
+        width: { xs: "90vw", sm: "auto" },
+        height: { xs: "60vh", sm: "50vh" },
+        position: { xs: "absolute", sm: "relative" },
+        top: { xs: "-60vh", sm: "auto" },
+        margin: { xs: "0 auto", sm: "auto" },
         borderRadius: "10px",
         zIndex: 10,
         paddingBottom: { xs: "1rem", sm: "0" },
