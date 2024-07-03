@@ -9,9 +9,7 @@ const ChatBotButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
-    if (!isChatOpen) {
-      setIsChatOpen(true);
-    }
+    console.log("cargo");
   }, []);
 
   const handleButtonClick = () => {
@@ -34,8 +32,8 @@ const ChatBotButton = () => {
     <>
       <Box
         sx={{
-          position: "fixed",
-          top: "89vh",
+          position: "absolute",
+
           bottom: "10vh",
           right: { xs: "1rem", md: "2rem" },
           zIndex: 100,
@@ -44,10 +42,10 @@ const ChatBotButton = () => {
         <Box
           sx={{
             position: "fixed",
-            top: "89vh",
-            bottom: "10vh",
-            right: { xs: "1rem", md: "2rem" },
-            zIndex: 1,
+            //top: { xs: "82vh", sm: "88vh", md: "88vh" },
+            bottom: "5vh",
+            right: { xs: "1rem", sm: "2rem", md: "2rem" },
+            zIndex: 10,
           }}
         >
           <IconButton // Use IconButton for consistent button style
