@@ -1,14 +1,13 @@
 import React from "react";
 import initTranslations from "../i18n";
 import TranslationProvider from "../../app/[locale]/TranslationProvider";
-
 import dynamic from "next/dynamic";
 import { namesAllowed } from "../../names";
 const ChatBotButton = dynamic(() => import("../Chatbot/ChatBotButton"), {
   loading: () => <p>Loading...</p>,
 });
 const i18nNamespaces = namesAllowed;
-
+import Script from "next/script";
 export default async function Layout({ children, params: { locale } }) {
   const { resources } = await initTranslations(locale, i18nNamespaces);
 
@@ -18,6 +17,20 @@ export default async function Layout({ children, params: { locale } }) {
       resources={resources}
       namespaces={i18nNamespaces}
     >
+      <head>
+        <Script
+          id="google-analytics"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`}
+        ></Script>
+        <Script>
+          {` window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+             gtag('config', '${process.env.NEXT_PUBLIC_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       {/* <script
         type="text/javascript"
         id="hs-script-loader"
