@@ -25,7 +25,7 @@ const ChatWindow = () => {
   };
   useEffect(() => {
     // Verificar si ya se ha enviado el mensaje inicial de la IA
-    console.log(process.env.NEXT_PUBLIC_API_MESSAGES);
+
     if (messages.length === 0) {
       setLoading(true);
       setShowTyping(true);

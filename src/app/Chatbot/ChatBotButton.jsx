@@ -9,10 +9,6 @@ const ChatBotButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const componentRef = useRef(null);
 
-  useEffect(() => {
-    console.log("cargo");
-  }, []);
-
   const handleButtonClick = () => {
     setIsChatOpen(!isChatOpen);
   };
