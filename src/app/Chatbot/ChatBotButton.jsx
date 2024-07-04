@@ -24,15 +24,11 @@ const ChatBotButton = () => {
       const y = event.clientY;
 
       // Verificar si el clic ocurrió dentro del componente
-      if (componentRef.current && componentRef.current.contains(event.target)) {
-        console.log(
-          `Se hizo clic DENTRO del componente en las coordenadas: (${x}, ${y})`
-        );
-      } else {
+      if (
+        componentRef.current &&
+        !componentRef.current.contains(event.target)
+      ) {
         if (isChatOpen) setIsChatOpen(false);
-        console.log(
-          `Se hizo clic FUERA del componente en las coordenadas: (${x}, ${y})`
-        );
       }
     };
 
@@ -71,7 +67,7 @@ const ChatBotButton = () => {
           sx={{
             position: "fixed",
             //top: { xs: "82vh", sm: "88vh", md: "88vh" },
-            bottom: "5vh",
+            bottom: { xs: "3vh", sm: "4vh" },
             right: { xs: "1rem", sm: "2rem", md: "2rem" },
             zIndex: 10,
           }}

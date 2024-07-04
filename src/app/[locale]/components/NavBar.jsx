@@ -81,6 +81,7 @@ const NavBar = ({ color, cat }) => {
       {/*    <HideOnScroll> */}
       <AppBar
         sx={{
+          zIndex: 5,
           position: {
             xs: "static",
             md: cat === "Global" ? "static" : "static",

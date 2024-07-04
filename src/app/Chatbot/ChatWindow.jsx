@@ -124,11 +124,12 @@ const ChatWindow = () => {
     <Paper
       elevation={13}
       sx={{
-        transform: { xs: "translateY(-3vh)", sm: "translateY(-3vh)" },
+        transform: { xs: "translateY(1vh)", sm: "translateY(-3vh)" },
         width: { xs: "90vw", sm: "auto" },
-        height: { xs: "60vh", sm: "50vh" },
-        position: { xs: "absolute", sm: "relative" },
-        top: { xs: "-56vh", sm: "auto" },
+        height: { xs: "80vh", sm: "50vh" },
+        position: { xs: "static", sm: "relative" },
+        top: { xs: "10vh", sm: "0" },
+        //bottom: { xs: "0", sm: "auto" },
         margin: { xs: "0 auto", sm: "auto" },
         borderRadius: "10px",
         zIndex: 10,
@@ -137,7 +138,7 @@ const ChatWindow = () => {
     >
       <Box
         sx={{
-          bgcolor: "#20201f",
+          bgcolor: "black",
           padding: "0.5rem 1rem",
           color: "#fff",
           display: "flex",
@@ -194,7 +195,7 @@ const ChatWindow = () => {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0.5rem 0.5rem",
-          bgcolor: "#20201F",
+          bgcolor: "black",
           position: "absolute",
           bottom: 0,
           width: "100%",
