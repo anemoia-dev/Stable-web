@@ -1,9 +1,10 @@
 import React from "react";
 import "../app/[locale]/globals.css";
 import i18nConfig from "@/app/i18nConfig";
-import GoogleAnalytics from "./[locale]/components/GA";
+
 import Head from "next/head";
-import { Montserrat } from "next/font/google"; //
+import { Montserrat } from "next/font/google";
+
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -21,8 +22,24 @@ export function generateStaticParams() {
 export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
+      <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_MEASUREMENT_ID}');
+          `,
+          }}
+        />
+      </Head>
+
       <body className={montserrat.className}>{children}</body>
-      <GoogleAnalytics />
     </html>
   );
 }
