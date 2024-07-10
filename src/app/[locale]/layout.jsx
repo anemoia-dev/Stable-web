@@ -22,6 +22,10 @@ export default async function Layout({ children, params: { locale } }) {
       resources={resources}
       namespaces={i18nNamespaces}
     >
+      <head>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      </head>
       {/* <head>
         <Script
           id="google-analytics"
