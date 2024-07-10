@@ -53,7 +53,6 @@ const ChatBotButton = () => {
       <Box
         sx={{
           position: "absolute",
-
           bottom: "10vh",
           right: { xs: "1rem", md: "2rem" },
           zIndex: 100,
@@ -63,8 +62,8 @@ const ChatBotButton = () => {
           sx={{
             position: "fixed",
             //top: { xs: "82vh", sm: "88vh", md: "88vh" },
-            bottom: { xs: "3vh", sm: "4vh" },
-            right: { xs: "1rem", sm: "2rem", md: "2rem" },
+            bottom: { xs: "3vh", sm: "10vh" },
+            right: { xs: "1rem", sm: "2rem", md: "02rem" },
             zIndex: 10,
           }}
         >

@@ -21,6 +21,7 @@ const SocialMedia = ({ optionChosen }) => {
       }}
     >
       <Link
+        id="link_to_linkedin"
         href={"https://www.linkedin.com/company/stable%C2%AE"}
         target={"_blank"}
       >

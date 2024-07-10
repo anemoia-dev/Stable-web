@@ -5,6 +5,8 @@ import i18nConfig from "@/app/i18nConfig";
 import Head from "next/head";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -24,20 +26,9 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <head>
-        <Script
-          id="google-analytics"
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`}
-        ></Script>
-        <Script>
-          {` window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-             gtag('config', '${process.env.NEXT_PUBLIC_MEASUREMENT_ID}');
-          `}
-        </Script>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
+        <GoogleTagManager gtmId={"GTM-W8J63Q7J"} id={"GTM-W8J63Q7J"} />
       </head>
-
       <body className={montserrat.className}>{children}</body>
     </html>
   );

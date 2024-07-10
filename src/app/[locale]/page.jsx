@@ -10,6 +10,7 @@ const Options = dynamic(() => import("./components/Options"), {
 });
 
 import NewDownloadImage from "./components/NewDownloadMain";
+
 const Life = dynamic(() => import("./components/Life"), {
   loading: () => <p>Loading...</p>,
 });

@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import BurgerButton from "./BurgerButton";
 import SocialMedia from "./SocialMedia";
 import Image from "next/image";
-
+import Cookies from "js-cookie";
+import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 import {
   AppBar,
   MenuItem,
@@ -12,37 +13,24 @@ import {
   Select,
   Toolbar,
   Typography,
+  Button,
 } from "@mui/material";
 
-import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
 import i18nConfig from "@/app/i18nConfig";
 import { useTranslation } from "next-i18next";
-import Slide from "@mui/material/Slide";
 
-function HideOnScroll(props) {
-  const { t, i18n } = useTranslation();
-  const { children, window } = props;
-
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-  });
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
 const NavBar = ({ color, cat }) => {
   const { t, i18n } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
   const currentPathname = usePathname();
   const [lang, setLanguage] = useState(i18n.language);
+  const [consent, setConsent] = useState(Cookies.get("cookieConsent"));
+
+  useEffect(() => {
+    setConsent(Cookies.get("cookieConsent"));
+  }, []);
 
   const handleChange = React.useCallback(
     (e) => {
@@ -53,8 +41,10 @@ const NavBar = ({ color, cat }) => {
       const date = new Date();
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       const expires = "; expires=" + date.toUTCString();
-      document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
+      if (consent === "true") {
+        document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+      }
       if (currentLocale === i18nConfig.defaultLocale) {
         router.push("/" + newLocale + currentPathname);
       } else {
@@ -65,7 +55,7 @@ const NavBar = ({ color, cat }) => {
 
       router.refresh();
     },
-    [currentLocale, currentPathname, router]
+    [consent, currentLocale, currentPathname, router]
   );
 
   return (
@@ -78,7 +68,6 @@ const NavBar = ({ color, cat }) => {
       }}
       id="navBar"
     >
-      {/*    <HideOnScroll> */}
       <AppBar
         sx={{
           zIndex: 5,
@@ -162,8 +151,14 @@ const NavBar = ({ color, cat }) => {
               color: cat && cat !== "Global" ? "#202020" : "white",
             }}
           >
-            <Link href={"form"}>
+            <Link href={"/form"}>
               <Typography
+                onClick={() => {
+                  sendGTMEvent({
+                    event: "hubspot_form_visit",
+                    value: 1,
+                  });
+                }}
                 sx={{
                   fontFamily: "unset",
                   display: { xs: "none", md: "flex" },
@@ -173,11 +168,21 @@ const NavBar = ({ color, cat }) => {
                 {t("navBarMain.join")}
               </Typography>
             </Link>
+
             <Link
               href={"https://41506338.hs-sites.com/es/centro-de-ayuda"}
               target="_blank"
             >
               <Typography
+                /* onClick={() => {
+                  sendGTMEvent({
+                    event: "helpcenter",
+                    category: "User Interaction",
+                    action: "Clicked Button",
+                    label: "Example Button",
+                    value: 1,
+                  });
+                }} */
                 sx={{
                   fontFamily: "unset",
                   display: { xs: "none", md: "flex" },
@@ -262,7 +267,6 @@ const NavBar = ({ color, cat }) => {
           </Box>
         </Toolbar>
       </AppBar>
-      {/*     </HideOnScroll> */}
     </Box>
   );
 };

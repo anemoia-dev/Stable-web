@@ -275,7 +275,7 @@ const NewDownloadImage = memo(() => {
           bottom: { xs: "10vh", sm: "5vh", md: "9vh" },
           padding: { xs: "0 0rem", md: "0 3rem" },
           width: { xs: "100%" },
-          zIndex: 1,
+          zIndex: 10,
         }}
       >
         <Link
@@ -284,6 +284,7 @@ const NewDownloadImage = memo(() => {
           rel="noopener noreferrer"
         >
           <Box
+            id="download_link_google_main"
             component={"img"}
             src={
               "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365529/Stable%20Mockups/Main/google-us_hynsat.svg"
@@ -301,6 +302,7 @@ const NewDownloadImage = memo(() => {
           rel="noopener noreferrer"
         >
           <Box
+            id="download_link_apple_main"
             component={"img"}
             src={
               "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712365525/Stable%20Mockups/Main/apple_osd3hx.svg"
