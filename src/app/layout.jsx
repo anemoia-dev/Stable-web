@@ -27,7 +27,19 @@ export default function RootLayout({ children, params: { locale } }) {
     <html lang={locale}>
       <head>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        {/*  <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} /> */}
+        <Script
+          id="google-analytics"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+        ></Script>
+        <Script>
+          {` window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+             gtag('config', '${process.env.NEXT_PUBLIC_GTM_ID}');
+          `}
+        </Script>
       </head>
       <body className={montserrat.className}>{children}</body>
     </html>
