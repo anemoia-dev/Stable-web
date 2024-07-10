@@ -27,7 +27,7 @@ export default function RootLayout({ children, params: { locale } }) {
     <html lang={locale}>
       <head>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
-        <GoogleTagManager gtmId={"GTM-W8J63Q7J"} id={"GTM-W8J63Q7J"} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       </head>
       <body className={montserrat.className}>{children}</body>
     </html>
