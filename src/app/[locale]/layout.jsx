@@ -12,6 +12,7 @@ const ChatBotButton = dynamic(() => import("../Chatbot/ChatBotButton"), {
 const i18nNamespaces = namesAllowed;
 
 import CookieBanner from "./components/CookiesBanner";
+import Head from "next/head";
 
 export default async function Layout({ children, params: { locale } }) {
   const { resources } = await initTranslations(locale, i18nNamespaces);
@@ -22,6 +23,10 @@ export default async function Layout({ children, params: { locale } }) {
       resources={resources}
       namespaces={i18nNamespaces}
     >
+      <Head>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      </Head>
       {/* <head>
         <Script
           id="google-analytics"
@@ -46,8 +51,6 @@ export default async function Layout({ children, params: { locale } }) {
       {children}
       <CookieBanner />
       <ChatBotButton />
-      {/*  <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
-      <GoogleTagManager gtmId={"GTM-W8J63Q7J"} /> */}
     </TranslationProvider>
   );
 }

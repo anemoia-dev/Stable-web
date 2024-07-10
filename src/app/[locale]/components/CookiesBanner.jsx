@@ -4,13 +4,13 @@ import Cookies from "js-cookie";
 import { Box, Button, Typography } from "@mui/material";
 
 const CookieBanner = () => {
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    const consentCookies = Cookies.get("cookieConsent");
+    /* const consentCookies = Cookies.get("cookieConsent");
     if (!consentCookies) {
       setShowBanner(true);
-    }
+    } */
   }, []);
 
   const handleAccept = () => {
