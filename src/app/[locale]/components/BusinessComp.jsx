@@ -3,8 +3,14 @@ import { Box, Typography, Button } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 import { useTranslation, Trans } from "react-i18next";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const BusinessComp = () => {
+  const handleClick = (e) => {
+    sendGTMEvent({
+      event: `trigger_business`,
+    });
+  };
   const { t, i18n } = useTranslation("Business");
   return (
     <>
@@ -141,29 +147,29 @@ const BusinessComp = () => {
             {t("sponsorship")} <strong>Stable®?</strong>
           </Trans>
         </Typography>
-
-        <Button
-          sx={{
-            textTransform: "none",
-            borderRadius: "0",
-            fontFamily: "unset",
-            fontSize: "1.2rem",
-            color: "black",
-            bgcolor: "rgba(211, 133, 214, 1)",
-            //fontWeight: "bold",
-            "&:hover": {
-              cursor: "pointer",
-              bgcolor: "rgba(211, 133, 214, 0.8)",
-            },
-          }}
+        <Link
+          href={"https://survey.hsforms.com/1VZtL1JFRSQaqg7amO90qkAopmhu"}
+          target={"_blank"}
         >
-          <Link
-            href={"https://survey.hsforms.com/1VZtL1JFRSQaqg7amO90qkAopmhu"}
-            target={"_blank"}
+          <Button
+            onClick={handleClick}
+            sx={{
+              textTransform: "none",
+              borderRadius: "0",
+              fontFamily: "unset",
+              fontSize: "1.2rem",
+              color: "black",
+              bgcolor: "rgba(211, 133, 214, 1)",
+              //fontWeight: "bold",
+              "&:hover": {
+                cursor: "pointer",
+                bgcolor: "rgba(211, 133, 214, 0.8)",
+              },
+            }}
           >
             {t("button")}
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </Box>
     </>
   );

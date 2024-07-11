@@ -27,27 +27,7 @@ export default async function Layout({ children, params: { locale } }) {
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID} />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       </Head>
-      {/* <head>
-        <Script
-          id="google-analytics"
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`}
-        ></Script>
-        <Script>
-          {` window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-             gtag('config', '${process.env.NEXT_PUBLIC_MEASUREMENT_ID}');
-          `}
-        </Script>
-      </head> */}
-      {/* <script
-        type="text/javascript"
-        id="hs-script-loader"
-        async
-        defer
-        src="//js-na1.hs-scripts.com/41506338.js"
-      ></script> */}
+
       {children}
       <CookieBanner />
       <ChatBotButton />

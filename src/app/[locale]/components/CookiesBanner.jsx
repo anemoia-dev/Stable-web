@@ -2,24 +2,37 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { Box, Button, Typography } from "@mui/material";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const CookieBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    /* const consentCookies = Cookies.get("cookieConsent");
+    /*   const consentCookies = Cookies.get("cookieConsent");
     if (!consentCookies) {
       setShowBanner(true);
     } */
+    setShowBanner(true);
   }, []);
 
   const handleAccept = () => {
-    //Cookies.set("cookieConsent", "true", { expires: 365, path: "/" });
+    /*  Cookies.set("cookieConsent", "true", { expires: 365, path: "/" });
+    Cookies.set("analyticsConsent", "true", { expires: 365, path: "/" });
+    Cookies.set("marketingConsent", "true", { expires: 365, path: "/" }); */
+
+    // Send GTM event for acceptance
+    sendGTMEvent({ event: "accept_cookie_banner" });
+
     setShowBanner(false);
   };
 
   const handleReject = () => {
-    //Cookies.set("cookieConsent", "false", { expires: 365, path: "/" });
+    /*    Cookies.set("cookieConsent", "false", { expires: 365, path: "/" });
+    Cookies.set("analyticsConsent", "false", { expires: 365, path: "/" });
+    Cookies.set("marketingConsent", "false", { expires: 365, path: "/" }); */
+
+    sendGTMEvent({ event: "reject_cookie_banner" });
+
     setShowBanner(false);
   };
 
@@ -49,8 +62,7 @@ const CookieBanner = () => {
           }}
         >
           This website uses cookies to improve your experience. By using this
-          website, you agree to our {/* <a href="/[locale]/cookies"> */}Cookies
-          Policy{/* </a>. */}
+          website, you agree to our Cookies Policy.
         </Typography>
         <Box
           sx={{

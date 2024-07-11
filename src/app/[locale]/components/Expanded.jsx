@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Box, Typography, Button, CardMedia, Card } from "@mui/material";
 import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "react-i18next";
@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const imageSize = {
   xs: { width: "100%", height: "40%" }, // Para pantallas extra pequeñas
@@ -17,9 +18,27 @@ const imageSize = {
 };
 const Expanded = ({ id }) => {
   const theme = useTheme();
+  console.log(id);
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const { t, i18n } = useTranslation("HowToUse");
   const [open, setOpen] = useState(false);
+
+  const playerRef = useRef(null);
+  const [played, setplayed] = useState(0);
+
+  const handlePlay = () => {
+    sendGTMEvent({
+      event: `trigger_play_tutorial_video_${id + 1}`,
+      videoStatus: "playing",
+    });
+  };
+
+  const handlePause = () => {
+    sendGTMEvent({
+      event: `trigger_pause_tutorial_video_${id + 1}`,
+      videoStatus: "paused",
+    });
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -113,8 +132,11 @@ const Expanded = ({ id }) => {
             }}
           >
             <ReactPlayer
+              ref={playerRef}
               url={t(`op${id}.video`)}
               width={"100%"}
+              onPlay={handlePlay}
+              onPause={handlePause}
               //height={"100%"}
               light={
                 <Image
