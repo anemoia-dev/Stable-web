@@ -37,14 +37,6 @@ const NavBar = ({ color, cat }) => {
       const newLocale = e;
       setLanguage(newLocale);
 
-      const days = 30;
-      const date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      const expires = "; expires=" + date.toUTCString();
-
-      if (consent === "true") {
-        document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
-      }
       if (currentLocale === i18nConfig.defaultLocale) {
         router.push("/" + newLocale + currentPathname);
       } else {
@@ -174,15 +166,6 @@ const NavBar = ({ color, cat }) => {
               target="_blank"
             >
               <Typography
-                /* onClick={() => {
-                  sendGTMEvent({
-                    event: "helpcenter",
-                    category: "User Interaction",
-                    action: "Clicked Button",
-                    label: "Example Button",
-                    value: 1,
-                  });
-                }} */
                 sx={{
                   fontFamily: "unset",
                   display: { xs: "none", md: "flex" },

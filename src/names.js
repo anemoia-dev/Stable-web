@@ -1,6 +1,7 @@
 module.exports = {
     namesAllowed: ["translation",
         "Options",
+        "cookies",
         "People",
         "HowToUse",
         "Business",

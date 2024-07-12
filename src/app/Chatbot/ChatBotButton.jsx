@@ -1,12 +1,21 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Box, Button, Grow, Fade, IconButton } from "@mui/material";
-
+import Cookies from "js-cookie";
 import ChatWindow from "./ChatWindow";
 import { FaRobot, FaTimes } from "react-icons/fa";
 
 const ChatBotButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [cookiesAdvice, setCookiesAdvice] = useState(false);
+
+  useEffect(() => {
+    const consent = Cookies.get("consentCookie");
+    if (!consent) {
+      setCookiesAdvice(true);
+    }
+  }, [setCookiesAdvice]);
+
   const componentRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -62,7 +71,10 @@ const ChatBotButton = () => {
           sx={{
             position: "fixed",
             //top: { xs: "82vh", sm: "88vh", md: "88vh" },
-            bottom: { xs: "3vh", sm: "10vh" },
+            bottom: {
+              xs: "3vh",
+              sm: cookiesAdvice ? "13vh" : "3vh",
+            },
             right: { xs: "1rem", sm: "2rem", md: "02rem" },
             zIndex: 10,
           }}
