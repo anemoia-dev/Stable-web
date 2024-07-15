@@ -11,6 +11,7 @@ const CookiesList = () => {
         width: "100%",
         height: "auto",
         display: "block",
+        bgcolor: "white",
         padding: "4rem 6rem",
       }}
     >
