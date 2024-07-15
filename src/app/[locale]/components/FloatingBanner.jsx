@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Box, Typography, Container, Paper } from "@mui/material";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 export default function FloatingBanner({
   color,
   message,
@@ -95,9 +96,34 @@ export default function FloatingBanner({
             }}
             onClick={onDeny}
           >
-            {t("reject")}
+            {t("only")}
           </Button>
         )}
+
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: "#D0FFE6",
+            color: "black",
+            fontFamily: "unset",
+            fontStyle: "none",
+            textTransform: "none",
+            fontWeight: 400,
+            borderRadius: "0px",
+            "&:hover": {
+              bgcolor: "white",
+              color: "black",
+            },
+          }}
+        >
+          <Link
+            href="/cookies-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("info")}
+          </Link>
+        </Button>
       </Box>
     </Box>
   );
