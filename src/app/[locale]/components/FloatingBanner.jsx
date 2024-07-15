@@ -25,7 +25,7 @@ export default function FloatingBanner({
         gap: "1rem",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#20201F",
         borderTop: "1px solid #ccc",
         padding: "1rem",
       }}
@@ -37,6 +37,7 @@ export default function FloatingBanner({
             fontFamily: "unset",
             fontWeight: "bold",
             fontSize: "1.25rem",
+            color: "white",
           }}
         >
           {t("header")}
@@ -46,6 +47,7 @@ export default function FloatingBanner({
             fontSize: "14px",
             textAlign: "flex-start",
             fontFamily: "unset",
+            color: "white",
           }}
         >
           {t("cookies")}
@@ -54,6 +56,7 @@ export default function FloatingBanner({
       <Box
         sx={{
           display: "flex",
+
           gap: 2,
           marginTop: { xs: 2, sm: 0 },
         }}
@@ -64,13 +67,15 @@ export default function FloatingBanner({
             variant="contained"
             sx={{
               fontFamily: "unset",
-              bgcolor: "#20201f",
+              bgcolor: "#EAB67D",
               fontStyle: "none",
               textTransform: "none",
               fontWeight: 400,
+              color: "black",
               borderRadius: "0px",
               "&:hover": {
                 bgcolor: "gray",
+                color: "white",
               },
             }}
             onClick={onAccept}
@@ -89,9 +94,14 @@ export default function FloatingBanner({
               textTransform: "none",
               fontWeight: 400,
               borderRadius: "0px",
+
+              overflow: "hidden",
+
+              textOverflow: "ellipsis",
+
               "&:hover": {
-                bgcolor: "white",
-                color: "black",
+                bgcolor: "gray",
+                color: "white",
               },
             }}
             onClick={onDeny}
@@ -110,9 +120,12 @@ export default function FloatingBanner({
             textTransform: "none",
             fontWeight: 400,
             borderRadius: "0px",
+            whiteSpace: "nowrap", // Evita que el texto se divida en múltiples líneas
+            overflow: "hidden",
+            textOverflow: "ellipsis",
             "&:hover": {
-              bgcolor: "white",
-              color: "black",
+              bgcolor: "gray",
+              color: "white",
             },
           }}
         >
@@ -121,6 +134,8 @@ export default function FloatingBanner({
             target="_blank"
             rel="noopener noreferrer"
           >
+            {/* {t("info")} */}
+
             {t("info")}
           </Link>
         </Button>

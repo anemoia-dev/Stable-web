@@ -12,7 +12,10 @@ const CookiesList = () => {
         height: "auto",
         display: "block",
         bgcolor: "white",
-        padding: "4rem 6rem",
+        padding: {
+          xs: "1rem",
+          sm: "4rem 6rem",
+        },
       }}
     >
       <Typography
