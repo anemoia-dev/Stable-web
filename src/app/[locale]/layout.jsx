@@ -28,8 +28,8 @@ export default async function Layout({ children, params: { locale } }) {
       {children}
       {/*  <CookieBanner /> */}
 
+      <ChatBotButton />
       <ConsentForm />
-      {/* <ChatBotButton /> */}
     </TranslationProvider>
   );
 }
