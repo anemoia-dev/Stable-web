@@ -15,63 +15,63 @@ const cookiesData = [
     name: "NEXT_LOCALE",
     purpose: "Almacenar la configuración de localización del usuario",
     duration: "Sesión",
-    provider: "localhost",
+    provider: "propio",
   },
   {
     name: "NID",
     purpose: "Recordar tus preferencias y otra información",
     duration: "6 meses",
-    provider: "google.com",
+    provider: "tercero",
   },
   {
     name: "VISITOR_INFO1_LIVE",
     purpose: "Medir tu ancho de banda y determinar la interfaz de YouTube",
     duration: "6 meses",
-    provider: "youtube.com",
+    provider: "tercero",
   },
   {
     name: "VISITOR_PRIVACY_METADATA",
     purpose: "Almacenar las preferencias de privacidad del usuario",
     duration: "Variable",
-    provider: "youtube.com",
+    provider: "tercero",
   },
   {
     name: "YSC",
     purpose: "Rastrear las vistas de videos incrustados",
     duration: "Sesión",
-    provider: "youtube.com",
+    provider: "tercero",
   },
   {
     name: "_GRECAPTCHA",
     purpose: "Proteger el sitio contra spam y abuso",
     duration: "6 meses",
-    provider: "google.com",
+    provider: "tercero",
   },
   {
     name: "__cf_bm",
     purpose:
       "Gestionar el tráfico entrante y mejorar la seguridad del sitio web",
     duration: "30 minutos",
-    provider: "cloudflare.com",
+    provider: "tercero",
   },
   {
     name: "_cfuid",
     purpose:
       "Identificar clientes individuales y aplicar configuraciones de seguridad",
     duration: "30 días",
-    provider: "cloudflare.com",
+    provider: "tercero",
   },
   {
     name: "__hstc",
     purpose: "Seguimiento de visitantes",
     duration: "13 meses",
-    provider: "hubspot.com",
+    provider: "tercero",
   },
   {
     name: "hubspotutk",
     purpose: "Mantener el seguimiento de la identidad de un visitante",
     duration: "13 meses",
-    provider: "hubspot.com",
+    provider: "tercero",
   },
 ];
 
