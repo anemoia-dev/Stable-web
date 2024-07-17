@@ -73,6 +73,20 @@ const cookiesData = [
     duration: "13 meses",
     provider: "tercero",
   },
+
+  {
+    name: "_ga",
+    purpose: "Cookies de Google analytics para la distinción de usuarios",
+    duration: "13 meses",
+    provider: "tercero",
+  },
+
+  {
+    name: "_ga_JX5DR5RLKC",
+    purpose: "Cookie de googles analitycs para mantener el estado de la sesión",
+    duration: "13 meses",
+    provider: "tercero",
+  },
 ];
 
 const CookiesTable = () => {
