@@ -1,10 +1,12 @@
+"use client";
 import { Box, List, ListItem, ListItemIcon, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 import CookiesTable from "./CookiesUsed";
 import CircleIcon from "@mui/icons-material/Circle";
-
+import { useTranslation } from "react-i18next";
 const CookiesList = () => {
+  const { t } = useTranslation("cookies");
   return (
     <Box
       sx={{
@@ -28,7 +30,7 @@ const CookiesList = () => {
           textAlign: "center",
         }}
       >
-        Política de Cookies
+        {t("header")}
       </Typography>
 
       <Typography
@@ -41,9 +43,7 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Para garantizar la transparencia en el manejo y uso de datos, Stable
-        informa acerca del uso de las cookies en el sitio web
-        www.stable-life.com en la siguiente política de cookies:
+        {t("firstText")}
       </Typography>
 
       <Typography
@@ -56,7 +56,7 @@ const CookiesList = () => {
           marginTop: "1vh",
         }}
       >
-        ¿Qué son las cookies?
+        {t("titleDefCookies")}
       </Typography>
 
       <Typography
@@ -69,12 +69,7 @@ const CookiesList = () => {
           marginTop: "1vh",
         }}
       >
-        Las cookies son pequeños archivos que se pueden descargar en su equipo a
-        través de las páginas web. Son herramientas con un papel importante en
-        la prestación de diversos servicios de la red., permiten a una web
-        analizar y recuperar información sobre los hábitos de navegación de un
-        usuario, y a partir de esa información se puede mejorar la experiencia
-        del mismo mediante un mejor servicio.
+        {t("cookies_info")}
       </Typography>
 
       <Typography
@@ -87,7 +82,7 @@ const CookiesList = () => {
           marginTop: "1vh",
         }}
       >
-        Tipos de cookies
+        {t("types_of_cookies")}
       </Typography>
 
       <Typography
@@ -100,10 +95,7 @@ const CookiesList = () => {
           marginTop: "1vh",
         }}
       >
-        {" "}
-        Dependiendo de la entidad que gestione el dominio desde donde se envíen
-        las cookies y la configuración del navegador, se pueden distinguir las
-        siguientes categorías:
+        {t("cookie_management_info")}
       </Typography>
 
       <List
@@ -140,11 +132,8 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies propias: aquellas que se envían al equipo terminal del usuario
-          desde un equipo o dominio gestionado por el propio editor, y desde el
-          cual se presta el servicio solicitado por el usuario
+          {t("own_cookies")}
         </ListItem>
-
         <ListItem
           sx={{
             fontFamily: "unset",
@@ -170,9 +159,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies de terceros: se envían al equipo del usuario desde un equipo o
-          dominio que no es gestionado por el editor, sino por otra entidad que
-          trata los datos obtenidos a través de las cookies
+          {t("third_party_cookies")}
         </ListItem>
       </List>
 
@@ -186,10 +173,7 @@ const CookiesList = () => {
           marginTop: "1vh",
         }}
       >
-        En caso de que las cookies sean instaladas desde un equipo o dominio
-        gestionado por el propio editor pero la información que se recoja
-        mediante éstas sea gestionada por un tercero, no pueden ser consideradas
-        como cookies propias
+        {t("third_parties_cookies_note")}
       </Typography>
 
       <Typography
@@ -202,9 +186,7 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Existe también una segunda clasificación, según el plazo de tiempo que
-        permanecen almacenadas en el navegador del cliente, pudiendo tratarse
-        de:
+        {t("cookie_classification")}
       </Typography>
 
       <List
@@ -241,16 +223,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies técnicas: aquellas que permiten al usuario la navegación a
-          través de una página web, plataforma o aplicación y la utilización de
-          las diferentes opciones o servicios que en ella existan como, por
-          ejemplo, controlar el tráfico y la comunicación de datos, identificar
-          la sesión, acceder a partes de acceso restringido, recordar los
-          elementos que integran un pedido, realizar el proceso de compra de un
-          pedido, realizar la solicitud de inscripción o participación en un
-          evento, utilizar elementos de seguridad durante la navegación,
-          almacenar contenidos para la difusión de vídeos o sonido o compartir
-          contenidos a través de redes sociales.
+          {t("technical_cookies")}
         </ListItem>
 
         <ListItem
@@ -278,12 +251,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies de personalización: permiten al usuario acceder al servicio
-          con algunas características de carácter general predefinidas en
-          función de una serie de criterios en el terminal del usuario como por
-          ejemplo serian el idioma, el tipo de navegador a través del cual
-          accede al servicio, la configuración regional desde donde accede al
-          servicio, etc
+          {t("customization_cookies")}
         </ListItem>
 
         <ListItem
@@ -311,15 +279,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies de análisis: permiten al responsable de las mismas, el
-          seguimiento y análisis del comportamiento de los usuarios de los
-          sitios web a los que están vinculadas. La información recogida
-          mediante este tipo de cookies se utiliza en la medición de la
-          actividad de los sitios web, aplicación o plataforma y para la
-          elaboración de perfiles de navegación de los usuarios de dichos
-          sitios, aplicaciones y plataformas, con el fin de introducir mejoras
-          en función del análisis de los datos de uso que hacen los usuarios del
-          servicio
+          {t("analysis_cookies")}
         </ListItem>
 
         <ListItem
@@ -347,13 +307,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies publicitarias: permiten al responsable de las mismas, el
-          seguimiento y el análisis de la gestión publicitaria de los sitios web
-          a los que están vinculadas. La información recogida mediante este tipo
-          de cookies se utiliza para la elaboración de perfiles de navegación de
-          los usuarios de dichos sitios, aplicaciones y plataformas, con el fin
-          de introducir mejoras en función del seguimiento y el análisis de los
-          datos de uso que hacen los usuarios del servicio
+          {t("advertising_cookies")}
         </ListItem>
 
         <ListItem
@@ -381,14 +335,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies de publicidad comportamental: permiten al responsable de las
-          mismas, el seguimiento y el análisis de la gestión publicitaria de los
-          sitios web a los que están vinculadas. La información recogida
-          mediante este tipo de cookies se utiliza para la elaboración de
-          perfiles de navegación de los usuarios de dichos sitios, aplicaciones
-          y plataformas, con el fin de introducir mejoras en función del
-          seguimiento y el análisis de los datos de uso que hacen los usuarios
-          del servicio
+          {t("behavioral_advertising_cookies")}
         </ListItem>
 
         <ListItem
@@ -416,13 +363,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Cookies de redes sociales externas: se utilizan para que los
-          visitantes puedan interactuar con el contenido de diferentes
-          plataformas sociales (facebook, youtube, twitter, linkedIn, etc.) y
-          que se generen únicamente para los usuarios de dichas redes sociales.
-          Las condiciones de utilización de estas cookies y la información
-          recopilada se regula por la política de privacidad de la plataforma
-          social correspondiente
+          {t("external_social_network_cookies")}
         </ListItem>
       </List>
 
@@ -436,7 +377,7 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Desactivación y elminación de cookies
+        {t("disable_and_delete_cookies")}
       </Typography>
 
       <Typography
@@ -449,55 +390,10 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Tienes la opción de permitir, bloquear o eliminar las cookies instaladas
-        en tu equipo mediante la configuración de las opciones del navegador
-        instalado en su equipo. Al desactivar cookies, algunos de los servicios
-        disponibles podrían dejar de estar operativos. La forma de deshabilitar
-        las cookies es diferente para cada navegador, pero normalmente puede
-        hacerse desde el menú Herramientas u Opciones. También puede consultarse
-        el menú de Ayuda del navegador dónde puedes encontrar instrucciones. El
-        usuario podrá en cualquier momento elegir qué cookies quiere que
-        funcionen en este sitio web. Puede usted permitir, bloquear o eliminar
-        las cookies instaladas en su equipo mediante la configuración de las
-        opciones del navegador instalado en su ordenador:
+        {t("cookie_management")}
       </Typography>
 
       <List>
-        <ListItem
-          sx={{
-            fontFamily: "unset",
-            fontSize: "1.1rem",
-          }}
-        >
-          <ListItemIcon
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CircleIcon
-              fontSize="small"
-              sx={{
-                color: "black",
-                marginRight: 1,
-
-                fontFamily: "unset",
-                fontSize: "1.1rem",
-              }}
-            />
-          </ListItemIcon>
-          <Link
-            href={
-              "http://windows.microsoft.com/es-es/windows-vista/Block-or-allow-cookies"
-            }
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Microsoft Internet Explorer o Microsoft Edge
-          </Link>
-        </ListItem>
-
         <ListItem
           sx={{
             fontFamily: "unset",
@@ -529,7 +425,7 @@ const CookiesList = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Microsoft Internet Explorer o Microsoft Edge
+            {t("internet_explorer_edge")}
           </Link>
         </ListItem>
 
@@ -564,7 +460,7 @@ const CookiesList = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Mozilla Firefox
+            {t("firefox")}
           </Link>
         </ListItem>
 
@@ -597,7 +493,7 @@ const CookiesList = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Google Chrome
+            {t("chrome")}
           </Link>
         </ListItem>
 
@@ -630,7 +526,7 @@ const CookiesList = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Safari
+            {t("safari")}
           </Link>
         </ListItem>
 
@@ -663,7 +559,7 @@ const CookiesList = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Opera
+            {t("opera")}
           </Link>
         </ListItem>
       </List>
@@ -678,7 +574,7 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Declaración de cookies usadas en www.stable-life.com
+        {t("cookie_declaration")}
       </Typography>
 
       <Typography
@@ -691,8 +587,7 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Se muestra entonces a continuación un listado de las cookies que se
-        utilizarán en este sitio web.
+        {t("cookie_list_intro")}
       </Typography>
 
       <CookiesTable />
@@ -707,7 +602,7 @@ const CookiesList = () => {
           marginTop: "2rem",
         }}
       >
-        Aceptación de la Política de cookies
+        {t("cookie_policy_acceptance")}
       </Typography>
 
       <Typography
@@ -720,23 +615,7 @@ const CookiesList = () => {
           marginTop: "1.1rem",
         }}
       >
-        Al utilizar el sitio web www.stable-life.com, se presume que usted
-        acepta la Política de Cookies. Si embargo, se muestra información sobre
-        el uso de cookies en nuestro sitio para su información
-      </Typography>
-
-      <Typography
-        sx={{
-          width: "100%",
-          color: "black",
-          fontFamily: "unset",
-          fontSize: "1.1rem",
-          textAlign: "justify",
-          marginTop: "1.1rem",
-        }}
-      >
-        Por ello, en el banner de información se muestran las siguientes
-        opciones:
+        {t("cookie_policy_info")}
       </Typography>
 
       <List
@@ -774,8 +653,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Aceptar todas: No se volverá a visualizar este aviso al acceder a
-          cualquier página del portal durante la presente sesión.
+          {t("accept_all")}
         </ListItem>
 
         <ListItem
@@ -803,9 +681,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Aceptar solo las escenciales: No se volverá a mostrar este aviso al
-          acceder a cualquier página del portal durante la presente sesión, se
-          aceptarán solo las cookies asociadas a reproducción de videos
+          {t("accept_essential_only")}
         </ListItem>
 
         <ListItem
@@ -833,9 +709,7 @@ const CookiesList = () => {
               }}
             />
           </ListItemIcon>
-          Más información: podrá obtener más información sobre qué son las
-          cookies, conocer la Política de cookies de www.stable-life.com y saber
-          como modificar la configuración de su navegador
+          {t("more_info")}
         </ListItem>
       </List>
     </Box>
