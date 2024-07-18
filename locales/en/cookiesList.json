@@ -1,0 +1,76 @@
+{
+    "en": [
+        {
+            "name": "NEXT_LOCALE",
+            "purpose": "Store the user's localization settings",
+            "duration": "Session",
+            "provider": "own"
+        },
+        {
+            "name": "NID",
+            "purpose": "Remember your preferences and other information",
+            "duration": "6 months",
+            "provider": "third-party"
+        },
+        {
+            "name": "VISITOR_INFO1_LIVE",
+            "purpose": "Measure your bandwidth and determine the YouTube interface",
+            "duration": "6 months",
+            "provider": "third-party"
+        },
+        {
+            "name": "VISITOR_PRIVACY_METADATA",
+            "purpose": "Store user privacy preferences",
+            "duration": "Variable",
+            "provider": "third-party"
+        },
+        {
+            "name": "YSC",
+            "purpose": "Track embedded video views",
+            "duration": "Session",
+            "provider": "third-party"
+        },
+        {
+            "name": "_GRECAPTCHA",
+            "purpose": "Protect the site against spam and abuse",
+            "duration": "6 months",
+            "provider": "third-party"
+        },
+        {
+            "name": "__cf_bm",
+            "purpose": "Manage incoming traffic and enhance website security",
+            "duration": "30 minutes",
+            "provider": "third-party"
+        },
+        {
+            "name": "_cfuid",
+            "purpose": "Identify individual clients and apply security settings",
+            "duration": "30 days",
+            "provider": "third-party"
+        },
+        {
+            "name": "__hstc",
+            "purpose": "Visitor tracking",
+            "duration": "13 months",
+            "provider": "third-party"
+        },
+        {
+            "name": "hubspotutk",
+            "purpose": "Maintain visitor identity tracking",
+            "duration": "13 months",
+            "provider": "third-party"
+        },
+        {
+            "name": "_ga",
+            "purpose": "Google Analytics cookies for user distinction",
+            "duration": "13 months",
+            "provider": "third-party"
+        },
+        {
+            "name": "_ga_JX5DR5RLKC",
+            "purpose": "Google Analytics cookie for session state",
+            "duration": "13 months",
+            "provider": "third-party"
+        }
+    ]
+}

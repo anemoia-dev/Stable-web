@@ -7,5 +7,6 @@ module.exports = {
         "Business",
         "Footer",
         "Selected",
-        "Form",]
+        "Form",
+        "cookiesList"]
 }
