@@ -18,50 +18,53 @@ export default function ConsentForm({ color }) {
   }, []);
 
   useEffect(() => {
-    if (cookies.get("consentCookie") !== undefined) {
+    const consentCookie = cookies.get("consentCookie");
+    if (consentCookie !== undefined) {
       setDecisionMade(true);
     } else {
       setDecisionMade(false);
     }
-  }, [cookies, setDecisionMade, sendConsent]);
+  }, [cookies]);
 
-  const handleDecision = (outcome) => {
-    const consent = {
-      ad_storage: outcome,
-      ad_user_data: outcome,
-      ad_personalization: outcome,
-      analytics_storage: outcome,
-      functional_storage: outcome,
-      personalization_storage: outcome,
-      security_storage: outcome,
-    };
+  const handleDecision = useCallback(
+    (outcome) => {
+      setDecisionMade(true);
+      const consent = {
+        ad_storage: outcome,
+        ad_user_data: outcome,
+        ad_personalization: outcome,
+        analytics_storage: outcome,
+        functional_storage: outcome,
+        personalization_storage: outcome,
+        security_storage: outcome,
+      };
 
-    cookies.set("consentCookie", consent, {
-      expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-      path: "/",
-      domain: "localhost",
-    });
+      cookies.set("consentCookie", consent, {
+        expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+        path: "/",
+        domain: "localhost",
+      });
 
-    sendConsent(consent);
-
-    setDecisionMade(true);
-  };
+      sendConsent(consent);
+    },
+    [cookies, sendConsent]
+  );
 
   return decisionMade ? (
     <></>
   ) : (
     <FloatingBanner
-      color={"blue"}
+      color={color}
       header="Consent Header"
       message="Consent message"
       acceptText="Yes"
       denyText="No"
-      onAccept={() => {
-        handleDecision("granted");
-      }}
-      onDeny={() => {
-        handleDecision("denied");
-      }}
+      onAccept={() => handleDecision("granted")}
+      onDeny={() => handleDecision("denied")}
     />
   );
 }
+
+ConsentForm.propTypes = {
+  color: PropTypes.string.isRequired,
+};
