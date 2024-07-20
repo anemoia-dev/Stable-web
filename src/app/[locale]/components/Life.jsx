@@ -69,6 +69,7 @@ const Life = () => {
         }}
       >
         <Link
+          id={"link_to_playstore_from_life"}
           href={
             "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es"
           }
@@ -76,6 +77,7 @@ const Life = () => {
           rel="noreferrer"
         >
           <Box
+            id={"link_to_applestore_from_life"}
             component={"img"}
             src={
               "https://res.cloudinary.com/dzlhhijtz/image/upload/v1712372198/Stable%20Mockups/Main/googleBlack_sztlre.svg"

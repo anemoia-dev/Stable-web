@@ -17,6 +17,7 @@
     "@formatjs/intl-localematcher": "^0.5.4",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
+    "@next/third-parties": "^14.2.4",
     "axios": "^1.7.2",
     "depcheck": "^1.4.7",
     "dotenv": "^16.4.5",
@@ -33,7 +34,6 @@
     "openai": "^4.47.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-ga": "^3.3.1",
     "react-ga4": "^2.1.0",
     "react-google-recaptcha-v3": "^1.10.1",
     "react-i18next": "^14.0.5",
@@ -41,6 +41,7 @@
     "react-player": "^2.16.0",
     "react-world-flags": "^1.6.0",
     "swiper": "^11.1.0",
+    "universal-cookie": "^7.1.4",
     "uuid": "^9.0.1",
     "uuidv4": "^6.2.13",
     "vercel": "^32.5.5"

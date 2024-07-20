@@ -21,6 +21,7 @@ const SocialMedia = ({ optionChosen }) => {
       }}
     >
       <Link
+        id="link_to_linkedin"
         href={"https://www.linkedin.com/company/stable%C2%AE"}
         target={"_blank"}
       >
@@ -35,7 +36,11 @@ const SocialMedia = ({ optionChosen }) => {
         />
       </Link>
 
-      <Link href={"https://www.instagram.com/stablelatam/"} target={"_blank"}>
+      <Link
+        id={"link_to_instagram"}
+        href={"https://www.instagram.com/stablelatam/"}
+        target={"_blank"}
+      >
         <InstagramIcon
           sx={{
             /*  optionChosen !== -1 ? "1.8rem" :  */
@@ -48,7 +53,11 @@ const SocialMedia = ({ optionChosen }) => {
         />
       </Link>
 
-      <Link href={"https://www.facebook.com/StableLatam"} target={"_blank"}>
+      <Link
+        id={"link_to_facebook"}
+        href={"https://www.facebook.com/StableLatam"}
+        target={"_blank"}
+      >
         <FacebookOutlinedIcon
           sx={{
             /* optionChosen !== -1 ? "1.8rem" : */

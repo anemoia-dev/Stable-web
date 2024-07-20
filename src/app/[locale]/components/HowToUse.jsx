@@ -65,6 +65,7 @@ const HowToUse = () => {
             href={
               "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es"
             }
+            id={"download_google_howtouse"}
             target={"_blank"}
             rel="noreferrer"
           >
@@ -77,6 +78,7 @@ const HowToUse = () => {
           </Link>
 
           <Link
+            id={"download_apple_howtouse"}
             href={"https://apps.apple.com/co/app/stable/id6446915567"}
             target={"_blank"}
             rel="noreferrer"

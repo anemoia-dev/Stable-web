@@ -5,8 +5,26 @@ import { Typography } from "@mui/material";
 import ReactPlayer from "react-player/lazy";
 import { useTranslation } from "next-i18next";
 import Responsive from "./Carousel";
+import { useRef, useState, useEffect } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 const People = () => {
   const { t, i18n } = useTranslation("People");
+  const playerRef = useRef(null);
+  const [played, setplayed] = useState(0);
+
+  const handlePlay = () => {
+    sendGTMEvent({
+      event: "trigger_play_video_1",
+      videoStatus: "playing",
+    });
+  };
+
+  const handlePause = () => {
+    sendGTMEvent({
+      event: "trigger_pause_video_1",
+      videoStatus: "paused",
+    });
+  };
   return (
     <Box
       sx={{
@@ -73,8 +91,12 @@ const People = () => {
           }}
         >
           <ReactPlayer
+            ref={playerRef}
             url={"https://www.youtube.com/watch?v=dZE1DNDgHxU"}
             width={"100%"}
+            controls
+            onPlay={handlePlay}
+            onPause={handlePause}
           />
         </Box>
       </Box>

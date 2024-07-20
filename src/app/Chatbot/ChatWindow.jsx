@@ -25,7 +25,7 @@ const ChatWindow = () => {
   };
   useEffect(() => {
     // Verificar si ya se ha enviado el mensaje inicial de la IA
-    console.log(process.env.NEXT_PUBLIC_API_MESSAGES);
+
     if (messages.length === 0) {
       setLoading(true);
       setShowTyping(true);
@@ -122,19 +122,23 @@ const ChatWindow = () => {
 
   return (
     <Paper
-      elevation={13}
+      elevation={10}
       sx={{
-        transform: { xs: "translateY(-3vh)", sm: "translateY(-3vh)" },
-        height: { xs: "50vh", sm: "50vh" },
-        position: "relative",
+        transform: { xs: "translateY(1vh)", sm: "translateY(-9vh)" },
+        width: { xs: "90vw", sm: "auto" },
+        height: { xs: "80vh", sm: "50vh" },
+        position: { xs: "static", sm: "relative" },
+        top: { xs: "10vh", sm: "0" },
+        //bottom: { xs: "0", sm: "auto" },
+        margin: { xs: "0 auto", sm: "auto" },
         borderRadius: "10px",
-        zIndex: 10,
+        zIndex: 100,
         paddingBottom: { xs: "1rem", sm: "0" },
       }}
     >
       <Box
         sx={{
-          bgcolor: "#20201f",
+          bgcolor: "black",
           padding: "0.5rem 1rem",
           color: "#fff",
           display: "flex",
@@ -191,7 +195,7 @@ const ChatWindow = () => {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0.5rem 0.5rem",
-          bgcolor: "#20201F",
+          bgcolor: "black",
           position: "absolute",
           bottom: 0,
           width: "100%",

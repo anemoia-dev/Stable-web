@@ -10,6 +10,11 @@ const Options = dynamic(() => import("./components/Options"), {
 });
 
 import NewDownloadImage from "./components/NewDownloadMain";
+
+const ConsentForm = dynamic(() => import("./components/ConsentFormComp"), {
+  loading: () => <p>Loading...</p>,
+});
+
 const Life = dynamic(() => import("./components/Life"), {
   loading: () => <p>Loading...</p>,
 });
@@ -37,6 +42,7 @@ export default async function Home(props) {
           minHeight: "100vh",
         }}
       >
+        <ConsentForm />
         <NavBar
           color={!props.params.category ? "#202020" : props.params.category}
           cat={props.params.category}

@@ -5,6 +5,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneOutlineIcon from "@mui/icons-material/PhoneOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import * as S from "../../../styles/mastercardlogo.module.css";
 import * as T from "../../../styles/divider.module.css";
 import { useTranslation } from "react-i18next";
@@ -269,11 +270,52 @@ const Footer = ({ cat }) => {
           >
             <a
               style={{ "text-decoration": "none" }}
-              href="https://stable-app.notion.site/POL-TICA-DE-PRIVACIDAD-2f74fa27db2c4ff4b44d3da80feb9b64"
+              href="https://www.notion.so/stable-app/T-RMINOS-Y-CONDICIONES-DE-SERVICIO-STABLE-APP-f5f672984d364999b6114cc9d1144cb8"
               target="_blank"
             >
               {" "}
               {t("terms")}
+            </a>
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            "@media (orientation:landscape)": {
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+            },
+
+            "@media (orientation:portrait)": {
+              display: { xs: "flex" },
+              gap: { xs: "1rem" },
+            },
+          }}
+        >
+          <LockOutlinedIcon
+            sx={{
+              fontSize: "1.8rem",
+              fontWeight: 50,
+              color: "rgba(125, 204, 161, 1)",
+            }}
+          />
+          <Typography
+            sx={{
+              fontFamily: "unset",
+              fontSize: "1.1rem",
+              textDecorationLine: "underline",
+              color: "white",
+            }}
+          >
+            <a
+              style={{ "text-decoration": "none" }}
+              href="https://stable-app.notion.site/POL-TICA-DE-PRIVACIDAD-2f74fa27db2c4ff4b44d3da80feb9b64"
+              target="_blank"
+            >
+              {" "}
+              {t("privacy")}
             </a>
           </Typography>
         </Box>

@@ -8,6 +8,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import Link from "next/link";
 import Carrusel from "../components/Container";
 import { useTranslation } from "react-i18next";
+import { sendGTMEvent } from "@next/third-parties/google";
 const Selected = ({ optionChosen, navbarHeight, cat }) => {
   const { t, i18n } = useTranslation("Selected");
   return (
@@ -99,7 +100,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
               },
               height: { md: "60%" },
               padding: "1rem",
-              zIndex: 1,
+              zIndex: 1000,
             }}
           >
             <Typography
@@ -124,16 +125,19 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
             </Typography>
             <Box
               sx={{
+                cursor: "pointer",
                 display: "flex",
                 flexDirection: { xs: "column", md: "row" },
                 marginTop: "1rem",
                 paddingBottom: "1rem",
                 gap: { xs: 0, md: "1rem" },
                 borderBottom: "2px solid black",
+                zIndex: -1000,
               }}
             >
               {/*  <Link>
               </Link> */}
+
               <Image
                 alt="Apple Wallet"
                 src={
@@ -142,6 +146,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
                 width={136}
                 height={50}
               />
+
               <Image
                 alt="Google Wallet"
                 src={
@@ -205,7 +210,9 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
                     cat !== "Global" && `url(${t(`${cat}.insideImages.0`)})`,
                   backgroundSize: `${t(`${cat}.backgroundSizeMain`)}`,
                 }}
-              ></Box>
+              >
+                s
+              </Box>
 
               <Box
                 sx={{
@@ -294,7 +301,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
           bottom: { xs: "12vh", md: "0vh" },
           right: { xs: 0, md: "10%" },
           height: { xs: "14%", md: "33vh" },
-          zIndex: 0,
+          zIndex: 1,
         }}
       >
         <Box
@@ -334,9 +341,11 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
               justifyContent: "right",
               gap: "0.5rem",
               padding: "0rem",
+              zIndex: 10000,
             }}
           >
             <Link
+              id={"download_google_from_components"}
               href={
                 "https://play.google.com/store/apps/details?id=com.stablellc.stable&hl=es"
               }
@@ -355,6 +364,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
             </Link>
 
             <Link
+              id={"download_apple_from_components"}
               href={"https://apps.apple.com/co/app/stable/id6446915567"}
               target="_blank"
               rel="noopener noreferrer"
@@ -381,7 +391,7 @@ const Selected = ({ optionChosen, navbarHeight, cat }) => {
           bottom: { xs: 0, md: 0 },
           left: { xs: 0, md: "10%" },
           height: { /*  xs: 0 */ md: "18vh" },
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
         <Carrusel

@@ -1,21 +1,50 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Box, Button, Grow, Fade, IconButton } from "@mui/material";
-
+import Cookies from "js-cookie";
 import ChatWindow from "./ChatWindow";
 import { FaRobot, FaTimes } from "react-icons/fa";
 
 const ChatBotButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [cookiesAdvice, setCookiesAdvice] = useState(false);
 
   useEffect(() => {
-    console.log("cargo");
-  }, []);
+    const consent = Cookies.get("consentCookie");
+    if (!consent) {
+      setCookiesAdvice(true);
+    }
+  }, [setCookiesAdvice]);
+
+  const componentRef = useRef(null);
 
   const handleButtonClick = () => {
     setIsChatOpen(!isChatOpen);
   };
 
+  useEffect(() => {
+    const handleClick = (event) => {
+      // Obtener las coordenadas del clic
+      const x = event.clientX;
+      const y = event.clientY;
+
+      // Verificar si el clic ocurrió dentro del componente
+      if (
+        componentRef.current &&
+        !componentRef.current.contains(event.target)
+      ) {
+        if (isChatOpen) setIsChatOpen(false);
+      }
+    };
+
+    // Agregar un event listener para clics en el documento
+    document.addEventListener("click", handleClick);
+
+    // Limpiar el event listener al desmontar el componente
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [isChatOpen]);
   const [icon, setIcon] = useState(<FaRobot size="2rem" color="#fff" />); // Initial icon
 
   useEffect(() => {
@@ -29,11 +58,10 @@ const ChatBotButton = () => {
   }, [isChatOpen]); // Update icon on setOpen change
 
   return (
-    <>
+    <Box ref={componentRef}>
       <Box
         sx={{
           position: "absolute",
-
           bottom: "10vh",
           right: { xs: "1rem", md: "2rem" },
           zIndex: 100,
@@ -43,8 +71,11 @@ const ChatBotButton = () => {
           sx={{
             position: "fixed",
             //top: { xs: "82vh", sm: "88vh", md: "88vh" },
-            bottom: "5vh",
-            right: { xs: "1rem", sm: "2rem", md: "2rem" },
+            bottom: {
+              xs: "3vh",
+              sm: cookiesAdvice ? "13vh" : "3vh",
+            },
+            right: { xs: "1rem", sm: "2rem", md: "02rem" },
             zIndex: 10,
           }}
         >
@@ -54,8 +85,8 @@ const ChatBotButton = () => {
             sx={{
               background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
               borderRadius: "50%",
-              width: "4rem",
-              height: "4rem",
+              width: { xs: "3.5rem", sm: "4rem" },
+              height: { xs: "3.5rem", sm: "4rem" },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -86,7 +117,7 @@ const ChatBotButton = () => {
           <ChatWindow />
         </Box>
       </Fade>
-    </>
+    </Box>
   );
 };
 
